@@ -33,4 +33,4 @@ jobs:
           FASTLANE_PASSWORD: ${{ secrets.APP_STORE_CONNECT_PASSWORD }}
           FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.APP_STORE_CONNECT_PASSWORD }}
         run: |
-          exec build.sh "redbook (iOS) - Beta"
+          exec ./build.sh "redbook (iOS) - Beta"
