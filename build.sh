@@ -7,6 +7,8 @@
 
 export FASTLANE_DONT_STORE_PASSWORD=1
 
+bundle install
+
 bundle exec fastlane build \
     scheme:"$1" \
     apple_team_id:"$APPLE_TEAM_ID"
