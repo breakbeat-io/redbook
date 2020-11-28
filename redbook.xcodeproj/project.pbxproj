@@ -39,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D21C3CA72572C4E7000CB93F /* build.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = build.sh; sourceTree = "<group>"; };
+		D21C3CA82572C4F1000CB93F /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Fastfile; path = fastlane/Fastfile; sourceTree = "<group>"; };
+		D21C3CA92572C508000CB93F /* .github */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .github; sourceTree = "<group>"; };
 		D2427630254AFE1D00326888 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		D2427631254AFE1D00326888 /* redbookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = redbookApp.swift; sourceTree = "<group>"; };
 		D2427632254AFE1D00326888 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -89,6 +92,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D21C3CA62572C4D0000CB93F /* Build */ = {
+			isa = PBXGroup;
+			children = (
+				D21C3CA72572C4E7000CB93F /* build.sh */,
+				D21C3CA82572C4F1000CB93F /* Fastfile */,
+				D21C3CA92572C508000CB93F /* .github */,
+			);
+			name = Build;
+			sourceTree = "<group>";
+		};
 		D2427629254AFE1D00326888 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +111,7 @@
 				D242764C254AFE1E00326888 /* Tests iOS */,
 				D2427657254AFE1E00326888 /* Tests macOS */,
 				D242763A254AFE1E00326888 /* Products */,
+				D21C3CA62572C4D0000CB93F /* Build */,
 			);
 			sourceTree = "<group>";
 		};
