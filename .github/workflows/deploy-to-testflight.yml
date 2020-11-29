@@ -35,7 +35,9 @@ jobs:
           
       - name: Import provisioning profiles
         env:
-          PROVISIONING_PROFILE: ${{ secrets.PROVISIONING_PROFILE_BETA }}
+          PROVISIONING_PROFILE_ALPHA: ${{ secrets.PROVISIONING_PROFILE_ALPHA }}
+          PROVISIONING_PROFILE_BETA: ${{ secrets.PROVISIONING_PROFILE_BETA }}
+          PROVISIONING_PROFILE_RELEASE: ${{ secrets.PROVISIONING_PROFILE_RELEASE }}
         run: |
           exec .github/scripts/import-profile.sh
           
