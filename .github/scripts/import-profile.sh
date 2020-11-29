@@ -15,7 +15,7 @@ case $branch in
 "release")
     provisioningprofile=$PROVISIONING_PROFILE_RELEASE ;;
 *)
-    echo "Not on a branch with a provisioing profile - exiting"
+    echo "Not on a branch with a matching provisioning profile - exiting"
     exit 1 ;;
 esac
 
