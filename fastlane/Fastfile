@@ -11,23 +11,29 @@
 #
 
 # Uncomment the line if you want fastlane to automatically update itself
-update_fastlane
+# update_fastlane
+
+
+branch_scheme = { "develop" => "redbook (iOS) - Alpha",
+  "beta" => "redbook (iOS) - Beta",
+  "release" => "redbook (iOS) - Release"
+}
 
 desc "Build the given scheme"
 lane :build do |options|
-    
-    increment_build_number(
-      build_number: number_of_commits
+
+  increment_build_number(
+    build_number: number_of_commits
     )
 
-    build_app(
-      scheme: options[:scheme],
-      clean: true,
-      output_directory: "./build"
+  build_app(
+    scheme: branch_scheme[options[:branch]],
+    clean: true,
+    output_directory: "./build"
     )
 
-    upload_to_testflight(
-      team_id: options[:apple_team_id],
+  upload_to_testflight(
+    team_id: ENV["APPLE_TEAM_ID"]
     )
 
 end
