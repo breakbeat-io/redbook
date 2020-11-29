@@ -6,8 +6,28 @@
 
 export FASTLANE_DONT_STORE_PASSWORD=1
 
-bundle install
+echo $BRANCH
+echo $BRANCH_SUBS
 
-bundle exec fastlane build \
-    scheme:"$1" \
-    apple_team_id:"$APPLE_TEAM_ID"
+if [ "$GITHUB_ACTION" = true ]
+then
+	echo "I'm a GitHub Action ..."
+
+	echo "Starting the build via Fastlane ..."
+	fastlane build \
+    	scheme:"$1" \
+    	apple_team_id:"$APPLE_TEAM_ID"
+else
+	echo "I appear to be running locally ..."
+
+	echo "Installing dependencies ..."
+	bundle install --quiet	
+
+	echo "Starting the build via Fastlane ..."
+	bundle exec fastlane build \
+	    scheme:"$1" \
+	    apple_team_id:"$APPLE_TEAM_ID"
+fi
+
+
+
