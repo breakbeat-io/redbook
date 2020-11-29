@@ -21,7 +21,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ./vendor
-          key: ${{ hashFiles(./Gemfile.lock) }}
+          key: ${{ hashFiles('Gemfile.lock') }}
 
       - name: Install bundler dependencies
         run: bundle install
