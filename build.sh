@@ -7,20 +7,10 @@
 export FASTLANE_DONT_STORE_PASSWORD=1
 
 branch=$(git symbolic-ref --short -q HEAD)
-buildcommand=(fastlane build branch:"$branch")
 
-if [ "$CI" = "true" ]
-then
-	echo "I'm a GitHub Action ..."
+echo "Installing dependencies ..."
+bundle install --quiet	
 
-	echo "Starting the build via Fastlane ..."
-	${buildcommand[@]}
-else
-	echo "I appear to be running locally ..."
+echo "Starting the build via Fastlane ..."
+bundle exec fastlane build branch:"$branch"
 
-	echo "Installing dependencies ..."
-	bundle install --quiet	
-
-	echo "Starting the build via Fastlane ..."
-	bundle exec ${buildcommand[@]}
-fi
