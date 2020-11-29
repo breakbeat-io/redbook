@@ -31,6 +31,5 @@ jobs:
           APPLE_TEAM_ID: ${{ secrets.APP_STORE_CONNECT_TEAM_ID }}
           FASTLANE_USER: ${{ secrets.APP_STORE_CONNECT_USERNAME }}
           FASTLANE_PASSWORD: ${{ secrets.APP_STORE_CONNECT_PASSWORD }}
-          FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.APP_STORE_CONNECT_PASSWORD }}
         run: |
           exec ./build.sh "redbook (iOS) - Beta"
