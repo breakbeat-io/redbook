@@ -1,11 +1,14 @@
-name: deploy-beta
+name: Deploy to TestFlight
 
 on:
   push:
-    branches: [ beta ]
+    branches:
+      - develop
+      - beta
+      - release
     
 jobs:
-  deploy:
+  deploy-to-testflight:
     runs-on: macos-11.0
     
     steps:
@@ -27,11 +30,11 @@ jobs:
         run: |
           exec .github/scripts/import-profile.sh
           
-      - name: Build app
+      - name: Build and deploy
         env:
           DEVELOPER_DIR: /Applications/Xcode_12.2.app/Contents/Developer
           APPLE_TEAM_ID: ${{ secrets.APP_STORE_CONNECT_TEAM_ID }}
           FASTLANE_USER: ${{ secrets.APP_STORE_CONNECT_USERNAME }}
           FASTLANE_PASSWORD: ${{ secrets.APP_STORE_CONNECT_PASSWORD }}
         run: |
-          exec ./build.sh "redbook (iOS) - Beta"
+          exec ./build.sh
