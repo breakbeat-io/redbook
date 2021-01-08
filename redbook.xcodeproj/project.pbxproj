@@ -848,7 +848,7 @@
 				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = io.breakbeat.redbook;
 				PRODUCT_NAME = redbook;
-				PROVISIONING_PROFILE_SPECIFIER = "Red Book Production";
+				PROVISIONING_PROFILE_SPECIFIER = "Red Book Release";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
