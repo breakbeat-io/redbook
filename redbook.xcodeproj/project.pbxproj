@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D2062B8F257CEA3900E6BD95 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2062B8E257CEA3900E6BD95 /* CloudKit.framework */; };
-		D242764E254AFE1E00326888 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D242764D254AFE1E00326888 /* Tests_iOS.swift */; };
-		D2427659254AFE1E00326888 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2427658254AFE1E00326888 /* Tests_macOS.swift */; };
 		D242765B254AFE1E00326888 /* redbook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D242762F254AFE1D00326888 /* redbook.xcdatamodeld */; };
 		D242765C254AFE1E00326888 /* redbook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D242762F254AFE1D00326888 /* redbook.xcdatamodeld */; };
 		D242765D254AFE1E00326888 /* redbookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2427631254AFE1D00326888 /* redbookApp.swift */; };
@@ -21,23 +19,6 @@
 		D2427663254AFE1E00326888 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2427634254AFE1E00326888 /* Assets.xcassets */; };
 		D2427664254AFE1E00326888 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2427634254AFE1E00326888 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		D242764A254AFE1E00326888 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D242762A254AFE1D00326888 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D2427638254AFE1E00326888;
-			remoteInfo = "redbook (iOS)";
-		};
-		D2427655254AFE1E00326888 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D242762A254AFE1D00326888 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D2427640254AFE1E00326888;
-			remoteInfo = "redbook (macOS)";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		D2062B8C257CE4F500E6BD95 /* redbook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = redbook.entitlements; sourceTree = "<group>"; };
@@ -55,12 +36,6 @@
 		D2427641254AFE1E00326888 /* redbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = redbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2427643254AFE1E00326888 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2427644254AFE1E00326888 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
-		D2427649254AFE1E00326888 /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D242764D254AFE1E00326888 /* Tests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOS.swift; sourceTree = "<group>"; };
-		D242764F254AFE1E00326888 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D2427654254AFE1E00326888 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D2427658254AFE1E00326888 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
-		D242765A254AFE1E00326888 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,20 +48,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D242763E254AFE1E00326888 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D2427646254AFE1E00326888 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D2427651254AFE1E00326888 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -121,8 +82,6 @@
 				D242762E254AFE1D00326888 /* Shared */,
 				D242763B254AFE1E00326888 /* iOS */,
 				D2427642254AFE1E00326888 /* macOS */,
-				D242764C254AFE1E00326888 /* Tests iOS */,
-				D2427657254AFE1E00326888 /* Tests macOS */,
 				D242763A254AFE1E00326888 /* Products */,
 				D21C3CA62572C4D0000CB93F /* Build */,
 				D2062B8D257CEA3900E6BD95 /* Frameworks */,
@@ -146,8 +105,6 @@
 			children = (
 				D2427639254AFE1E00326888 /* redbook.app */,
 				D2427641254AFE1E00326888 /* redbook.app */,
-				D2427649254AFE1E00326888 /* Tests iOS.xctest */,
-				D2427654254AFE1E00326888 /* Tests macOS.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -167,24 +124,6 @@
 				D2427644254AFE1E00326888 /* macOS.entitlements */,
 			);
 			path = macOS;
-			sourceTree = "<group>";
-		};
-		D242764C254AFE1E00326888 /* Tests iOS */ = {
-			isa = PBXGroup;
-			children = (
-				D242764D254AFE1E00326888 /* Tests_iOS.swift */,
-				D242764F254AFE1E00326888 /* Info.plist */,
-			);
-			path = "Tests iOS";
-			sourceTree = "<group>";
-		};
-		D2427657254AFE1E00326888 /* Tests macOS */ = {
-			isa = PBXGroup;
-			children = (
-				D2427658254AFE1E00326888 /* Tests_macOS.swift */,
-				D242765A254AFE1E00326888 /* Info.plist */,
-			);
-			path = "Tests macOS";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,42 +163,6 @@
 			productReference = D2427641254AFE1E00326888 /* redbook.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D2427648254AFE1E00326888 /* Tests iOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D242766D254AFE1E00326888 /* Build configuration list for PBXNativeTarget "Tests iOS" */;
-			buildPhases = (
-				D2427645254AFE1E00326888 /* Sources */,
-				D2427646254AFE1E00326888 /* Frameworks */,
-				D2427647254AFE1E00326888 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D242764B254AFE1E00326888 /* PBXTargetDependency */,
-			);
-			name = "Tests iOS";
-			productName = "Tests iOS";
-			productReference = D2427649254AFE1E00326888 /* Tests iOS.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
-		D2427653254AFE1E00326888 /* Tests macOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D2427670254AFE1E00326888 /* Build configuration list for PBXNativeTarget "Tests macOS" */;
-			buildPhases = (
-				D2427650254AFE1E00326888 /* Sources */,
-				D2427651254AFE1E00326888 /* Frameworks */,
-				D2427652254AFE1E00326888 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D2427656254AFE1E00326888 /* PBXTargetDependency */,
-			);
-			name = "Tests macOS";
-			productName = "Tests macOS";
-			productReference = D2427654254AFE1E00326888 /* Tests macOS.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -274,14 +177,6 @@
 					};
 					D2427640254AFE1E00326888 = {
 						CreatedOnToolsVersion = 12.2;
-					};
-					D2427648254AFE1E00326888 = {
-						CreatedOnToolsVersion = 12.2;
-						TestTargetID = D2427638254AFE1E00326888;
-					};
-					D2427653254AFE1E00326888 = {
-						CreatedOnToolsVersion = 12.2;
-						TestTargetID = D2427640254AFE1E00326888;
 					};
 				};
 			};
@@ -300,8 +195,6 @@
 			targets = (
 				D2427638254AFE1E00326888 /* redbook (iOS) */,
 				D2427640254AFE1E00326888 /* redbook (macOS) */,
-				D2427648254AFE1E00326888 /* Tests iOS */,
-				D2427653254AFE1E00326888 /* Tests macOS */,
 			);
 		};
 /* End PBXProject section */
@@ -320,20 +213,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2427664254AFE1E00326888 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D2427647254AFE1E00326888 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D2427652254AFE1E00326888 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,36 +241,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D2427645254AFE1E00326888 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D242764E254AFE1E00326888 /* Tests_iOS.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D2427650254AFE1E00326888 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D2427659254AFE1E00326888 /* Tests_macOS.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		D242764B254AFE1E00326888 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D2427638254AFE1E00326888 /* redbook (iOS) */;
-			targetProxy = D242764A254AFE1E00326888 /* PBXContainerItemProxy */;
-		};
-		D2427656254AFE1E00326888 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D2427640254AFE1E00326888 /* redbook (macOS) */;
-			targetProxy = D2427655254AFE1E00326888 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		D23BB3022550BCE900C5D7BF /* Beta */ = {
@@ -498,51 +348,6 @@
 			};
 			name = Beta;
 		};
-		D23BB3052550BCE900C5D7BF /* Beta */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3Z89R2M235;
-				INFOPLIST_FILE = "Tests iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "io.breakbeat.Tests-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "redbook (iOS)";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Beta;
-		};
-		D23BB3062550BCE900C5D7BF /* Beta */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 3Z89R2M235;
-				INFOPLIST_FILE = "Tests macOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "io.breakbeat.Tests-macOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = "redbook (macOS)";
-			};
-			name = Beta;
-		};
 		D23BB3072550BCF200C5D7BF /* Alpha */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -644,51 +449,6 @@
 				PRODUCT_NAME = redbook;
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
-			};
-			name = Alpha;
-		};
-		D23BB30A2550BCF200C5D7BF /* Alpha */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3Z89R2M235;
-				INFOPLIST_FILE = "Tests iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "io.breakbeat.Tests-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "redbook (iOS)";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Alpha;
-		};
-		D23BB30B2550BCF200C5D7BF /* Alpha */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 3Z89R2M235;
-				INFOPLIST_FILE = "Tests macOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "io.breakbeat.Tests-macOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = "redbook (macOS)";
 			};
 			name = Alpha;
 		};
@@ -904,95 +664,6 @@
 			};
 			name = Release;
 		};
-		D242766E254AFE1E00326888 /* Development */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3Z89R2M235;
-				INFOPLIST_FILE = "Tests iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "io.breakbeat.Tests-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "redbook (iOS)";
-			};
-			name = Development;
-		};
-		D242766F254AFE1E00326888 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3Z89R2M235;
-				INFOPLIST_FILE = "Tests iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "io.breakbeat.Tests-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "redbook (iOS)";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		D2427671254AFE1E00326888 /* Development */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 3Z89R2M235;
-				INFOPLIST_FILE = "Tests macOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "io.breakbeat.Tests-macOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = "redbook (macOS)";
-			};
-			name = Development;
-		};
-		D2427672254AFE1E00326888 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 3Z89R2M235;
-				INFOPLIST_FILE = "Tests macOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "io.breakbeat.Tests-macOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = "redbook (macOS)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1025,28 +696,6 @@
 				D242766C254AFE1E00326888 /* Release */,
 				D23BB3092550BCF200C5D7BF /* Alpha */,
 				D23BB3042550BCE900C5D7BF /* Beta */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D242766D254AFE1E00326888 /* Build configuration list for PBXNativeTarget "Tests iOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D242766E254AFE1E00326888 /* Development */,
-				D242766F254AFE1E00326888 /* Release */,
-				D23BB30A2550BCF200C5D7BF /* Alpha */,
-				D23BB3052550BCE900C5D7BF /* Beta */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D2427670254AFE1E00326888 /* Build configuration list for PBXNativeTarget "Tests macOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D2427671254AFE1E00326888 /* Development */,
-				D2427672254AFE1E00326888 /* Release */,
-				D23BB30B2550BCF200C5D7BF /* Alpha */,
-				D23BB3062550BCE900C5D7BF /* Beta */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
