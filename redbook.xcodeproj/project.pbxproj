@@ -63,25 +63,25 @@
 		D2427629254AFE1D00326888 = {
 			isa = PBXGroup;
 			children = (
-				D2062B8C257CE4F500E6BD95 /* redbook.entitlements */,
-				D242762E254AFE1D00326888 /* Shared */,
-				D242763B254AFE1E00326888 /* iOS */,
+				D242762E254AFE1D00326888 /* redbook */,
 				D242763A254AFE1E00326888 /* Products */,
 				D21C3CA62572C4D0000CB93F /* Build */,
 				D2062B8D257CEA3900E6BD95 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		D242762E254AFE1D00326888 /* Shared */ = {
+		D242762E254AFE1D00326888 /* redbook */ = {
 			isa = PBXGroup;
 			children = (
 				D2427631254AFE1D00326888 /* redbookApp.swift */,
 				D2427632254AFE1D00326888 /* ContentView.swift */,
+				D2062B8C257CE4F500E6BD95 /* redbook.entitlements */,
 				D2427633254AFE1D00326888 /* Persistence.swift */,
+				D242763C254AFE1E00326888 /* Info.plist */,
 				D2427634254AFE1E00326888 /* Assets.xcassets */,
 				D242762F254AFE1D00326888 /* redbook.xcdatamodeld */,
 			);
-			path = Shared;
+			path = redbook;
 			sourceTree = "<group>";
 		};
 		D242763A254AFE1E00326888 /* Products */ = {
@@ -90,14 +90,6 @@
 				D2427639254AFE1E00326888 /* redbook.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		D242763B254AFE1E00326888 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				D242763C254AFE1E00326888 /* Info.plist */,
-			);
-			path = iOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,13 +227,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Beta";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = redbook.entitlements;
+				CODE_SIGN_ENTITLEMENTS = redbook/redbook.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 3Z89R2M235;
 				DISPLAY_NAME = "Red Book β";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = iOS/Info.plist;
+				INFOPLIST_FILE = redbook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -315,13 +307,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Alpha";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = redbook.entitlements;
+				CODE_SIGN_ENTITLEMENTS = redbook/redbook.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 3Z89R2M235;
 				DISPLAY_NAME = "Red Book α";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = iOS/Info.plist;
+				INFOPLIST_FILE = redbook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -454,12 +446,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Development";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = redbook.entitlements;
+				CODE_SIGN_ENTITLEMENTS = redbook/redbook.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3Z89R2M235;
 				DISPLAY_NAME = "Red Book λ";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = iOS/Info.plist;
+				INFOPLIST_FILE = redbook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -479,13 +471,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = redbook.entitlements;
+				CODE_SIGN_ENTITLEMENTS = redbook/redbook.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 3Z89R2M235;
 				DISPLAY_NAME = "Red Book";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = iOS/Info.plist;
+				INFOPLIST_FILE = redbook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
