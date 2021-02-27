@@ -1,5 +1,5 @@
 //
-//  Persistence.swift
+//  DataController.swift
 //  Shared
 //
 //  Created by Greg Hepworth on 29/10/2020.
@@ -7,11 +7,11 @@
 
 import CoreData
 
-struct PersistenceController {
-    static let shared = PersistenceController()
+struct DataController {
+    static let shared = DataController()
 
-    static var preview: PersistenceController = {
-        let result = PersistenceController(inMemory: true)
+    static var preview: DataController = {
+        let result = DataController(inMemory: true)
         let viewContext = result.container.viewContext
         for _ in 0..<10 {
             let newItem = Item(context: viewContext)

@@ -11,7 +11,7 @@
 		D242765B254AFE1E00326888 /* redbook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D242762F254AFE1D00326888 /* redbook.xcdatamodeld */; };
 		D242765D254AFE1E00326888 /* redbookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2427631254AFE1D00326888 /* redbookApp.swift */; };
 		D242765F254AFE1E00326888 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2427632254AFE1D00326888 /* Home.swift */; };
-		D2427661254AFE1E00326888 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2427633254AFE1D00326888 /* Persistence.swift */; };
+		D2427661254AFE1E00326888 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2427633254AFE1D00326888 /* DataController.swift */; };
 		D2427663254AFE1E00326888 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2427634254AFE1E00326888 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -24,7 +24,7 @@
 		D2427630254AFE1D00326888 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		D2427631254AFE1D00326888 /* redbookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = redbookApp.swift; sourceTree = "<group>"; };
 		D2427632254AFE1D00326888 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
-		D2427633254AFE1D00326888 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		D2427633254AFE1D00326888 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		D2427634254AFE1E00326888 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2427639254AFE1E00326888 /* redbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = redbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D242763C254AFE1E00326888 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -110,7 +110,7 @@
 		D29B441025EA79EF001DE94C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D2427633254AFE1D00326888 /* Persistence.swift */,
+				D2427633254AFE1D00326888 /* DataController.swift */,
 				D242762F254AFE1D00326888 /* redbook.xcdatamodeld */,
 			);
 			path = Model;
@@ -185,7 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D242765D254AFE1E00326888 /* redbookApp.swift in Sources */,
-				D2427661254AFE1E00326888 /* Persistence.swift in Sources */,
+				D2427661254AFE1E00326888 /* DataController.swift in Sources */,
 				D242765B254AFE1E00326888 /* redbook.xcdatamodeld in Sources */,
 				D242765F254AFE1E00326888 /* Home.swift in Sources */,
 			);
