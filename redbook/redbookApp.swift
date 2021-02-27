@@ -9,12 +9,19 @@ import SwiftUI
 
 @main
 struct redbookApp: App {
-    let dataController = DataController.shared
-
-    var body: some Scene {
-        WindowGroup {
-            Home()
-                .environment(\.managedObjectContext, dataController.container.viewContext)
-        }
+  
+  @StateObject var dataController: DataController
+  
+  init() {
+    let dataController = DataController()
+    _dataController = StateObject(wrappedValue: dataController)
+  }
+  
+  var body: some Scene {
+    WindowGroup {
+      Home()
+        .environment(\.managedObjectContext, dataController.container.viewContext)
+        .environmentObject(dataController)
     }
+  }
 }

@@ -6,50 +6,82 @@
 //
 
 import CoreData
+import SwiftUI
 
-struct DataController {
-    static let shared = DataController()
+class DataController: ObservableObject {
 
-    static var preview: DataController = {
-        let result = DataController(inMemory: true)
-        let viewContext = result.container.viewContext
-        for _ in 0..<10 {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-        }
-        do {
-            try viewContext.save()
-        } catch {
-            // Replace this implementation with code to handle the error appropriately.
-            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-        }
-        return result
-    }()
+  let container: NSPersistentCloudKitContainer
+  
+  static var preview: DataController = {
+    let dataController = DataController(inMemory: true)
+    let viewContext = dataController.container.viewContext
 
-    let container: NSPersistentCloudKitContainer
-
-    init(inMemory: Bool = false) {
-        container = NSPersistentCloudKitContainer(name: "redbook")
-        if inMemory {
-            container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
-        }
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-
-                /*
-                Typical reasons for an error here include:
-                * The parent directory does not exist, cannot be created, or disallows writing.
-                * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                * The device is out of space.
-                * The store could not be migrated to the current model version.
-                Check the error message to determine what the actual problem was.
-                */
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        })
+    do {
+      try dataController.createSampleData()
+    } catch {
+      fatalError("Fatal error creating preview: \(error.localizedDescription)")
     }
+
+    return dataController
+  }()
+  
+  init(inMemory: Bool = false) {
+    
+    container = NSPersistentCloudKitContainer(name: "redbook")
+    
+    if inMemory {
+      container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
+    }
+    
+    container.loadPersistentStores { storeDescription, error in
+      if let error = error {
+        fatalError("Fatal error loading store: \(error.localizedDescription)")
+      }
+    }
+  }
+  
+  func save() {
+    if container.viewContext.hasChanges {
+      try? container.viewContext.save()
+    }
+  }
+  
+  func delete(_ object: NSManagedObject) {
+    container.viewContext.delete(object)
+  }
+  
+  func deleteAll() {
+    let fetchAllAlbums: NSFetchRequest<NSFetchRequestResult> = Album.fetchRequest()
+    let batchDeleteAlbums = NSBatchDeleteRequest(fetchRequest: fetchAllAlbums)
+    _ = try? container.viewContext.execute(batchDeleteAlbums)
+    
+    let fetchAllCollections: NSFetchRequest<NSFetchRequestResult> = Collection.fetchRequest()
+    let batchDeleteCollections = NSBatchDeleteRequest(fetchRequest: fetchAllCollections)
+    _ = try? container.viewContext.execute(batchDeleteCollections)
+  }
+  
+  func createSampleData() throws {
+
+    let viewContext = container.viewContext
+
+    for i in 1...5 {
+      let collection = Collection(context: viewContext)
+      collection.name = "Collection \(i)"
+      collection.albums = []
+      collection.curator = "@iamhepto"
+
+      for j in 1...8 {
+        let album = Album(context: viewContext)
+        album.collection = collection
+        album.name = "Album \(j)"
+        album.artist = "iamhepto"
+        album.playbackURL = URL(string: "https://itunes.apple.com/us/album/born-to-run/id310730204")
+        album.artwork = URL(string: "https://picsum.photos/500/500")
+      }
+    }
+
+    try viewContext.save()
+
+  }
+  
 }
