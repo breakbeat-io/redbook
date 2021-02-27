@@ -13,7 +13,7 @@ struct redbookApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Home()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

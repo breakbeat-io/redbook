@@ -10,7 +10,7 @@
 		D2062B8F257CEA3900E6BD95 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2062B8E257CEA3900E6BD95 /* CloudKit.framework */; };
 		D242765B254AFE1E00326888 /* redbook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D242762F254AFE1D00326888 /* redbook.xcdatamodeld */; };
 		D242765D254AFE1E00326888 /* redbookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2427631254AFE1D00326888 /* redbookApp.swift */; };
-		D242765F254AFE1E00326888 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2427632254AFE1D00326888 /* ContentView.swift */; };
+		D242765F254AFE1E00326888 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2427632254AFE1D00326888 /* Home.swift */; };
 		D2427661254AFE1E00326888 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2427633254AFE1D00326888 /* Persistence.swift */; };
 		D2427663254AFE1E00326888 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2427634254AFE1E00326888 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -23,7 +23,7 @@
 		D21C3CA92572C508000CB93F /* .github */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .github; sourceTree = "<group>"; };
 		D2427630254AFE1D00326888 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		D2427631254AFE1D00326888 /* redbookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = redbookApp.swift; sourceTree = "<group>"; };
-		D2427632254AFE1D00326888 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D2427632254AFE1D00326888 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		D2427633254AFE1D00326888 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		D2427634254AFE1E00326888 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2427639254AFE1E00326888 /* redbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = redbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,7 +102,7 @@
 		D29B440F25EA799E001DE94C /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				D2427632254AFE1D00326888 /* ContentView.swift */,
+				D2427632254AFE1D00326888 /* Home.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -187,7 +187,7 @@
 				D242765D254AFE1E00326888 /* redbookApp.swift in Sources */,
 				D2427661254AFE1E00326888 /* Persistence.swift in Sources */,
 				D242765B254AFE1E00326888 /* redbook.xcdatamodeld in Sources */,
-				D242765F254AFE1E00326888 /* ContentView.swift in Sources */,
+				D242765F254AFE1E00326888 /* Home.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
