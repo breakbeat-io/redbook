@@ -2,7 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D80" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="Album" representedClassName="Album" syncable="YES" codeGenerationType="class">
         <attribute name="artist" optional="YES" attributeType="String"/>
-        <attribute name="artwork" optional="YES" attributeType="URI"/>
+        <attribute name="artworkURL" optional="YES" attributeType="URI"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="playbackURL" optional="YES" attributeType="URI"/>
         <relationship name="collection" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Collection" inverseName="albums" inverseEntity="Collection"/>

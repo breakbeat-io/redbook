@@ -64,20 +64,18 @@ class DataController: ObservableObject {
 
     let viewContext = container.viewContext
 
-    for i in 1...5 {
-      let collection = Collection(context: viewContext)
-      collection.name = "Collection \(i)"
-      collection.albums = []
-      collection.curator = "@iamhepto"
+    let collection = Collection(context: viewContext)
+    collection.name = "On Rotation"
+    collection.albums = []
+    collection.curator = "@iamhepto"
 
-      for j in 1...8 {
-        let album = Album(context: viewContext)
-        album.collection = collection
-        album.name = "Album \(j)"
-        album.artist = "iamhepto"
-        album.playbackURL = URL(string: "https://itunes.apple.com/us/album/born-to-run/id310730204")
-        album.artwork = URL(string: "https://picsum.photos/500/500")
-      }
+    for j in 1...8 {
+      let album = Album(context: viewContext)
+      album.collection = collection
+      album.name = "Album \(j)"
+      album.artist = "iamhepto"
+      album.playbackURL = URL(string: "https://itunes.apple.com/us/album/born-to-run/id310730204")
+      album.artworkURL = URL(string: "https://picsum.photos/500/500?random=\(j)")
     }
 
     try viewContext.save()

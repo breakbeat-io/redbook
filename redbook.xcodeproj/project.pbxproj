@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,9 @@
 		D242765F254AFE1E00326888 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2427632254AFE1D00326888 /* Home.swift */; };
 		D2427661254AFE1E00326888 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2427633254AFE1D00326888 /* DataController.swift */; };
 		D2427663254AFE1E00326888 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2427634254AFE1E00326888 /* Assets.xcassets */; };
+		D25633FC25EAB53D00232260 /* AlbumCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25633FB25EAB53D00232260 /* AlbumCard.swift */; };
+		D256340125EAB5CA00232260 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D256340025EAB5CA00232260 /* Kingfisher */; };
+		D256340525EAB64100232260 /* CSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D256340425EAB64100232260 /* CSS.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,8 @@
 		D2427634254AFE1E00326888 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2427639254AFE1E00326888 /* redbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = redbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D242763C254AFE1E00326888 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D25633FB25EAB53D00232260 /* AlbumCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCard.swift; sourceTree = "<group>"; };
+		D256340425EAB64100232260 /* CSS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSS.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D256340125EAB5CA00232260 /* Kingfisher in Frameworks */,
 				D2062B8F257CEA3900E6BD95 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,6 +105,7 @@
 		D29B440E25EA795C001DE94C /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
+				D256340425EAB64100232260 /* CSS.swift */,
 				D242763C254AFE1E00326888 /* Info.plist */,
 				D2062B8C257CE4F500E6BD95 /* redbook.entitlements */,
 			);
@@ -112,6 +119,7 @@
 				D206B25C25EA8D0400A5DA14 /* OnRotation.swift */,
 				D206B25F25EA8D3C00A5DA14 /* Library.swift */,
 				D206B26225EA8D9900A5DA14 /* Triage.swift */,
+				D25633FB25EAB53D00232260 /* AlbumCard.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -141,6 +149,9 @@
 			dependencies = (
 			);
 			name = "redbook (iOS)";
+			packageProductDependencies = (
+				D256340025EAB5CA00232260 /* Kingfisher */,
+			);
 			productName = "redbook (iOS)";
 			productReference = D2427639254AFE1E00326888 /* redbook.app */;
 			productType = "com.apple.product-type.application";
@@ -168,6 +179,9 @@
 				Base,
 			);
 			mainGroup = D2427629254AFE1D00326888;
+			packageReferences = (
+				D25633FF25EAB5CA00232260 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = D242763A254AFE1E00326888 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -198,8 +212,10 @@
 				D206B26325EA8D9900A5DA14 /* Triage.swift in Sources */,
 				D242765B254AFE1E00326888 /* redbook.xcdatamodeld in Sources */,
 				D242765F254AFE1E00326888 /* Home.swift in Sources */,
+				D25633FC25EAB53D00232260 /* AlbumCard.swift in Sources */,
 				D206B25D25EA8D0400A5DA14 /* OnRotation.swift in Sources */,
 				D206B26025EA8D3C00A5DA14 /* Library.swift in Sources */,
+				D256340525EAB64100232260 /* CSS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,6 +572,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D25633FF25EAB5CA00232260 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D256340025EAB5CA00232260 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D25633FF25EAB5CA00232260 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		D242762F254AFE1D00326888 /* redbook.xcdatamodeld */ = {

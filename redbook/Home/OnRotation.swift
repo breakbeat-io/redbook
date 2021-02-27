@@ -9,6 +9,7 @@ import SwiftUI
 
 struct OnRotation: View {
   
+  // here should just get the one Collection that is of O On Rotation type
   @FetchRequest(
     entity: Collection.entity(),
     sortDescriptors: [NSSortDescriptor(keyPath: \Collection.name, ascending: true)]
@@ -18,14 +19,14 @@ struct OnRotation: View {
     NavigationView {
       List {
         ForEach(collections) { collection in
-          Section(header: Text(collection.name ?? "")) {
-            ForEach(collection.albums?.allObjects as? [Album] ?? []) { album in
-              Text(album.name ?? "")
-            }
+          ForEach(collection.albums?.allObjects as? [Album] ?? []) { album in
+            AlbumCard(albumName: album.name ?? "",
+                      albumArtist: album.artist ?? "",
+                      albumArtworkURL: (album.artworkURL ?? URL(string: "https://picsum.photos/500/500"))!)
+              .frame(height: 61)
           }
         }
       }
-      .listStyle(InsetGroupedListStyle())
       .navigationTitle("On Rotation")
     }
   }
