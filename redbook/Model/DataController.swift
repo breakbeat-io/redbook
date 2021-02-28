@@ -65,17 +65,17 @@ class DataController: ObservableObject {
     let viewContext = container.viewContext
     
     let library = Library(context: viewContext)
-    library.collections = []
     
-    let collection = Collection(context: viewContext)
-    collection.name = "On Rotation"
-    collection.slots = []
-    collection.curator = "@iamhepto"
-    collection.library = library
+    let onRotation = Collection(context: viewContext)
+    onRotation.name = "On Rotation"
+    onRotation.slots = []
+    onRotation.curator = "@iamhepto"
+    
+    library.onRotation = onRotation
 
     for i in 1...8 {
       let slot = Slot(context: viewContext)
-      slot.collection = collection
+      slot.collection = onRotation
       slot.position = Int16(i)
       
       let source = Source(context: viewContext)

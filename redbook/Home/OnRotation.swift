@@ -18,15 +18,12 @@ struct OnRotation: View {
     NavigationView {
       List {
         ForEach(libraries) { library in
-          let collections = library.collections?.allObjects as? [Collection] ?? []
-          ForEach(collections) { collection in
-            let slots = collection.slots?.allObjects as? [Slot] ?? []
-            ForEach(slots.sorted(by: { $0.position < $1.position })) { slot in
-              SourceCard(title: slot.source?.title ?? "",
-                         artist: slot.source?.artist ?? "",
-                         artworkURL: (slot.source?.artworkURL ?? URL(string: "https://picsum.photos/500/500"))!)
-                .frame(height: 61)
-            }
+          let slots = library.onRotation?.slots?.allObjects as? [Slot] ?? []
+          ForEach(slots.sorted(by: { $0.position < $1.position })) { slot in
+            SourceCard(title: slot.source?.title ?? "",
+                       artist: slot.source?.artist ?? "",
+                       artworkURL: (slot.source?.artworkURL ?? URL(string: "https://picsum.photos/500/500"))!)
+              .frame(height: 61)
           }
         }
         
