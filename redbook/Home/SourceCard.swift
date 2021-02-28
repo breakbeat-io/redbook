@@ -8,17 +8,17 @@
 import SwiftUI
 import Kingfisher
 
-struct AlbumCard: View {
+struct SourceCard: View {
   
-  let albumName: String
-  let albumArtist: String
-  let albumArtworkURL: URL
+  let title: String
+  let artist: String
+  let artworkURL: URL
   
   var body: some View {
     Rectangle()
       .foregroundColor(.clear)
       .background(
-        KFImage(albumArtworkURL)
+        KFImage(artworkURL)
           .placeholder {
             RoundedRectangle(cornerRadius: CSS.cardCornerRadius)
               .fill(Color(UIColor.secondarySystemBackground))
@@ -30,14 +30,14 @@ struct AlbumCard: View {
       .cornerRadius(CSS.cardCornerRadius)
       .overlay(
         VStack(alignment: .leading) {
-          Text(albumName)
+          Text(title)
             .font(.callout)
             .fontWeight(.bold)
             .foregroundColor(.white)
             .padding(.top, 4)
             .padding(.horizontal, 6)
             .lineLimit(1)
-          Text(albumArtist)
+          Text(artist)
             .font(.footnote)
             .foregroundColor(.white)
             .padding(.horizontal, 6)

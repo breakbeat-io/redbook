@@ -19,10 +19,11 @@ struct OnRotation: View {
     NavigationView {
       List {
         ForEach(collections) { collection in
-          ForEach(collection.albums?.allObjects as? [Album] ?? []) { album in
-            AlbumCard(albumName: album.name ?? "",
-                      albumArtist: album.artist ?? "",
-                      albumArtworkURL: (album.artworkURL ?? URL(string: "https://picsum.photos/500/500"))!)
+          let slots = collection.slots?.allObjects as? [Slot] ?? []
+          ForEach(slots.sorted(by: { $0.position < $1.position })) { slot in
+            SourceCard(title: slot.source?.title ?? "",
+                       artist: slot.source?.artist ?? "",
+                       artworkURL: (slot.source?.artworkURL ?? URL(string: "https://picsum.photos/500/500"))!)
               .frame(height: 61)
           }
         }

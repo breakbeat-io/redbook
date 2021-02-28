@@ -51,7 +51,7 @@ class DataController: ObservableObject {
   }
   
   func deleteAll() {
-    let fetchAllAlbums: NSFetchRequest<NSFetchRequestResult> = Album.fetchRequest()
+    let fetchAllAlbums: NSFetchRequest<NSFetchRequestResult> = Source.fetchRequest()
     let batchDeleteAlbums = NSBatchDeleteRequest(fetchRequest: fetchAllAlbums)
     _ = try? container.viewContext.execute(batchDeleteAlbums)
     
@@ -66,16 +66,21 @@ class DataController: ObservableObject {
 
     let collection = Collection(context: viewContext)
     collection.name = "On Rotation"
-    collection.albums = []
+    collection.slots = []
     collection.curator = "@iamhepto"
 
     for j in 1...8 {
-      let album = Album(context: viewContext)
-      album.collection = collection
-      album.name = "Album \(j)"
-      album.artist = "iamhepto"
-      album.playbackURL = URL(string: "https://itunes.apple.com/us/album/born-to-run/id310730204")
-      album.artworkURL = URL(string: "https://picsum.photos/500/500?random=\(j)")
+      let slot = Slot(context: viewContext)
+      slot.collection = collection
+      slot.position = Int16(j)
+      
+      let source = Source(context: viewContext)
+      source.title = "Album \(j)"
+      source.artist = "iamhepto"
+      source.playbackURL = URL(string: "https://itunes.apple.com/us/album/born-to-run/id310730204")
+      source.artworkURL = URL(string: "https://picsum.photos/500/500?random=\(j)")
+      
+      slot.source = source
     }
 
     try viewContext.save()
