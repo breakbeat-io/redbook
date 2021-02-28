@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Library: View {
+struct CollectionLibrary: View {
   var body: some View {
     NavigationView {
       VStack {

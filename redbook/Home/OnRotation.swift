@@ -11,22 +11,25 @@ struct OnRotation: View {
   
   // here should just get the one Collection that is of O On Rotation type
   @FetchRequest(
-    entity: Collection.entity(),
-    sortDescriptors: [NSSortDescriptor(keyPath: \Collection.name, ascending: true)]
-  ) private var collections: FetchedResults<Collection>
+    entity: Library.entity(), sortDescriptors: []
+  ) private var libraries: FetchedResults<Library>
   
   var body: some View {
     NavigationView {
       List {
-        ForEach(collections) { collection in
-          let slots = collection.slots?.allObjects as? [Slot] ?? []
-          ForEach(slots.sorted(by: { $0.position < $1.position })) { slot in
-            SourceCard(title: slot.source?.title ?? "",
-                       artist: slot.source?.artist ?? "",
-                       artworkURL: (slot.source?.artworkURL ?? URL(string: "https://picsum.photos/500/500"))!)
-              .frame(height: 61)
+        ForEach(libraries) { library in
+          let collections = library.collections?.allObjects as? [Collection] ?? []
+          ForEach(collections) { collection in
+            let slots = collection.slots?.allObjects as? [Slot] ?? []
+            ForEach(slots.sorted(by: { $0.position < $1.position })) { slot in
+              SourceCard(title: slot.source?.title ?? "",
+                         artist: slot.source?.artist ?? "",
+                         artworkURL: (slot.source?.artworkURL ?? URL(string: "https://picsum.photos/500/500"))!)
+                .frame(height: 61)
+            }
           }
         }
+        
       }
       .navigationTitle("On Rotation")
     }

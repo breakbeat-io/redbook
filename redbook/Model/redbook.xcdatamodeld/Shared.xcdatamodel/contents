@@ -3,7 +3,11 @@
     <entity name="Collection" representedClassName="Collection" syncable="YES" codeGenerationType="class">
         <attribute name="curator" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="library" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Library" inverseName="collections" inverseEntity="Library"/>
         <relationship name="slots" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Slot" inverseName="collection" inverseEntity="Slot"/>
+    </entity>
+    <entity name="Library" representedClassName="Library" syncable="YES" codeGenerationType="class">
+        <relationship name="collections" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Collection" inverseName="library" inverseEntity="Collection"/>
     </entity>
     <entity name="Slot" representedClassName="Slot" syncable="YES" codeGenerationType="class">
         <attribute name="position" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -18,8 +22,9 @@
         <relationship name="slot" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Slot" inverseName="source" inverseEntity="Slot"/>
     </entity>
     <elements>
-        <element name="Collection" positionX="-408.1660766601562" positionY="-682.6067199707031" width="128" height="74"/>
+        <element name="Collection" positionX="-408.1660766601562" positionY="-682.6067199707031" width="128" height="89"/>
         <element name="Slot" positionX="-225.6904907226562" positionY="-667.485595703125" width="128" height="74"/>
         <element name="Source" positionX="-42.60540771484375" positionY="-726.8972778320312" width="128" height="118"/>
+        <element name="Library" positionX="-225" positionY="-666" width="128" height="44"/>
     </elements>
 </model>

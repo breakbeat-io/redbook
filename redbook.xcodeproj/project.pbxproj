@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		D2062B8F257CEA3900E6BD95 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2062B8E257CEA3900E6BD95 /* CloudKit.framework */; };
 		D206B25D25EA8D0400A5DA14 /* OnRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D206B25C25EA8D0400A5DA14 /* OnRotation.swift */; };
-		D206B26025EA8D3C00A5DA14 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = D206B25F25EA8D3C00A5DA14 /* Library.swift */; };
+		D206B26025EA8D3C00A5DA14 /* CollectionLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D206B25F25EA8D3C00A5DA14 /* CollectionLibrary.swift */; };
 		D206B26325EA8D9900A5DA14 /* Triage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D206B26225EA8D9900A5DA14 /* Triage.swift */; };
 		D242765B254AFE1E00326888 /* redbook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D242762F254AFE1D00326888 /* redbook.xcdatamodeld */; };
 		D242765D254AFE1E00326888 /* redbookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2427631254AFE1D00326888 /* redbookApp.swift */; };
@@ -25,7 +25,7 @@
 		D2062B8C257CE4F500E6BD95 /* redbook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = redbook.entitlements; sourceTree = "<group>"; };
 		D2062B8E257CEA3900E6BD95 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.2.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		D206B25C25EA8D0400A5DA14 /* OnRotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnRotation.swift; sourceTree = "<group>"; };
-		D206B25F25EA8D3C00A5DA14 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
+		D206B25F25EA8D3C00A5DA14 /* CollectionLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionLibrary.swift; sourceTree = "<group>"; };
 		D206B26225EA8D9900A5DA14 /* Triage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triage.swift; sourceTree = "<group>"; };
 		D21C3CA72572C4E7000CB93F /* build.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = build.sh; sourceTree = "<group>"; };
 		D21C3CA82572C4F1000CB93F /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Fastfile; path = fastlane/Fastfile; sourceTree = "<group>"; };
@@ -117,7 +117,7 @@
 			children = (
 				D2427632254AFE1D00326888 /* Home.swift */,
 				D206B25C25EA8D0400A5DA14 /* OnRotation.swift */,
-				D206B25F25EA8D3C00A5DA14 /* Library.swift */,
+				D206B25F25EA8D3C00A5DA14 /* CollectionLibrary.swift */,
 				D206B26225EA8D9900A5DA14 /* Triage.swift */,
 				D25633FB25EAB53D00232260 /* SourceCard.swift */,
 			);
@@ -214,7 +214,7 @@
 				D242765F254AFE1E00326888 /* Home.swift in Sources */,
 				D25633FC25EAB53D00232260 /* SourceCard.swift in Sources */,
 				D206B25D25EA8D0400A5DA14 /* OnRotation.swift in Sources */,
-				D206B26025EA8D3C00A5DA14 /* Library.swift in Sources */,
+				D206B26025EA8D3C00A5DA14 /* CollectionLibrary.swift in Sources */,
 				D256340525EAB64100232260 /* CSS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

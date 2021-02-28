@@ -63,22 +63,26 @@ class DataController: ObservableObject {
   func createSampleData() throws {
 
     let viewContext = container.viewContext
-
+    
+    let library = Library(context: viewContext)
+    library.collections = []
+    
     let collection = Collection(context: viewContext)
     collection.name = "On Rotation"
     collection.slots = []
     collection.curator = "@iamhepto"
+    collection.library = library
 
-    for j in 1...8 {
+    for i in 1...8 {
       let slot = Slot(context: viewContext)
       slot.collection = collection
-      slot.position = Int16(j)
+      slot.position = Int16(i)
       
       let source = Source(context: viewContext)
-      source.title = "Album \(j)"
+      source.title = "Album \(i)"
       source.artist = "iamhepto"
       source.playbackURL = URL(string: "https://itunes.apple.com/us/album/born-to-run/id310730204")
-      source.artworkURL = URL(string: "https://picsum.photos/500/500?random=\(j)")
+      source.artworkURL = URL(string: "https://picsum.photos/500/500?random=\(i)")
       
       slot.source = source
     }

@@ -18,7 +18,7 @@ struct Home: View {
           Text("On Rotation")
         }
       
-      Library()
+      CollectionLibrary()
         .tabItem {
           Image(systemName: "rectangle.on.rectangle.angled")
           Text("Library")
