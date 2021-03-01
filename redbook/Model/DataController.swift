@@ -54,12 +54,18 @@ class DataController: ObservableObject {
       fatalError()
     }
     
-    if libraryCount > 0 {
-      os_log("🔊 Found \(libraryCount) existing Libraries!")
-      validateLibrary()
-    } else {
+    switch libraryCount {
+    case 0:
       os_log("🔊 No Library!")
       createLibrary()
+    case 1:
+      os_log("🔊 Found a single library!")
+      validateLibrary()
+    case 2...:
+      os_log("🔊 Found \(libraryCount) existing Libraries!")
+      validateLibrary()
+    default:
+      fatalError()
     }
   }
   
@@ -104,13 +110,23 @@ class DataController: ObservableObject {
   }
   
   func deleteAll() {
-    let fetchAllAlbums: NSFetchRequest<NSFetchRequestResult> = Source.fetchRequest()
-    let batchDeleteAlbums = NSBatchDeleteRequest(fetchRequest: fetchAllAlbums)
-    _ = try? container.viewContext.execute(batchDeleteAlbums)
     
-    let fetchAllCollections: NSFetchRequest<NSFetchRequestResult> = Collection.fetchRequest()
-    let batchDeleteCollections = NSBatchDeleteRequest(fetchRequest: fetchAllCollections)
-    _ = try? container.viewContext.execute(batchDeleteCollections)
+    let sourceFetch: NSFetchRequest<NSFetchRequestResult> = Source.fetchRequest()
+    let sourceBatchDeleteRequest = NSBatchDeleteRequest(fetchRequest: sourceFetch)
+    _ = try? container.viewContext.execute(sourceBatchDeleteRequest)
+    
+    let slotFetch: NSFetchRequest<NSFetchRequestResult> = Slot.fetchRequest()
+    let slotBatchDeleteRequest = NSBatchDeleteRequest(fetchRequest: slotFetch)
+    _ = try? container.viewContext.execute(slotBatchDeleteRequest)
+    
+    let collectionFetch: NSFetchRequest<NSFetchRequestResult> = Collection.fetchRequest()
+    let collectionBatchDeleteRequest = NSBatchDeleteRequest(fetchRequest: collectionFetch)
+    _ = try? container.viewContext.execute(collectionBatchDeleteRequest)
+    
+    let libraryFetch: NSFetchRequest<NSFetchRequestResult> = Library.fetchRequest()
+    let libraryBatchDeleteRequest = NSBatchDeleteRequest(fetchRequest: libraryFetch)
+    _ = try? container.viewContext.execute(libraryBatchDeleteRequest)
+
   }
   
   func createSampleData() throws {
