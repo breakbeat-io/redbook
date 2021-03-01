@@ -15,6 +15,9 @@ struct redbookApp: App {
   init() {
     let dataController = DataController()
     _dataController = StateObject(wrappedValue: dataController)
+    
+    dataController.bootstrap()
+    
   }
   
   var body: some Scene {

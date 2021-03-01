@@ -7,6 +7,7 @@
 
 import CoreData
 import SwiftUI
+import os.log
 
 class DataController: ObservableObject {
 
@@ -38,6 +39,58 @@ class DataController: ObservableObject {
         fatalError("Fatal error loading store: \(error.localizedDescription)")
       }
     }
+  }
+  
+  func bootstrap() {
+    os_log("🔊 Bootstrapping")
+    
+    let librariesFetch: NSFetchRequest<NSFetchRequestResult> = Library.fetchRequest()
+    var libraryCount: Int
+    
+    do {
+      libraryCount = try container.viewContext.count(for: librariesFetch)
+    } catch {
+      os_log("🔊 Library count threw an error!")
+      fatalError()
+    }
+    
+    if libraryCount > 0 {
+      os_log("🔊 Found \(libraryCount) existing Libraries!")
+      validateLibrary()
+    } else {
+      os_log("🔊 No Library!")
+      createLibrary()
+    }
+  }
+  
+  private func validateLibrary() {
+    os_log("🔊 Validating Library!")
+  }
+  
+  private func createLibrary() {
+    os_log("🔊 Creating Library!")
+    
+    let viewContext = container.viewContext
+    
+    let onRotation = Collection(context: viewContext)
+    onRotation.name = "On Rotation"
+    onRotation.slots = []
+    onRotation.curator = "Music Lover"
+    for i in 1...8 {
+      let slot = Slot(context: viewContext)
+      slot.collection = onRotation
+      slot.position = Int16(i)
+    }
+    
+    let library = Library(context: viewContext)
+    library.onRotation = onRotation
+    
+    do {
+      try viewContext.save()
+    } catch {
+      fatalError()
+    }
+    
   }
   
   func save() {
