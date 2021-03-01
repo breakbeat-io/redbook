@@ -9,24 +9,25 @@ import SwiftUI
 
 struct OnRotation: View {
   
-  // here should just get the one Collection that is of O On Rotation type
   @FetchRequest(
-    entity: Library.entity(), sortDescriptors: []
-  ) private var libraries: FetchedResults<Library>
+    entity: Collection.entity(),
+    sortDescriptors: [],
+    predicate: NSPredicate(format: "onRotationLibrary != nil")
+  ) private var onRotation: FetchedResults<Collection>
+  
+  private var slots: [Slot] {
+    onRotation.first?.slots?.allObjects as? [Slot] ?? []
+  }
   
   var body: some View {
     NavigationView {
       ScrollView {
-        ForEach(libraries) { library in
-          let slots = library.onRotation?.slots?.allObjects as? [Slot] ?? []
-          ForEach(slots.sorted(by: { $0.position < $1.position })) { slot in
-            SourceCard(title: slot.source?.title ?? "",
-                       artist: slot.source?.artist ?? "",
-                       artworkURL: (slot.source?.artworkURL ?? URL(string: "https://picsum.photos/500/500"))!)
-              .frame(height: 61)
-          }
+        ForEach(slots.sorted(by: { $0.position < $1.position })) { slot in
+          SourceCard(title: slot.source?.title ?? "",
+                     artist: slot.source?.artist ?? "",
+                     artworkURL: (slot.source?.artworkURL ?? URL(string: "https://picsum.photos/500/500"))!)
+            .frame(height: 61)
         }
-        
       }
       .padding(.horizontal)
       .navigationTitle("On Rotation")
