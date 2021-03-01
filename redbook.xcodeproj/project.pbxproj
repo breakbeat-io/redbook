@@ -20,6 +20,8 @@
 		D256340125EAB5CA00232260 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D256340025EAB5CA00232260 /* Kingfisher */; };
 		D256340525EAB64100232260 /* CSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D256340425EAB64100232260 /* CSS.swift */; };
 		D273485F25EC552200590296 /* AppIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D273485E25EC552200590296 /* AppIcons.xcassets */; };
+		D2D56B9125ED8FA5007DC398 /* EmptyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D56B9025ED8FA5007DC398 /* EmptyCard.swift */; };
+		D2D56B9525ED916D007DC398 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D56B9425ED916D007DC398 /* Search.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		D25633FB25EAB53D00232260 /* SourceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceCard.swift; sourceTree = "<group>"; };
 		D256340425EAB64100232260 /* CSS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSS.swift; sourceTree = "<group>"; };
 		D273485E25EC552200590296 /* AppIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIcons.xcassets; sourceTree = "<group>"; };
+		D2D56B9025ED8FA5007DC398 /* EmptyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCard.swift; sourceTree = "<group>"; };
+		D2D56B9425ED916D007DC398 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,8 @@
 			children = (
 				D2427631254AFE1D00326888 /* redbookApp.swift */,
 				D29B440F25EA799E001DE94C /* Home */,
+				D2D56B8F25ED8F76007DC398 /* Collection */,
+				D2D56B9325ED915B007DC398 /* Search */,
 				D29B441025EA79EF001DE94C /* Model */,
 				D29B440E25EA795C001DE94C /* Configuration */,
 				D2427634254AFE1E00326888 /* Assets.xcassets */,
@@ -122,7 +128,6 @@
 				D206B25C25EA8D0400A5DA14 /* OnRotation.swift */,
 				D206B25F25EA8D3C00A5DA14 /* CollectionLibrary.swift */,
 				D206B26225EA8D9900A5DA14 /* Triage.swift */,
-				D25633FB25EAB53D00232260 /* SourceCard.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -134,6 +139,23 @@
 				D242762F254AFE1D00326888 /* redbook.xcdatamodeld */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D2D56B8F25ED8F76007DC398 /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				D25633FB25EAB53D00232260 /* SourceCard.swift */,
+				D2D56B9025ED8FA5007DC398 /* EmptyCard.swift */,
+			);
+			path = Collection;
+			sourceTree = "<group>";
+		};
+		D2D56B9325ED915B007DC398 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				D2D56B9425ED916D007DC398 /* Search.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,11 +233,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2D56B9525ED916D007DC398 /* Search.swift in Sources */,
 				D242765D254AFE1E00326888 /* redbookApp.swift in Sources */,
 				D2427661254AFE1E00326888 /* DataController.swift in Sources */,
 				D206B26325EA8D9900A5DA14 /* Triage.swift in Sources */,
 				D242765B254AFE1E00326888 /* redbook.xcdatamodeld in Sources */,
 				D242765F254AFE1E00326888 /* Home.swift in Sources */,
+				D2D56B9125ED8FA5007DC398 /* EmptyCard.swift in Sources */,
 				D25633FC25EAB53D00232260 /* SourceCard.swift in Sources */,
 				D206B25D25EA8D0400A5DA14 /* OnRotation.swift in Sources */,
 				D206B26025EA8D3C00A5DA14 /* CollectionLibrary.swift in Sources */,
