@@ -16,7 +16,7 @@ struct OnRotation: View {
   
   var body: some View {
     NavigationView {
-      List {
+      ScrollView {
         ForEach(libraries) { library in
           let slots = library.onRotation?.slots?.allObjects as? [Slot] ?? []
           ForEach(slots.sorted(by: { $0.position < $1.position })) { slot in
@@ -28,6 +28,7 @@ struct OnRotation: View {
         }
         
       }
+      .padding(.horizontal)
       .navigationTitle("On Rotation")
     }
   }
