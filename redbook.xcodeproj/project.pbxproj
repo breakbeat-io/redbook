@@ -16,6 +16,8 @@
 		D242765F254AFE1E00326888 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2427632254AFE1D00326888 /* Home.swift */; };
 		D2427661254AFE1E00326888 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2427633254AFE1D00326888 /* DataController.swift */; };
 		D2427663254AFE1E00326888 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2427634254AFE1E00326888 /* Assets.xcassets */; };
+		D253349D25EEF25E00B139FD /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253349C25EEF25E00B139FD /* SearchBar.swift */; };
+		D25334A025EEF2BC00B139FD /* SearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253349F25EEF2BC00B139FD /* SearchResults.swift */; };
 		D25633FC25EAB53D00232260 /* SourceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25633FB25EAB53D00232260 /* SourceCard.swift */; };
 		D256340125EAB5CA00232260 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D256340025EAB5CA00232260 /* Kingfisher */; };
 		D256340525EAB64100232260 /* CSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D256340425EAB64100232260 /* CSS.swift */; };
@@ -40,6 +42,8 @@
 		D2427634254AFE1E00326888 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2427639254AFE1E00326888 /* redbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = redbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D242763C254AFE1E00326888 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D253349C25EEF25E00B139FD /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		D253349F25EEF2BC00B139FD /* SearchResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResults.swift; sourceTree = "<group>"; };
 		D25633FB25EAB53D00232260 /* SourceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceCard.swift; sourceTree = "<group>"; };
 		D256340425EAB64100232260 /* CSS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSS.swift; sourceTree = "<group>"; };
 		D273485E25EC552200590296 /* AppIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIcons.xcassets; sourceTree = "<group>"; };
@@ -154,6 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				D2D56B9425ED916D007DC398 /* Search.swift */,
+				D253349C25EEF25E00B139FD /* SearchBar.swift */,
+				D253349F25EEF2BC00B139FD /* SearchResults.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -238,6 +244,8 @@
 				D2427661254AFE1E00326888 /* DataController.swift in Sources */,
 				D206B26325EA8D9900A5DA14 /* Triage.swift in Sources */,
 				D242765B254AFE1E00326888 /* redbook.xcdatamodeld in Sources */,
+				D25334A025EEF2BC00B139FD /* SearchResults.swift in Sources */,
+				D253349D25EEF25E00B139FD /* SearchBar.swift in Sources */,
 				D242765F254AFE1E00326888 /* Home.swift in Sources */,
 				D2D56B9125ED8FA5007DC398 /* EmptyCard.swift in Sources */,
 				D25633FC25EAB53D00232260 /* SourceCard.swift in Sources */,

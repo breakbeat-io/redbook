@@ -8,7 +8,26 @@
 import SwiftUI
 
 struct Search: View {
-    var body: some View {
-        Text("Search")
+  
+  @Environment(\.presentationMode) var presentationMode
+  
+  var body: some View {
+    NavigationView {
+      VStack{
+        SearchBar()
+        Spacer()
+        SearchResults()
+      }
+      .navigationBarTitle("Add Album", displayMode: .inline)
+      .toolbar {
+        ToolbarItem(placement: .cancellationAction) {
+          Button {
+            presentationMode.wrappedValue.dismiss()
+          } label: {
+            Text("Close")
+          }
+        }
+      }
     }
+  }
 }
