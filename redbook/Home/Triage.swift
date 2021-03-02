@@ -8,16 +8,10 @@
 import SwiftUI
 
 struct Triage: View {
-  
-  @EnvironmentObject var dataController: DataController
-  
   var body: some View {
     NavigationView {
       VStack {
-        Button("Add Data") {
-          dataController.deleteAll()
-          try? dataController.createSampleData()
-        }
+        Text("Triage")
       }
       .navigationTitle("Triage")
     }

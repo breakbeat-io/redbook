@@ -18,6 +18,12 @@ struct Home: View {
           Text("On Rotation")
         }
       
+      Following()
+        .tabItem {
+          Image(systemName: "rectangle.stack.badge.person.crop")
+          Text("Following")
+        }
+      
       CollectionLibrary()
         .tabItem {
           Image(systemName: "rectangle.on.rectangle.angled")
@@ -29,6 +35,13 @@ struct Home: View {
           Image(systemName: "tray")
           Text("Triage")
         }
+      
+      Settings()
+        .tabItem {
+          Image(systemName: "gear")
+          Text("Settings")
+        }
+      
     }
   }
 }

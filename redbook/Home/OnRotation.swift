@@ -22,6 +22,15 @@ struct OnRotation: View {
       }
       .padding(.horizontal)
       .navigationTitle("On Rotation")
+      .toolbar {
+        ToolbarItem(placement: .destructiveAction) {
+          Button {
+            viewModel.resetStore()
+          } label: {
+            Text("Reset")
+          }
+        }
+      }
     }
     .onAppear() {
       viewModel.loadSlots()
@@ -47,6 +56,11 @@ extension OnRotation {
       } catch {
         fatalError()
       }
+    }
+    
+    func resetStore() {
+      DataController.shared.deleteAll()
+      try? DataController.shared.createSampleData()
     }
     
   }
