@@ -13,7 +13,7 @@ struct redbookApp: App {
   @StateObject var dataController: DataController
   
   init() {
-    let dataController = DataController()
+    let dataController = DataController.shared
     _dataController = StateObject(wrappedValue: dataController)
     
     dataController.bootstrap()

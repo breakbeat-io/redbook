@@ -9,7 +9,6 @@ import SwiftUI
 import CoreData
 
 struct OnRotation: View {
-  @Environment(\.managedObjectContext) var managedObjectContext
   
   @StateObject private var model = OnRotationViewModel()
   
@@ -33,7 +32,7 @@ struct OnRotation: View {
 
 class OnRotationViewModel: ObservableObject {
   
-  let moc = DataController().container.viewContext
+  let moc = DataController.shared.container.viewContext
   
   @Published var slots: [Slot] = []
   

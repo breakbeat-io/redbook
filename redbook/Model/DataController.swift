@@ -10,23 +10,12 @@ import SwiftUI
 import os.log
 
 class DataController: ObservableObject {
+  
+  static let shared = DataController()
 
   let container: NSPersistentCloudKitContainer
   
-  static var preview: DataController = {
-    let dataController = DataController(inMemory: true)
-    let viewContext = dataController.container.viewContext
-
-    do {
-      try dataController.createSampleData()
-    } catch {
-      fatalError("Fatal error creating preview: \(error.localizedDescription)")
-    }
-
-    return dataController
-  }()
-  
-  init(inMemory: Bool = false) {
+  private init(inMemory: Bool = false) {
     
     container = NSPersistentCloudKitContainer(name: "redbook")
     
