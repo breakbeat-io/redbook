@@ -45,8 +45,8 @@ jobs:
         env:
           DEVELOPER_DIR: /Applications/Xcode_12.2.app/Contents/Developer
           APPLE_TEAM_ID: ${{ secrets.APP_STORE_CONNECT_TEAM_ID }}
-          APP_STORE_CONNECT_API_KEY_ID: ${{ APP_STORE_CONNECT_API_KEY_ID }}
-          APP_STORE_CONNECT_API_ISSUER_ID: ${{ APP_STORE_CONNECT_API_KEY_ID }}
-          APP_STORE_CONNECT_API_KEY_CONTENT: ${{ APP_STORE_CONNECT_API_KEY_ID }}
+          APP_STORE_CONNECT_API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
+          APP_STORE_CONNECT_API_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
+          APP_STORE_CONNECT_API_KEY_CONTENT: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
         run: |
           exec ./build.sh
