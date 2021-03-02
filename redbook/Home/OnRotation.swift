@@ -6,23 +6,17 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct OnRotation: View {
+  @Environment(\.managedObjectContext) var managedObjectContext
   
-  @FetchRequest(
-    entity: Collection.entity(),
-    sortDescriptors: [],
-    predicate: NSPredicate(format: "onRotationLibrary != nil")
-  ) private var onRotation: FetchedResults<Collection>
-  
-  private var slots: [Slot] {
-    onRotation.first?.slots?.allObjects as? [Slot] ?? []
-  }
+  @StateObject private var model = OnRotationViewModel()
   
   var body: some View {
     NavigationView {
       ScrollView {
-        ForEach(slots.sorted(by: { $0.position < $1.position })) { slot in
+        ForEach(model.slots) { slot in
           EmptyCard()
             .frame(height: 61)
         }
@@ -30,5 +24,30 @@ struct OnRotation: View {
       .padding(.horizontal)
       .navigationTitle("On Rotation")
     }
+    .onAppear() {
+      model.getSlots()
+    }
   }
+}
+
+
+class OnRotationViewModel: ObservableObject {
+  
+  let moc = DataController().container.viewContext
+  
+  @Published var slots: [Slot] = []
+  
+  func getSlots() {
+    let onRotationFetch: NSFetchRequest<Collection> = Collection.fetchRequest()
+    onRotationFetch.predicate = NSPredicate(format: "onRotationLibrary != nil")
+    
+    do {
+      let onRotation = try moc.fetch(onRotationFetch)
+      let tempSlots = onRotation.first?.slots?.allObjects as? [Slot] ?? []
+      slots = tempSlots.sorted(by: { $0.position < $1.position })
+    } catch {
+      fatalError()
+    }
+  }
+  
 }
