@@ -59,7 +59,7 @@ class DataController: ObservableObject {
   }
   
   private func validateLibrary() {
-    os_log("🔊 Validating Library!")
+    os_log("🔊 Validating Library! NOT IMPLEMENTED")
   }
   
   private func createLibrary() {

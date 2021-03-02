@@ -12,7 +12,7 @@ struct Home: View {
   
   var body: some View {
     TabView {
-      OnRotation()
+      OnRotation(viewModel: .init())
         .tabItem {
           Image(systemName: "music.house")
           Text("On Rotation")
