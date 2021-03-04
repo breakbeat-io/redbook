@@ -26,7 +26,6 @@
 		D273485F25EC552200590296 /* AppIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D273485E25EC552200590296 /* AppIcons.xcassets */; };
 		D2D21E4F25F1797B00BA31AD /* pre-actions.sh in Resources */ = {isa = PBXBuildFile; fileRef = D2D21E4E25F1797B00BA31AD /* pre-actions.sh */; };
 		D2D21E5225F1798400BA31AD /* createAppleMusicAPIToken.sh in Resources */ = {isa = PBXBuildFile; fileRef = D2D21E5125F1798400BA31AD /* createAppleMusicAPIToken.sh */; };
-		D2D21E5525F17B2F00BA31AD /* secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = D2D21E5425F17B2F00BA31AD /* secrets.xcconfig */; };
 		D2D21E5825F17B5100BA31AD /* secrets.xcconfig.sample in Resources */ = {isa = PBXBuildFile; fileRef = D2D21E5725F17B5100BA31AD /* secrets.xcconfig.sample */; };
 		D2D21E6125F1885500BA31AD /* RecordStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D21E6025F1885500BA31AD /* RecordStore.swift */; };
 		D2D21E6525F1889000BA31AD /* HMV in Frameworks */ = {isa = PBXBuildFile; productRef = D2D21E6425F1889000BA31AD /* HMV */; };
@@ -234,7 +233,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1220;
-				LastUpgradeCheck = 1220;
+				LastUpgradeCheck = 1240;
 				TargetAttributes = {
 					D2427638254AFE1E00326888 = {
 						CreatedOnToolsVersion = 12.2;
@@ -269,7 +268,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D273485F25EC552200590296 /* AppIcons.xcassets in Resources */,
-				D2D21E5525F17B2F00BA31AD /* secrets.xcconfig in Resources */,
 				D2427663254AFE1E00326888 /* Assets.xcassets in Resources */,
 				D2D21E5825F17B5100BA31AD /* secrets.xcconfig.sample in Resources */,
 				D2D21E5225F1798400BA31AD /* createAppleMusicAPIToken.sh in Resources */,
