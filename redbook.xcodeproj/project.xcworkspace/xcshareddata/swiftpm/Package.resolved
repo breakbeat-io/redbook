@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "HMV",
+        "repositoryURL": "https://github.com/breakbeat-io/HMV",
+        "state": {
+          "branch": "master",
+          "revision": "b6d2b7539d43425541239bddb61c94460611ede6",
+          "version": null
+        }
+      },
+      {
         "package": "Kingfisher",
         "repositoryURL": "https://github.com/onevcat/Kingfisher",
         "state": {

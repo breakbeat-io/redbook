@@ -28,6 +28,8 @@
 		D2D21E5225F1798400BA31AD /* createAppleMusicAPIToken.sh in Resources */ = {isa = PBXBuildFile; fileRef = D2D21E5125F1798400BA31AD /* createAppleMusicAPIToken.sh */; };
 		D2D21E5525F17B2F00BA31AD /* secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = D2D21E5425F17B2F00BA31AD /* secrets.xcconfig */; };
 		D2D21E5825F17B5100BA31AD /* secrets.xcconfig.sample in Resources */ = {isa = PBXBuildFile; fileRef = D2D21E5725F17B5100BA31AD /* secrets.xcconfig.sample */; };
+		D2D21E6125F1885500BA31AD /* RecordStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D21E6025F1885500BA31AD /* RecordStore.swift */; };
+		D2D21E6525F1889000BA31AD /* HMV in Frameworks */ = {isa = PBXBuildFile; productRef = D2D21E6425F1889000BA31AD /* HMV */; };
 		D2D56B9125ED8FA5007DC398 /* EmptyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D56B9025ED8FA5007DC398 /* EmptyCard.swift */; };
 		D2D56B9525ED916D007DC398 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D56B9425ED916D007DC398 /* Search.swift */; };
 /* End PBXBuildFile section */
@@ -59,6 +61,7 @@
 		D2D21E5125F1798400BA31AD /* createAppleMusicAPIToken.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = createAppleMusicAPIToken.sh; sourceTree = "<group>"; };
 		D2D21E5425F17B2F00BA31AD /* secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = secrets.xcconfig; sourceTree = "<group>"; };
 		D2D21E5725F17B5100BA31AD /* secrets.xcconfig.sample */ = {isa = PBXFileReference; lastKnownFileType = text; path = secrets.xcconfig.sample; sourceTree = "<group>"; };
+		D2D21E6025F1885500BA31AD /* RecordStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordStore.swift; sourceTree = "<group>"; };
 		D2D56B9025ED8FA5007DC398 /* EmptyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCard.swift; sourceTree = "<group>"; };
 		D2D56B9425ED916D007DC398 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2D21E6525F1889000BA31AD /* HMV in Frameworks */,
 				D256340125EAB5CA00232260 /* Kingfisher in Frameworks */,
 				D2062B8F257CEA3900E6BD95 /* CloudKit.framework in Frameworks */,
 			);
@@ -112,6 +116,7 @@
 				D2D56B8F25ED8F76007DC398 /* Collection */,
 				D2D56B9325ED915B007DC398 /* Search */,
 				D29B441025EA79EF001DE94C /* Model */,
+				D2D21E5F25F1883F00BA31AD /* Services */,
 				D29B440E25EA795C001DE94C /* Configuration */,
 				D2427634254AFE1E00326888 /* Assets.xcassets */,
 				D273485E25EC552200590296 /* AppIcons.xcassets */,
@@ -171,6 +176,14 @@
 			path = "pre-actions";
 			sourceTree = "<group>";
 		};
+		D2D21E5F25F1883F00BA31AD /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D2D21E6025F1885500BA31AD /* RecordStore.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		D2D56B8F25ED8F76007DC398 /* Collection */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +221,7 @@
 			name = "redbook (iOS)";
 			packageProductDependencies = (
 				D256340025EAB5CA00232260 /* Kingfisher */,
+				D2D21E6425F1889000BA31AD /* HMV */,
 			);
 			productName = "redbook (iOS)";
 			productReference = D2427639254AFE1E00326888 /* redbook.app */;
@@ -238,6 +252,7 @@
 			mainGroup = D2427629254AFE1D00326888;
 			packageReferences = (
 				D25633FF25EAB5CA00232260 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				D2D21E6325F1889000BA31AD /* XCRemoteSwiftPackageReference "HMV" */,
 			);
 			productRefGroup = D242763A254AFE1E00326888 /* Products */;
 			projectDirPath = "";
@@ -277,6 +292,7 @@
 				D242765B254AFE1E00326888 /* redbook.xcdatamodeld in Sources */,
 				D25334A025EEF2BC00B139FD /* SearchResults.swift in Sources */,
 				D253349D25EEF25E00B139FD /* SearchBar.swift in Sources */,
+				D2D21E6125F1885500BA31AD /* RecordStore.swift in Sources */,
 				D242765F254AFE1E00326888 /* Home.swift in Sources */,
 				D25334A825EEFE2D00B139FD /* Settings.swift in Sources */,
 				D2D56B9125ED8FA5007DC398 /* EmptyCard.swift in Sources */,
@@ -654,6 +670,14 @@
 				minimumVersion = 6.0.0;
 			};
 		};
+		D2D21E6325F1889000BA31AD /* XCRemoteSwiftPackageReference "HMV" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/breakbeat-io/HMV";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -661,6 +685,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D25633FF25EAB5CA00232260 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		D2D21E6425F1889000BA31AD /* HMV */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D2D21E6325F1889000BA31AD /* XCRemoteSwiftPackageReference "HMV" */;
+			productName = HMV;
 		};
 /* End XCSwiftPackageProductDependency section */
 

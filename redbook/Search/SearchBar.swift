@@ -18,7 +18,7 @@ struct SearchBar: View {
         "Search music",
         text: $searchTerm,
         onCommit: {
-          
+          RecordStore.search(for: self.searchTerm)
         })
         .foregroundColor(.primary)
         .keyboardType(.webSearch)
