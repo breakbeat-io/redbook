@@ -10,12 +10,11 @@ import SwiftUI
 @main
 struct redbookApp: App {
   
-  @StateObject var dataController: DataController
+  let dataController = DataController.shared
   
   init() {
-    let dataController = DataController.shared
-    _dataController = StateObject(wrappedValue: dataController)
     
+    checkKeys()
     dataController.bootstrap()
     
   }
@@ -24,7 +23,22 @@ struct redbookApp: App {
     WindowGroup {
       Home()
         .environment(\.managedObjectContext, dataController.container.viewContext)
-        .environmentObject(dataController)
     }
   }
+  
+  private func checkKeys() {
+    
+    precondition(Bundle.main.infoDictionary?["APPLE_MUSIC_API_TOKEN"] as! String != "", """
+
+        ==========
+        No Apple Music API Token Found! [APPLE_MUSIC_API_TOKEN]
+
+        Please make sure a valid Apple Music private key, ID and Developer Team ID are
+        set in secrets.xcconfig to allow a token to be generated on build by the
+        pre-action createAppleMusicAPIToken.sh
+        ==========
+
+        """)
+  }
+  
 }

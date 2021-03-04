@@ -24,6 +24,10 @@
 		D256340125EAB5CA00232260 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D256340025EAB5CA00232260 /* Kingfisher */; };
 		D256340525EAB64100232260 /* CSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D256340425EAB64100232260 /* CSS.swift */; };
 		D273485F25EC552200590296 /* AppIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D273485E25EC552200590296 /* AppIcons.xcassets */; };
+		D2D21E4F25F1797B00BA31AD /* pre-actions.sh in Resources */ = {isa = PBXBuildFile; fileRef = D2D21E4E25F1797B00BA31AD /* pre-actions.sh */; };
+		D2D21E5225F1798400BA31AD /* createAppleMusicAPIToken.sh in Resources */ = {isa = PBXBuildFile; fileRef = D2D21E5125F1798400BA31AD /* createAppleMusicAPIToken.sh */; };
+		D2D21E5525F17B2F00BA31AD /* secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = D2D21E5425F17B2F00BA31AD /* secrets.xcconfig */; };
+		D2D21E5825F17B5100BA31AD /* secrets.xcconfig.sample in Resources */ = {isa = PBXBuildFile; fileRef = D2D21E5725F17B5100BA31AD /* secrets.xcconfig.sample */; };
 		D2D56B9125ED8FA5007DC398 /* EmptyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D56B9025ED8FA5007DC398 /* EmptyCard.swift */; };
 		D2D56B9525ED916D007DC398 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D56B9425ED916D007DC398 /* Search.swift */; };
 /* End PBXBuildFile section */
@@ -51,6 +55,10 @@
 		D25633FB25EAB53D00232260 /* SourceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceCard.swift; sourceTree = "<group>"; };
 		D256340425EAB64100232260 /* CSS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSS.swift; sourceTree = "<group>"; };
 		D273485E25EC552200590296 /* AppIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIcons.xcassets; sourceTree = "<group>"; };
+		D2D21E4E25F1797B00BA31AD /* pre-actions.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "pre-actions.sh"; sourceTree = "<group>"; };
+		D2D21E5125F1798400BA31AD /* createAppleMusicAPIToken.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = createAppleMusicAPIToken.sh; sourceTree = "<group>"; };
+		D2D21E5425F17B2F00BA31AD /* secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = secrets.xcconfig; sourceTree = "<group>"; };
+		D2D21E5725F17B5100BA31AD /* secrets.xcconfig.sample */ = {isa = PBXFileReference; lastKnownFileType = text; path = secrets.xcconfig.sample; sourceTree = "<group>"; };
 		D2D56B9025ED8FA5007DC398 /* EmptyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCard.swift; sourceTree = "<group>"; };
 		D2D56B9425ED916D007DC398 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,6 +133,9 @@
 				D256340425EAB64100232260 /* CSS.swift */,
 				D242763C254AFE1E00326888 /* Info.plist */,
 				D2062B8C257CE4F500E6BD95 /* redbook.entitlements */,
+				D2D21E5425F17B2F00BA31AD /* secrets.xcconfig */,
+				D2D21E5725F17B5100BA31AD /* secrets.xcconfig.sample */,
+				D2D21E4D25F178EB00BA31AD /* pre-actions */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -149,6 +160,15 @@
 				D242762F254AFE1D00326888 /* redbook.xcdatamodeld */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D2D21E4D25F178EB00BA31AD /* pre-actions */ = {
+			isa = PBXGroup;
+			children = (
+				D2D21E4E25F1797B00BA31AD /* pre-actions.sh */,
+				D2D21E5125F1798400BA31AD /* createAppleMusicAPIToken.sh */,
+			);
+			path = "pre-actions";
 			sourceTree = "<group>";
 		};
 		D2D56B8F25ED8F76007DC398 /* Collection */ = {
@@ -234,7 +254,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D273485F25EC552200590296 /* AppIcons.xcassets in Resources */,
+				D2D21E5525F17B2F00BA31AD /* secrets.xcconfig in Resources */,
 				D2427663254AFE1E00326888 /* Assets.xcassets in Resources */,
+				D2D21E5825F17B5100BA31AD /* secrets.xcconfig.sample in Resources */,
+				D2D21E5225F1798400BA31AD /* createAppleMusicAPIToken.sh in Resources */,
+				D2D21E4F25F1797B00BA31AD /* pre-actions.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +292,7 @@
 /* Begin XCBuildConfiguration section */
 		D23BB3022550BCE900C5D7BF /* Beta */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2D21E5425F17B2F00BA31AD /* secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -348,6 +373,7 @@
 		};
 		D23BB3072550BCF200C5D7BF /* Alpha */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2D21E5425F17B2F00BA31AD /* secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -428,6 +454,7 @@
 		};
 		D2427665254AFE1E00326888 /* Development */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2D21E5425F17B2F00BA31AD /* secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -487,6 +514,7 @@
 		};
 		D2427666254AFE1E00326888 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2D21E5425F17B2F00BA31AD /* secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

@@ -9,7 +9,7 @@ import CoreData
 import SwiftUI
 import os.log
 
-class DataController: ObservableObject {
+class DataController {
   
   static let shared = DataController()
 
