@@ -11,12 +11,12 @@ import HMV
 
 class RecordStore {
   
-  static let shared = HMV(storefront: .unitedKingdom, developerToken: Bundle.main.infoDictionary?["APPLE_MUSIC_API_TOKEN"] as! String)
+  static let appleMusic = HMV(storefront: .unitedKingdom, developerToken: Bundle.main.infoDictionary?["APPLE_MUSIC_API_TOKEN"] as! String)
   
   private init() { }
   
   static func search(for searchTerm: String) {
-    RecordStore.shared.search(term: searchTerm, limit: 20, types: [.albums]) { results, error in
+    appleMusic.search(term: searchTerm, limit: 20, types: [.albums]) { results, error in
       if let results = results {
         if let albums = results.albums?.data {
           os_log("💎 Record Store > Got some albums: %s", albums.description)
