@@ -6,9 +6,15 @@
 //
 
 import SwiftUI
+import HMV
 
 struct SearchResults: View {
+  
+  let searchResults: [Album]
+  
   var body: some View {
-    Text("Results")
+    ForEach(searchResults) { album in
+      Text(album.attributes!.name)
+    }
   }
 }
