@@ -20,7 +20,6 @@ struct Search: View {
     NavigationView {
       VStack{
         SearchBar(searchTerm: $searchTerm)
-        Spacer()
         SearchResults(searchResults: viewModel.searchResults)
       }
       .navigationBarTitle("Add Album", displayMode: .inline)
@@ -48,6 +47,7 @@ extension Search {
     
     var searchTimer: Timer?
     
+    // TODO: do I ever need a non-debounced search?
     func debouncedSearch(for searchTerm: String) {
       searchTimer?.invalidate()
       searchTimer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { _ in
