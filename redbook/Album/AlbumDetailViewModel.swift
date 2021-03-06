@@ -15,6 +15,20 @@ extension AlbumDetail {
     
     @Published private(set) var album: Album?
     
+    var albumName: String {
+      album?.attributes?.name ?? ""
+    }
+    var albumArtist: String {
+      album?.attributes?.artistName ?? ""
+    }
+    var albumArtwork: URL {
+      album?.attributes?.artwork.url(forWidth: 1000) ?? URL(string: "https://via.placeholder.com/1000x1000?text=Getting+artwork...")!
+    }
+    var albumTracks: [Track] {
+      album?.relationships?.tracks.data ?? [Track]()
+    }
+    
+    
     // TODO: need to clear down when view unloads to prevent flahses of old values
     // TODO: loading states to show spinners
     
@@ -33,5 +47,6 @@ extension AlbumDetail {
         }
       })
     }
+    
   }
 }

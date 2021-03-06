@@ -16,12 +16,12 @@ struct AlbumDetail: View {
   
   var body: some View {
     ScrollView {
-      // TODO: all of these optionals should move into the viewModel
-      AlbumCover(albumName: viewModel.album?.attributes?.name ?? "",
-                 albumArtist: viewModel.album?.attributes?.artistName ?? "",
-                 albumArtwork: viewModel.album?.attributes?.artwork.url(forWidth: 1000) ?? URL(string: "https://picsum.photos/500/500")!)
+      AlbumCover(albumName: viewModel.albumName,
+                 albumArtist: viewModel.albumArtist,
+                 albumArtwork: viewModel.albumArtwork)
         .padding(.bottom)
-      TrackList(albumTracks: viewModel.album?.relationships?.tracks.data ?? [Track](), albumArtist: viewModel.album?.attributes?.artistName ?? "")
+      TrackList(albumTracks: viewModel.albumTracks,
+                albumArtist: viewModel.albumArtist)
     }
     .padding()
     .onAppear() {
