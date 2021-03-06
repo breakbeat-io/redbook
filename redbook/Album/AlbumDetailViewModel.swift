@@ -35,12 +35,11 @@ extension AlbumDetail {
     }
     
     
-    // TODO: need to clear down when view unloads to prevent flahses of old values
     // TODO: loading states to show spinners
+    
     
     func loadAlbum(albumId: String) {
       RecordStore.appleMusic.album(id: albumId, completion: { album, error in
-        // TODO: double let (just copied old code)
         if let album = album {
           DispatchQueue.main.async {
             self.album = album
