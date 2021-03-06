@@ -29,11 +29,10 @@ struct SearchResults: View {
           .cornerRadius(CSS.cardCornerRadius)
           .frame(width: 50)
           VStack(alignment: .leading) {
-            // TODO: forced unwraps
-            Text(album.attributes!.name)
+            Text(album.attributes?.name ?? "")
               .font(.headline)
               .lineLimit(1)
-            Text(album.attributes!.artistName)
+            Text(album.attributes?.artistName ?? "")
               .font(.subheadline)
               .lineLimit(1)
           }
