@@ -24,8 +24,14 @@ extension AlbumDetail {
     var albumArtwork: URL {
       album?.attributes?.artwork.url(forWidth: 1000) ?? URL(string: "https://via.placeholder.com/1000x1000?text=Getting+artwork...")!
     }
-    var albumTracks: [Track] {
-      album?.relationships?.tracks.data ?? [Track]()
+    var albumTracks: [Int:[Track]] {
+      let allTracks = album?.relationships?.tracks.data ?? [Track]()
+      let numberOfDiscs = allTracks.map { $0.attributes?.discNumber ?? 1 }.max() ?? 1
+      var albumTracks = [Int: [Track]]()
+      for i in 1...numberOfDiscs {
+        albumTracks[i] = allTracks.filter { $0.attributes?.discNumber == i }
+      }
+      return albumTracks
     }
     
     
