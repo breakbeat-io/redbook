@@ -22,6 +22,7 @@ extension AlbumDetail {
       album?.attributes?.artistName ?? ""
     }
     var albumArtwork: URL {
+      // TODO: Using the third party placeholder image is dangerous
       album?.attributes?.artwork.url(forWidth: 1000) ?? URL(string: "https://via.placeholder.com/1000x1000?text=Getting+artwork...")!
     }
     var albumTracks: [Int:[Track]] {

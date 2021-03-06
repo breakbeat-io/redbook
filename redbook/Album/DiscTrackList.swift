@@ -22,12 +22,11 @@ struct DiscTrackList: View {
           .fontWeight(.bold)
       }
       ForEach(discTracks) { track in
-        if track.attributes != nil {
-          // TODO: get rid of forced unwraps
-          TrackDetail(trackNumber: track.attributes!.trackNumber,
-                      trackArtist: track.attributes!.artistName,
-                      trackName: track.attributes!.name,
-                      trackDuration: track.attributes!.duration!,
+        track.attributes.map { attributes in
+          TrackDetail(trackNumber: attributes.trackNumber,
+                      trackArtist: attributes.artistName,
+                      trackName: attributes.name,
+                      trackDuration: attributes.duration ?? "--:--",
                       albumArtist: albumArtist)
         }
         
