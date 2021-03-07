@@ -14,12 +14,11 @@ struct Search: View {
   @Environment(\.presentationMode) var presentationMode
   
   @StateObject var viewModel: ViewModel
-  @State private var searchTerm: String = ""
   
   var body: some View {
     NavigationView {
       VStack{
-        SearchBar(searchTerm: $searchTerm)
+        SearchBar(viewModel: viewModel)
         SearchResults(viewModel: viewModel)
       }
       .navigationBarTitle("Add Album", displayMode: .inline)
@@ -33,8 +32,5 @@ struct Search: View {
         }
       }
     }
-    .onChange(of: searchTerm, perform: { searchTerm in
-      viewModel.debouncedSearch(for: searchTerm)
-    })
   }
 }

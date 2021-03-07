@@ -14,29 +14,33 @@ extension Search {
   class ViewModel: ObservableObject {
     
     @Published private(set) var searchResults: [Album] = []
+    @Published var searchTerm: String = "" {
+      didSet {
+        self.debouncedSearch()
+      }
+    }
     
-    var slotPosition: Int
-    var searchTimer: Timer?
+    private var slotPosition: Int
+    private var searchTimer: Timer?
     
     init(slotPosition: Int) {
       self.slotPosition = slotPosition
     }
     
-    // TODO: do I ever need a non-debounced search?
-    func debouncedSearch(for searchTerm: String) {
+    func debouncedSearch() {
       searchTimer?.invalidate()
       searchTimer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { _ in
         DispatchQueue.main.async {
-          if searchTerm == "" {
+          if self.searchTerm == "" {
             self.clearResults()
           } else {
-            self.search(for: searchTerm)
+            self.search()
           }
         }
       }
     }
     
-    func search(for searchTerm: String) {
+    func search() {
       RecordStore.appleMusic.search(term: searchTerm, limit: 20, types: [.albums]) { results, error in
         if let results = results {
           if let albums = results.albums?.data {
@@ -61,7 +65,7 @@ extension Search {
       RecordStore.appleMusic.album(id: albumId, completion: { album, error in
         if let album = album {
           DispatchQueue.main.async {
-            print("gonna add album \(album.attributes!.name) to slot \(self.slotPosition)")
+            print("TODO: add album \(album.attributes!.name) to slot \(self.slotPosition)")
           }
         }
         
