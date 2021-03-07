@@ -16,7 +16,7 @@ struct OnRotation: View {
     NavigationView {
       ScrollView {
         ForEach(viewModel.slots) { slot in
-          EmptyCard()
+          EmptyCard(slotPosition: Int(slot.position))
             .frame(height: 61)
         }
       }

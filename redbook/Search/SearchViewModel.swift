@@ -15,7 +15,12 @@ extension Search {
     
     @Published private(set) var searchResults: [Album] = []
     
+    var slotPosition: Int
     var searchTimer: Timer?
+    
+    init(slotPosition: Int) {
+      self.slotPosition = slotPosition
+    }
     
     // TODO: do I ever need a non-debounced search?
     func debouncedSearch(for searchTerm: String) {
@@ -51,5 +56,23 @@ extension Search {
     func clearResults() {
       searchResults = []
     }
+    
+    func addAlbumToSlot(albumId: String) {
+      RecordStore.appleMusic.album(id: albumId, completion: { album, error in
+        if let album = album {
+          DispatchQueue.main.async {
+            print("gonna add album \(album.attributes!.name) to slot \(self.slotPosition)")
+          }
+        }
+        
+        if let error = error {
+          os_log("💎 Load Album error: %s", String(describing: error))
+          // TODO: create another action to show an error in album add.
+        }
+      })
+    }
+      
+    
+    
   }
 }

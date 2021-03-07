@@ -20,7 +20,7 @@ struct Search: View {
     NavigationView {
       VStack{
         SearchBar(searchTerm: $searchTerm)
-        SearchResults(searchResults: viewModel.searchResults)
+        SearchResults(viewModel: viewModel)
       }
       .navigationBarTitle("Add Album", displayMode: .inline)
       .toolbar {

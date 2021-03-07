@@ -184,8 +184,8 @@
 		D2B1A50525F28BA50083BA92 /* Album */ = {
 			isa = PBXGroup;
 			children = (
-				D2B1A51A25F2E4640083BA92 /* AlbumDetailViewModel.swift */,
 				D2B1A50625F28C5E0083BA92 /* AlbumDetail.swift */,
+				D2B1A51A25F2E4640083BA92 /* AlbumDetailViewModel.swift */,
 				D2B1A50A25F28DE60083BA92 /* AlbumCover.swift */,
 				D2B1A50E25F28F210083BA92 /* TrackList.swift */,
 				D2B1A51225F290160083BA92 /* DiscTrackList.swift */,

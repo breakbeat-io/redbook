@@ -10,6 +10,7 @@ import SwiftUI
 struct EmptyCard: View {
 
   @State private var showSearch = false
+  let slotPosition: Int
 
   var body: some View {
     Button {
@@ -24,7 +25,7 @@ struct EmptyCard: View {
         )
     }
     .sheet(isPresented: $showSearch) {
-      Search(viewModel: .init())
+      Search(viewModel: .init(slotPosition: slotPosition))
     }
   }
 }

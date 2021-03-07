@@ -11,23 +11,35 @@ import HMV
 
 struct SearchResults: View {
   
-  let searchResults: [Album]
+  // TODO: not sure here what the property wrapper should be but this follows what i think docs say as I want to observe it but is owned by someone else ...
+  @ObservedObject var viewModel: Search.ViewModel
   
   var body: some View {
     // TODO: lots of view formatting here, is it needed?
-    List(searchResults) { album in
-      NavigationLink(destination: AlbumDetail(viewModel: .init(), albumId: album.id)) {
+    List(viewModel.searchResults) { album in
+      NavigationLink(
+        destination: AlbumDetail(viewModel: .init(), albumId: album.id)
+          .toolbar {
+            ToolbarItem(placement: .confirmationAction) {
+              Button {
+                viewModel.addAlbumToSlot(albumId: album.id)
+              } label: {
+                Text("Add")
+              }
+            }
+          }
+      ) {
         HStack {
           KFImage(album.attributes!.artwork.url(forWidth: 50))
             .placeholder {
               RoundedRectangle(cornerRadius: CSS.cardCornerRadius)
                 .fill(Color(UIColor.secondarySystemBackground))
-          }
-          .renderingMode(.original)
-          .resizable()
-          .aspectRatio(contentMode: .fit)
-          .cornerRadius(CSS.cardCornerRadius)
-          .frame(width: 50)
+            }
+            .renderingMode(.original)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .cornerRadius(CSS.cardCornerRadius)
+            .frame(width: 50)
           VStack(alignment: .leading) {
             Text(album.attributes?.name ?? "")
               .font(.headline)
@@ -36,16 +48,6 @@ struct SearchResults: View {
               .font(.subheadline)
               .lineLimit(1)
           }
-          Spacer()
-          // TODO: feels like a bit of a cheat to use a button but with an onTap... to get around the NavigationLink stealing the tap
-          Button { } label: {
-            Text(Image(systemName: "plus"))
-              .padding()
-              .foregroundColor(.secondary)
-          }
-          .onTapGesture(perform: {
-            print("hello")
-          })
         }
       }
     }
