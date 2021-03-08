@@ -33,41 +33,42 @@ class DataController: ObservableObject {
   func bootstrap() {
     os_log("🔊 Bootstrapping")
     
-    let librariesFetch: NSFetchRequest<NSFetchRequestResult> = Library.fetchRequest()
-    var libraryCount: Int
+    let onRotationFetch: NSFetchRequest<Collection> = Collection.fetchRequest()
+    onRotationFetch.predicate = NSPredicate(format: "type == %@", "onRotation")
+    var onRotationCount: Int
     
     do {
-      libraryCount = try container.viewContext.count(for: librariesFetch)
+      onRotationCount = try container.viewContext.count(for: onRotationFetch)
     } catch {
       os_log("🔊 Library count threw an error!")
       fatalError()
     }
     
-    switch libraryCount {
+    switch onRotationCount {
     case 0:
-      os_log("🔊 No Library!")
-      createLibrary()
+      os_log("🔊 No On Rotation collection found .. creating ...")
+      createOnRotation()
     case 1:
-      os_log("🔊 Found a single library!")
-      validateLibrary()
+      os_log("🔊 Found a single On Rotation collection.")
     case 2...:
-      os_log("🔊 Found \(libraryCount) existing Libraries!")
-      validateLibrary()
+      os_log("🔊 Found \(onRotationCount) existing On Rotation collections ... validating ...")
+      validateOnRotation()
     default:
       fatalError()
     }
   }
   
-  private func validateLibrary() {
-    os_log("🔊 Validating Library! NOT IMPLEMENTED")
+  private func validateOnRotation() {
+    os_log("🔊 Validating On Rotation ... NOT IMPLEMENTED")
   }
   
-  private func createLibrary() {
-    os_log("🔊 Creating Library!")
+  private func createOnRotation() {
+    os_log("🔊 Creating On Rotation collection ...")
     
     let viewContext = container.viewContext
     
     let onRotation = Collection(context: viewContext)
+    onRotation.type = "onRotation"
     onRotation.name = "On Rotation"
     onRotation.slots = []
     onRotation.curator = "Music Lover"
@@ -76,9 +77,6 @@ class DataController: ObservableObject {
       slot.collection = onRotation
       slot.position = Int16(i)
     }
-    
-    let library = Library(context: viewContext)
-    library.onRotation = onRotation
     
     do {
       try viewContext.save()
@@ -111,10 +109,6 @@ class DataController: ObservableObject {
     let collectionFetch: NSFetchRequest<NSFetchRequestResult> = Collection.fetchRequest()
     let collectionBatchDeleteRequest = NSBatchDeleteRequest(fetchRequest: collectionFetch)
     _ = try? container.viewContext.execute(collectionBatchDeleteRequest)
-    
-    let libraryFetch: NSFetchRequest<NSFetchRequestResult> = Library.fetchRequest()
-    let libraryBatchDeleteRequest = NSBatchDeleteRequest(fetchRequest: libraryFetch)
-    _ = try? container.viewContext.execute(libraryBatchDeleteRequest)
 
   }
   
@@ -122,14 +116,11 @@ class DataController: ObservableObject {
 
     let viewContext = container.viewContext
     
-    let library = Library(context: viewContext)
-    
     let onRotation = Collection(context: viewContext)
+    onRotation.type = "onRotation"
     onRotation.name = "On Rotation"
     onRotation.slots = []
     onRotation.curator = "@iamhepto"
-    
-    library.onRotation = onRotation
 
     for i in 1...8 {
       let slot = Slot(context: viewContext)

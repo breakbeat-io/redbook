@@ -38,7 +38,7 @@ extension OnRotation {
     
     func loadSlots() {
       let onRotationFetch: NSFetchRequest<Collection> = Collection.fetchRequest()
-      onRotationFetch.predicate = NSPredicate(format: "onRotationLibrary != nil")
+      onRotationFetch.predicate = NSPredicate(format: "type == %@", "onRotation")
       
       do {
         let onRotation = try coreDataStore.fetch(onRotationFetch).first
