@@ -40,7 +40,7 @@ class DataController: ObservableObject {
     do {
       onRotationCount = try container.viewContext.count(for: onRotationFetch)
     } catch {
-      os_log("🔊 Library count threw an error!")
+      os_log("🔊 On Rotation count threw an error!")
       fatalError()
     }
     
