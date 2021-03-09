@@ -16,8 +16,14 @@ struct OnRotation: View {
     NavigationView {
       ScrollView {
         ForEach(viewModel.slots) { slot in
-          EmptyCard(slotPosition: Int(slot.position))
-            .frame(height: 61)
+          if slot.source != nil {
+            SourceCard(title: slot.source!.title!, artist: slot.source!.artist!, artworkURL: slot.source!.artworkURL!)
+              .frame(height: 61)
+          } else {
+            EmptyCard(slotPosition: Int(slot.position))
+              .frame(height: 61)
+          }
+          
         }
       }
       .padding(.horizontal)
@@ -60,7 +66,7 @@ extension OnRotation {
     
     func resetStore() {
       DataController.shared.deleteAll()
-      try? DataController.shared.createSampleData()
+      DataController.shared.bootstrap()
     }
     
   }
