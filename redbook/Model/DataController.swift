@@ -112,32 +112,4 @@ class DataController {
 
   }
   
-  func createSampleData() throws {
-
-    let viewContext = container.viewContext
-    
-    let onRotation = Collection(context: viewContext)
-    onRotation.type = "onRotation"
-    onRotation.name = "On Rotation"
-    onRotation.slots = []
-    onRotation.curator = "@iamhepto"
-
-    for i in 1...8 {
-      let slot = Slot(context: viewContext)
-      slot.collection = onRotation
-      slot.position = Int16(i)
-      
-      let source = Source(context: viewContext)
-      source.title = "Album \(i)"
-      source.artist = "iamhepto"
-      source.playbackURL = URL(string: "https://itunes.apple.com/us/album/born-to-run/id310730204")
-      source.artworkURL = URL(string: "https://picsum.photos/500/500?random=\(i)")
-      
-      slot.source = source
-    }
-
-    try viewContext.save()
-
-  }
-  
 }
