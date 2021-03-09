@@ -13,6 +13,7 @@ struct SearchResults: View {
   
   // TODO: not sure here what the property wrapper should be but this follows what i think docs say as I want to observe it but is owned by someone else ...
   @ObservedObject var viewModel: Search.ViewModel
+  @Binding var isPresented: Bool
   
   var body: some View {
     // TODO: lots of view formatting here, is it needed?
@@ -23,6 +24,7 @@ struct SearchResults: View {
             ToolbarItem(placement: .confirmationAction) {
               Button {
                 viewModel.addAlbumToSlot(albumId: album.id)
+                isPresented = false
               } label: {
                 Text("Add")
               }

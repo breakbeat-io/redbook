@@ -14,18 +14,19 @@ struct Search: View {
   @Environment(\.presentationMode) var presentationMode
   
   @StateObject var viewModel: ViewModel
+  @Binding var isPresented: Bool
   
   var body: some View {
     NavigationView {
       VStack{
         SearchBar(viewModel: viewModel)
-        SearchResults(viewModel: viewModel)
+        SearchResults(viewModel: viewModel, isPresented: $isPresented)
       }
       .navigationBarTitle("Add Album", displayMode: .inline)
       .toolbar {
         ToolbarItem(placement: .cancellationAction) {
           Button {
-            presentationMode.wrappedValue.dismiss()
+            isPresented = false
           } label: {
             Text("Close")
           }
