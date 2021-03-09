@@ -56,6 +56,7 @@ extension OnRotation {
     override init() {
       let onRotationSlotsFetch: NSFetchRequest<Slot> = Slot.fetchRequest()
       onRotationSlotsFetch.sortDescriptors = [NSSortDescriptor(keyPath: \Slot.position, ascending: true)]
+      onRotationSlotsFetch.predicate = NSPredicate(format: "collection.type = %@", "onRotation")
       
       onRotationSlotsController = NSFetchedResultsController(
         fetchRequest: onRotationSlotsFetch,
