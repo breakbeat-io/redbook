@@ -10,11 +10,12 @@
 #     https://docs.fastlane.tools/plugins/available-plugins
 #
 
+opt_out_usage
+
 # Uncomment the line if you want fastlane to automatically update itself
 update_fastlane
 
 skip_docs
-opt_out_usage
 
 branch_scheme = { "develop" => "redbook (iOS) - Alpha",
   "beta" => "redbook (iOS) - Beta",
