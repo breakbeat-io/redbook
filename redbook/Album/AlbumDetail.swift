@@ -11,7 +11,7 @@ import HMV
 
 struct AlbumDetail: View {
   
-  @StateObject var viewModel: ViewModel
+  @StateObject var viewModel = ViewModel()
   var albumId: String
   
   var body: some View {
