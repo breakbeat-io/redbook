@@ -26,6 +26,14 @@ jobs:
       - name: Install bundler dependencies
         run: bundle install
         
+      - name: Create secrets to pass some ENV to the build
+        env:
+          APP_STORE_CONNECT_TEAM_ID: ${{ secrets.APP_STORE_CONNECT_TEAM_ID }}
+          APPLE_MUSIC_PRIVATE_KEY: ${{ secrets.APPLE_MUSIC_PRIVATE_KEY }}
+          APPLE_MUSIC_KEY_ID: ${{ secrets.APPLE_MUSIC_KEY_ID }}
+        run: |
+          exec: .github/scripts/create-secrets.sh
+        
       - name: Import signing certificate
         env:
           APP_STORE_SIGNING_CERTIFICATE: ${{ secrets.APP_STORE_SIGNING_CERTIFICATE }}
