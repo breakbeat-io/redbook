@@ -52,6 +52,19 @@ struct SearchResults: View {
           }
         }
       }
+      .contextMenu(ContextMenu(menuItems: {
+        Button {
+          viewModel.addAlbumToSlot(albumId: album.id)
+        } label: {
+          Label("Add", systemImage: "plus")
+        }
+        Button {
+          //
+        } label: {
+          Label("Share", systemImage: "square.and.arrow.up")
+        }
+        .disabled(true)
+      }))
     }
   }
 }
