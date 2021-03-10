@@ -32,7 +32,7 @@ jobs:
           APPLE_MUSIC_PRIVATE_KEY: ${{ secrets.APPLE_MUSIC_PRIVATE_KEY }}
           APPLE_MUSIC_KEY_ID: ${{ secrets.APPLE_MUSIC_KEY_ID }}
         run: |
-          exec: .github/scripts/create-secrets.sh
+          exec .github/scripts/create-secrets.sh
         
       - name: Import signing certificate
         env:
