@@ -34,6 +34,9 @@ extension AlbumDetail {
       }
       return albumTracks
     }
+    var albumPlaybackURL: URL? {
+      album?.attributes?.url
+    }
     
     
     // TODO: loading states to show spinners

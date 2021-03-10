@@ -20,6 +20,10 @@ struct AlbumDetail: View {
                  albumArtist: viewModel.albumArtist,
                  albumArtwork: viewModel.albumArtwork)
         .padding(.bottom)
+      viewModel.albumPlaybackURL.map { url in
+        PlaybackLink(playbackURL: url)
+          .padding(.bottom)
+      }
       TrackList(albumTracks: viewModel.albumTracks,
                 albumArtist: viewModel.albumArtist)
     }
