@@ -106,6 +106,7 @@
 			children = (
 				D21C3CA72572C4E7000CB93F /* build.sh */,
 				D21C3CA82572C4F1000CB93F /* Fastfile */,
+				D2D21E4D25F178EB00BA31AD /* pre-actions */,
 				D21C3CA92572C508000CB93F /* .github */,
 			);
 			name = Build;
@@ -154,7 +155,6 @@
 				D2062B8C257CE4F500E6BD95 /* redbook.entitlements */,
 				D2D21E5425F17B2F00BA31AD /* secrets.xcconfig */,
 				D2D21E5725F17B5100BA31AD /* secrets.xcconfig.sample */,
-				D2D21E4D25F178EB00BA31AD /* pre-actions */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";

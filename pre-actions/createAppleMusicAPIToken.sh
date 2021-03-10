@@ -2,7 +2,7 @@
 
 SCRIPTPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 
-# Delete any existing key/token FIRST so that if rest of script fails, app will not run (Xcode does not detect a failing pre-action).
+# Delete any existing key/token FIRST so that if rest of script fails, app will not run (Xcode does not fail build from a failing pre-action).
 sed -i '' "/APPLE_MUSIC_API_TOKEN/d" $SRCROOT/redbook/Configuration/secrets.xcconfig
 
 echo "Generating Apple Music API Token."
