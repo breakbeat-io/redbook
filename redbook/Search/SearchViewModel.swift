@@ -65,36 +65,32 @@ extension Search {
     func addAlbumToSlot(albumId: String) {
       RecordStore.appleMusic.album(id: albumId, completion: { album, error in
         if let album = album {
-          DispatchQueue.main.async {
-            print("TODO: add album \(album.attributes!.name) to slot \(self.slotPosition)")
-            
-            let onRotationFetch: NSFetchRequest<Collection> = Collection.fetchRequest()
-            onRotationFetch.predicate = NSPredicate(format: "type == %@", "onRotation")
-            
-            let slot: Slot
-            
-            do {
-              let onRotation = try DataController.shared.container.viewContext.fetch(onRotationFetch).first
-              slot = onRotation?.slots?.first(where: { ($0 as! Slot).position == self.slotPosition }) as! Slot
-            } catch {
-              fatalError()
-            }
-            
-            let source = Source(context: DataController.shared.container.viewContext)
-            source.providerId = album.id
-            source.artist = album.attributes?.artistName
-            source.title = album.attributes?.name
-            source.artworkURL = album.attributes?.artwork.url(forWidth: 1000)
-            source.playbackURL = URL(string: album.href)
-            source.slot = slot
-            
-            do {
-              try DataController.shared.container.viewContext.save()
-            } catch {
-              fatalError()
-            }
-            
+          let onRotationFetch: NSFetchRequest<Collection> = Collection.fetchRequest()
+          onRotationFetch.predicate = NSPredicate(format: "type == %@", "onRotation")
+          
+          let slot: Slot
+          
+          do {
+            let onRotation = try DataController.shared.container.viewContext.fetch(onRotationFetch).first
+            slot = onRotation?.slots?.first(where: { ($0 as! Slot).position == self.slotPosition }) as! Slot
+          } catch {
+            fatalError()
           }
+          
+          let source = Source(context: DataController.shared.container.viewContext)
+          source.providerId = album.id
+          source.artist = album.attributes?.artistName
+          source.title = album.attributes?.name
+          source.artworkURL = album.attributes?.artwork.url(forWidth: 1000)
+          source.playbackURL = URL(string: album.href)
+          source.slot = slot
+          
+          do {
+            try DataController.shared.container.viewContext.save()
+          } catch {
+            fatalError()
+          }
+          
         }
         
         if let error = error {
@@ -103,7 +99,7 @@ extension Search {
         }
       })
     }
-      
+    
     
     
   }

@@ -21,7 +21,7 @@ struct OnRotation: View {
               destination: AlbumDetail(albumId: source.sourceProviderID, showPlaybackLink: true)
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
-                  ToolbarItem(placement: .navigationBarTrailing) {
+                  ToolbarItem(placement: .destructiveAction) {
                     Button {
                       viewModel.removeSource(source: source)
                     } label: {
