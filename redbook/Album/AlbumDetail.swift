@@ -13,6 +13,7 @@ struct AlbumDetail: View {
   
   @StateObject var viewModel = ViewModel()
   var albumId: String
+  var showPlaybackLink: Bool
   
   var body: some View {
     ScrollView {
@@ -20,9 +21,11 @@ struct AlbumDetail: View {
                  albumArtist: viewModel.albumArtist,
                  albumArtwork: viewModel.albumArtwork)
         .padding(.bottom)
-      viewModel.albumPlaybackURL.map { url in
-        PlaybackLink(playbackURL: url)
-          .padding(.bottom)
+      if showPlaybackLink {
+        viewModel.albumPlaybackURL.map { url in
+          PlaybackLink(playbackURL: url)
+            .padding(.bottom)
+        }
       }
       TrackList(albumTracks: viewModel.albumTracks,
                 albumArtist: viewModel.albumArtist)

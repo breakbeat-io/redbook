@@ -19,7 +19,7 @@ struct SearchResults: View {
     // TODO: lots of view formatting here, is it needed?
     List(viewModel.searchResults) { album in
       NavigationLink(
-        destination: AlbumDetail(viewModel: .init(), albumId: album.id)
+        destination: AlbumDetail(viewModel: .init(), albumId: album.id, showPlaybackLink: false)
           .toolbar {
             ToolbarItem(placement: .confirmationAction) {
               Button {
