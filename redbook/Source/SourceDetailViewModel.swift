@@ -28,11 +28,11 @@ extension SourceDetail {
     var sourceTracks: [Int:[Track]] {
       let allTracks = source?.relationships?.tracks.data ?? [Track]()
       let numberOfDiscs = allTracks.map { $0.attributes?.discNumber ?? 1 }.max() ?? 1
-      var albumTracks = [Int: [Track]]()
+      var sourceTracks = [Int: [Track]]()
       for i in 1...numberOfDiscs {
-        albumTracks[i] = allTracks.filter { $0.attributes?.discNumber == i }
+        sourceTracks[i] = allTracks.filter { $0.attributes?.discNumber == i }
       }
-      return albumTracks
+      return sourceTracks
     }
     var sourcePlaybackURL: URL? {
       source?.attributes?.url
