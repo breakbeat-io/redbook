@@ -58,8 +58,8 @@ extension Search {
       searchResults = []
     }
     
-    func addSourceToSlot(albumId: String) {
-      RecordStore.appleMusic.album(id: albumId, completion: { album, error in
+    func addSourceToSlot(sourceId: String) {
+      RecordStore.appleMusic.album(id: sourceId, completion: { album, error in
         if let album = album {
           let onRotationFetch: NSFetchRequest<Collection> = Collection.fetchRequest()
           onRotationFetch.predicate = NSPredicate(format: "type == %@", "onRotation")

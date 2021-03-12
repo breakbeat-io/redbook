@@ -24,7 +24,7 @@ struct Search: View {
             viewModel.debouncedSearch(for: searchTerm)
           }
         SearchResults(searchResults: viewModel.searchResults) { sourceId in
-          viewModel.addSourceToSlot(albumId: sourceId)
+          viewModel.addSourceToSlot(sourceId: sourceId)
           presentationMode.wrappedValue.dismiss()
         }
       }

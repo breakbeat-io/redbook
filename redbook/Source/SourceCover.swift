@@ -12,12 +12,12 @@ struct SourceCover: View {
   
   let sourceName: String
   let sourceArtist: String
-  var sourceArtwork: URL
+  var sourceArtworkURL: URL
   
   var body: some View {
     // TODO: lots of formatting here, is it needed?
     VStack(alignment: .leading) {
-      KFImage(sourceArtwork)
+      KFImage(sourceArtworkURL)
         .placeholder {
           RoundedRectangle(cornerRadius: 4)
             .fill(Color(UIColor.secondarySystemBackground))

@@ -17,18 +17,18 @@ struct SourceDetail: View {
   
   var body: some View {
     ScrollView {
-      SourceCover(sourceName: viewModel.albumName,
-                 sourceArtist: viewModel.albumArtist,
-                 sourceArtwork: viewModel.albumArtwork)
+      SourceCover(sourceName: viewModel.sourceName,
+                 sourceArtist: viewModel.sourceArtist,
+                 sourceArtworkURL: viewModel.sourceArtworkURL)
         .padding(.bottom)
       if showPlaybackLink {
-        viewModel.albumPlaybackURL.map { url in
+        viewModel.sourcePlaybackURL.map { url in
           PlaybackLink(playbackURL: url)
             .padding(.bottom)
         }
       }
-      TrackList(sourceTracks: viewModel.albumTracks,
-                sourceArtist: viewModel.albumArtist)
+      TrackList(sourceTracks: viewModel.sourceTracks,
+                sourceArtist: viewModel.sourceArtist)
     }
     .padding()
     .onAppear() {

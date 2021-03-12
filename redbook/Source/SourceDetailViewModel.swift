@@ -15,17 +15,17 @@ extension SourceDetail {
     
     @Published private(set) var source: Album?
     
-    var albumName: String {
+    var sourceName: String {
       source?.attributes?.name ?? ""
     }
-    var albumArtist: String {
+    var sourceArtist: String {
       source?.attributes?.artistName ?? ""
     }
-    var albumArtwork: URL {
+    var sourceArtworkURL: URL {
       // TODO: Using the third party placeholder image is dangerous
       source?.attributes?.artwork.url(forWidth: 1000) ?? URL(string: "https://via.placeholder.com/1000x1000?text=Getting+artwork...")!
     }
-    var albumTracks: [Int:[Track]] {
+    var sourceTracks: [Int:[Track]] {
       let allTracks = source?.relationships?.tracks.data ?? [Track]()
       let numberOfDiscs = allTracks.map { $0.attributes?.discNumber ?? 1 }.max() ?? 1
       var albumTracks = [Int: [Track]]()
@@ -34,7 +34,7 @@ extension SourceDetail {
       }
       return albumTracks
     }
-    var albumPlaybackURL: URL? {
+    var sourcePlaybackURL: URL? {
       source?.attributes?.url
     }
     
