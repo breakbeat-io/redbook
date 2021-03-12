@@ -67,13 +67,13 @@ extension Search {
           let slot: Slot
           
           do {
-            let onRotation = try DataController.shared.container.viewContext.fetch(onRotationFetch).first
+            let onRotation = try PersistenceController.shared.container.viewContext.fetch(onRotationFetch).first
             slot = onRotation?.slots?.first(where: { ($0 as! Slot).position == self.slotPosition }) as! Slot
           } catch {
             fatalError()
           }
           
-          let source = Source(context: DataController.shared.container.viewContext)
+          let source = Source(context: PersistenceController.shared.container.viewContext)
           source.providerId = album.id
           source.artist = album.attributes?.artistName
           source.name = album.attributes?.name
@@ -82,7 +82,7 @@ extension Search {
           source.slot = slot
           
           do {
-            try DataController.shared.container.viewContext.save()
+            try PersistenceController.shared.container.viewContext.save()
           } catch {
             fatalError()
           }

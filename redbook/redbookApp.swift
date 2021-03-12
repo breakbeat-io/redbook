@@ -10,19 +10,19 @@ import SwiftUI
 @main
 struct redbookApp: App {
   
-  let dataController = DataController.shared
+  let persistenceController = PersistenceController.shared
   
   init() {
     
     checkKeys()
-    dataController.bootstrap()
+    persistenceController.bootstrap()
     
   }
   
   var body: some Scene {
     WindowGroup {
       Home()
-        .environment(\.managedObjectContext, dataController.container.viewContext)
+        .environment(\.managedObjectContext, persistenceController.container.viewContext)
     }
   }
   

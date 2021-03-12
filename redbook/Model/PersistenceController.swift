@@ -1,5 +1,5 @@
 //
-//  DataController.swift
+//  PersistenceController.swift
 //  Shared
 //
 //  Created by Greg Hepworth on 29/10/2020.
@@ -9,9 +9,9 @@ import CoreData
 import SwiftUI
 import os.log
 
-class DataController {
+class PersistenceController {
   
-  static let shared = DataController()
+  static let shared = PersistenceController()
 
   let container: NSPersistentCloudKitContainer
   

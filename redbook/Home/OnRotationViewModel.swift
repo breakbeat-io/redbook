@@ -7,56 +7,25 @@
 
 import Foundation
 import CoreData
+import Combine
 
 extension OnRotation {
-  class ViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate {
-    
-    let coreDataStore = DataController.shared.container.viewContext
+  class ViewModel: ObservableObject {
     
     @Published var slots = [Slot]()
-    private let onRotationSlotsController: NSFetchedResultsController<Slot>
     
-    override init() {
-      let onRotationSlotsFetch: NSFetchRequest<Slot> = Slot.fetchRequest()
-      onRotationSlotsFetch.sortDescriptors = [NSSortDescriptor(keyPath: \Slot.position, ascending: true)]
-      onRotationSlotsFetch.predicate = NSPredicate(format: "collection.type = %@", "onRotation")
-      
-      onRotationSlotsController = NSFetchedResultsController(
-        fetchRequest: onRotationSlotsFetch,
-        managedObjectContext: coreDataStore,
-        sectionNameKeyPath: nil,
-        cacheName: nil
-      )
-      
-      super.init()
-      onRotationSlotsController.delegate = self
-      
-      do {
-        try onRotationSlotsController.performFetch()
-        slots = onRotationSlotsController.fetchedObjects ?? []
-      } catch {
-        fatalError()
+    private var slotSubscriber: AnyCancellable?
+    
+    init(slotPublisher: AnyPublisher<[Slot], Never> = SlotProvider.shared.slots.eraseToAnyPublisher()) {
+      slotSubscriber = slotPublisher.sink { slots in
+        self.slots = slots.filter({ $0.collection!.type == "onRotation" })
       }
       
     }
-    
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-      if let changedOnRotationSlots = controller.fetchedObjects as? [Slot] {
-        slots = changedOnRotationSlots
-      }
-    }
-    
+      
     func removeSource(source: Source) {
-      coreDataStore.delete(source)
-      // TODO: this works, but if I call it in delete instead it doesn't - dunno why but wanna know!
-      try? coreDataStore.save()
+      SlotProvider.shared.delete(source: source)
     }
-    
-    // TODO: remove as temporary until delete is implemented
-    func resetStore() {
-      DataController.shared.deleteAll()
-      exit(1)
-    }
-    
+
   }
 }
