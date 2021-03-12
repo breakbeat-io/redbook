@@ -13,7 +13,7 @@ struct TrackDetail: View {
   let trackArtist: String
   let trackName: String
   let trackDuration: String
-  let albumArtist: String
+  let sourceArtist: String
   
   var body: some View {
     // TODO: lots of view formatting here, is it needed?
@@ -28,7 +28,7 @@ struct TrackDetail: View {
           .font(.callout)
           .fontWeight(.medium)
           .lineLimit(1)
-        if trackArtist != albumArtist {
+        if trackArtist != sourceArtist {
           Text(trackArtist)
             .font(.callout)
             .fontWeight(.light)

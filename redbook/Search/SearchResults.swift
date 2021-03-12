@@ -11,14 +11,14 @@ import HMV
 
 struct SearchResults: View {
 
-  let searchResults: [Album]
+  let searchResults: [AppleMusicAlbum]
   let add: (_ albumId: String) -> Void
   
   var body: some View {
     // TODO: lots of view formatting here, is it needed?
     List(searchResults) { album in
       NavigationLink(
-        destination: AlbumDetail(viewModel: .init(), albumId: album.id, showPlaybackLink: false)
+        destination: SourceDetail(viewModel: .init(), sourceId: album.id, showPlaybackLink: false)
           .toolbar {
             ToolbarItem(placement: .confirmationAction) {
               Button {

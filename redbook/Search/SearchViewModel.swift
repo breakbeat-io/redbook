@@ -14,8 +14,9 @@ extension Search {
   
   class ViewModel: ObservableObject {
     
-    @Published private(set) var searchResults: [Album] = []
+    @Published private(set) var searchResults: [AppleMusicAlbum] = []
     
+    // TODO: not sure whether to keep slotPosition tucked into the VM or should be passed in from the view 🤔
     private var slotPosition: Int
     private var searchTimer: Timer?
     
@@ -57,7 +58,7 @@ extension Search {
       searchResults = []
     }
     
-    func addAlbumToSlot(albumId: String) {
+    func addSourceToSlot(albumId: String) {
       RecordStore.appleMusic.album(id: albumId, completion: { album, error in
         if let album = album {
           let onRotationFetch: NSFetchRequest<Collection> = Collection.fetchRequest()

@@ -10,17 +10,17 @@ import HMV
 
 struct TrackList: View {
   
-  let albumTracks: [Int:[Track]]
-  let albumArtist: String
+  let sourceTracks: [Int:[Track]]
+  let sourceArtist: String
   
   var body: some View {
     VStack {
-      ForEach(1...albumTracks.count, id: \.self) { discNumber in
+      ForEach(1...sourceTracks.count, id: \.self) { discNumber in
         DiscTrackList(
           discNumber: discNumber,
-          discTracks: albumTracks[discNumber]!,
-          showDiscNumber: albumTracks.count > 1 ? true : false,
-          albumArtist: albumArtist
+          discTracks: sourceTracks[discNumber]!,
+          showDiscNumber: sourceTracks.count > 1 ? true : false,
+          sourceArtist: sourceArtist
         )
       }
       .padding(.bottom)

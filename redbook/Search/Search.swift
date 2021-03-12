@@ -23,8 +23,8 @@ struct Search: View {
           .onChange(of: searchTerm) { searchTerm in
             viewModel.debouncedSearch(for: searchTerm)
           }
-        SearchResults(searchResults: viewModel.searchResults) { albumId in
-          viewModel.addAlbumToSlot(albumId: albumId)
+        SearchResults(searchResults: viewModel.searchResults) { sourceId in
+          viewModel.addSourceToSlot(albumId: sourceId)
           presentationMode.wrappedValue.dismiss()
         }
       }

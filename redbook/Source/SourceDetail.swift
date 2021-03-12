@@ -1,5 +1,5 @@
 //
-//  AlbumDetail.swift
+//  SourceDetail.swift
 //  redbook (iOS)
 //
 //  Created by Greg Hepworth on 05/03/2021.
@@ -9,17 +9,17 @@ import os.log
 import SwiftUI
 import HMV
 
-struct AlbumDetail: View {
+struct SourceDetail: View {
   
   @StateObject var viewModel = ViewModel()
-  var albumId: String
+  var sourceId: String
   var showPlaybackLink: Bool
   
   var body: some View {
     ScrollView {
-      AlbumCover(albumName: viewModel.albumName,
-                 albumArtist: viewModel.albumArtist,
-                 albumArtwork: viewModel.albumArtwork)
+      SourceCover(sourceName: viewModel.albumName,
+                 sourceArtist: viewModel.albumArtist,
+                 sourceArtwork: viewModel.albumArtwork)
         .padding(.bottom)
       if showPlaybackLink {
         viewModel.albumPlaybackURL.map { url in
@@ -27,12 +27,12 @@ struct AlbumDetail: View {
             .padding(.bottom)
         }
       }
-      TrackList(albumTracks: viewModel.albumTracks,
-                albumArtist: viewModel.albumArtist)
+      TrackList(sourceTracks: viewModel.albumTracks,
+                sourceArtist: viewModel.albumArtist)
     }
     .padding()
     .onAppear() {
-      viewModel.loadAlbum(albumId: albumId)
+      viewModel.loadSource(sourceId: sourceId)
     }
   }
 }

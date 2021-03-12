@@ -13,7 +13,7 @@ struct DiscTrackList: View {
   let discNumber: Int
   let discTracks: [Track]
   let showDiscNumber: Bool
-  let albumArtist: String
+  let sourceArtist: String
   
   var body: some View {
     VStack(alignment: .leading) {
@@ -27,7 +27,7 @@ struct DiscTrackList: View {
                       trackArtist: attributes.artistName,
                       trackName: attributes.name,
                       trackDuration: attributes.duration ?? "--:--",
-                      albumArtist: albumArtist)
+                      sourceArtist: sourceArtist)
         }
         
       }
