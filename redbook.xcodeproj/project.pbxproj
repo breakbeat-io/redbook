@@ -232,8 +232,8 @@
 		D2D56B9325ED915B007DC398 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				D2A86AD225F3CE2600F85476 /* SearchViewModel.swift */,
 				D2D56B9425ED916D007DC398 /* Search.swift */,
+				D2A86AD225F3CE2600F85476 /* SearchViewModel.swift */,
 				D253349C25EEF25E00B139FD /* SearchBar.swift */,
 				D253349F25EEF2BC00B139FD /* SearchResults.swift */,
 			);

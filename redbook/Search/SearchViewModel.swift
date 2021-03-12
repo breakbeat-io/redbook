@@ -100,7 +100,5 @@ extension Search {
       })
     }
     
-    
-    
   }
 }

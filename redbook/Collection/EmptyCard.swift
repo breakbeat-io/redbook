@@ -25,7 +25,7 @@ struct EmptyCard: View {
         )
     }
     .sheet(isPresented: $showSearch) {
-      Search(viewModel: .init(slotPosition: slotPosition), isPresented: $showSearch)
+      Search(slotPosition: slotPosition, isPresented: $showSearch)
     }
   }
 }

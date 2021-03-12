@@ -10,21 +10,19 @@ import Kingfisher
 import HMV
 
 struct SearchResults: View {
-  
-  // TODO: not sure here what the property wrapper should be but this follows what i think docs say as I want to observe it but is owned by someone else ...
-  @ObservedObject var viewModel: Search.ViewModel
-  @Binding var isPresented: Bool
+
+  let searchResults: [Album]
+  let add: (_ albumId: String) -> Void
   
   var body: some View {
     // TODO: lots of view formatting here, is it needed?
-    List(viewModel.searchResults) { album in
+    List(searchResults) { album in
       NavigationLink(
         destination: AlbumDetail(viewModel: .init(), albumId: album.id, showPlaybackLink: false)
           .toolbar {
             ToolbarItem(placement: .confirmationAction) {
               Button {
-                viewModel.addAlbumToSlot(albumId: album.id)
-                isPresented = false
+                add(album.id)
               } label: {
                 Text("Add")
               }
@@ -54,12 +52,12 @@ struct SearchResults: View {
       }
       .contextMenu(ContextMenu(menuItems: {
         Button {
-          viewModel.addAlbumToSlot(albumId: album.id)
+          add(album.id)
         } label: {
           Label("Add", systemImage: "plus")
         }
         Button {
-          //
+          // TODO
         } label: {
           Label("Share", systemImage: "square.and.arrow.up")
         }
