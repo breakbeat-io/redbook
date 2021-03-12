@@ -25,7 +25,7 @@ extension Search {
     
     func debouncedSearch(for searchTerm: String) {
       searchTimer?.invalidate()
-      searchTimer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { _ in
+      searchTimer = Timer.scheduledTimer(withTimeInterval: 0.8, repeats: false) { _ in
         DispatchQueue.main.async {
           if searchTerm == "" {
             self.clearResults()
