@@ -11,23 +11,28 @@ import HMV
 
 struct Search: View {
   
+  @Environment(\.presentationMode) var presentationMode
+  
   @StateObject var viewModel: ViewModel
-  @Binding var isPresented: Bool
+  @State var searchTerm: String = ""
   
   var body: some View {
     NavigationView {
       VStack{
-        SearchBar(viewModel: viewModel)
+        SearchBar(searchTerm: $searchTerm)
+          .onChange(of: searchTerm) { searchTerm in
+            viewModel.debouncedSearch(for: searchTerm)
+          }
         SearchResults(searchResults: viewModel.searchResults) { albumId in
           viewModel.addAlbumToSlot(albumId: albumId)
-          isPresented = false
+          presentationMode.wrappedValue.dismiss()
         }
       }
       .navigationBarTitle("Add Album", displayMode: .inline)
       .toolbar {
         ToolbarItem(placement: .cancellationAction) {
           Button {
-            isPresented = false
+            presentationMode.wrappedValue.dismiss()
           } label: {
             Text("Close")
           }
@@ -36,10 +41,9 @@ struct Search: View {
     }
   }
   
-  init(slotPosition: Int, isPresented: Binding<Bool>) {
+  init(slotPosition: Int) {
     let viewModel = ViewModel(slotPosition: slotPosition)
     _viewModel = StateObject(wrappedValue: viewModel)
-    self._isPresented = isPresented
   }
   
 }

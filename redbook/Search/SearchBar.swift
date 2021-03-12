@@ -9,20 +9,20 @@ import SwiftUI
 
 struct SearchBar: View {
   
-  @ObservedObject var viewModel: Search.ViewModel
+  @Binding var searchTerm: String
   
   var body: some View {
     VStack {
       HStack {
         Text(Image(systemName: "magnifyingglass"))
-        TextField("Search music", text: $viewModel.searchTerm)
+        TextField("Search music", text: $searchTerm)
           .foregroundColor(.primary)
           .keyboardType(.webSearch)
         Button {
-          viewModel.searchTerm = ""
+          searchTerm = ""
         } label: {
           Text(Image(systemName: "xmark.circle.fill"))
-            .opacity(viewModel.searchTerm == "" ? 0 : 1)
+            .opacity(searchTerm == "" ? 0 : 1)
         }
       }
       .padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
