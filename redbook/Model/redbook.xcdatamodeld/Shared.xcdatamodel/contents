@@ -14,9 +14,9 @@
     <entity name="Source" representedClassName="Source" syncable="YES" codeGenerationType="class">
         <attribute name="artist" optional="YES" attributeType="String"/>
         <attribute name="artworkURL" optional="YES" attributeType="URI"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="playbackURL" optional="YES" attributeType="URI"/>
         <attribute name="providerId" optional="YES" attributeType="String"/>
-        <attribute name="title" optional="YES" attributeType="String"/>
         <relationship name="slot" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Slot" inverseName="source" inverseEntity="Slot"/>
     </entity>
     <elements>

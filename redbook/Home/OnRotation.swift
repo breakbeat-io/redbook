@@ -31,7 +31,7 @@ struct OnRotation: View {
                   }
                 }
             ) {
-              SourceCard(title: source.sourceTitle, artist: source.sourceArtist, artworkURL: source.sourceArtworkURL)
+              SourceCard(title: source.sourceName, artist: source.sourceArtist, artworkURL: source.sourceArtworkURL)
                 .frame(height: 61)
             }
             .contextMenu(ContextMenu(menuItems: {

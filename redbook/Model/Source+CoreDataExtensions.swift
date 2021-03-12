@@ -17,8 +17,8 @@ extension Source {
         artist ?? "[artist missing]"
     }
     
-    var sourceTitle: String {
-        title ?? "[title missing]"
+    var sourceName: String {
+        name ?? "[name missing]"
     }
     
     var sourceArtworkURL: URL {
