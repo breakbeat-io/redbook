@@ -14,17 +14,20 @@ extension OnRotation {
     
     @Published var slots = [Slot]()
     
+    private var slotProvider = SlotProvider(filterTo: "onRotation")
     private var slotSubscriber: AnyCancellable?
     
-    init(slotPublisher: AnyPublisher<[Slot], Never> = SlotProvider.shared.slots.eraseToAnyPublisher()) {
+    init() {      
+      let slotPublisher: AnyPublisher<[Slot], Never> = slotProvider.slots.eraseToAnyPublisher()
+      
       slotSubscriber = slotPublisher.sink { slots in
-        self.slots = slots.filter({ $0.collection!.type == "onRotation" })
+        self.slots = slots
       }
       
     }
       
     func removeSource(source: Source) {
-      SlotProvider.shared.delete(source: source)
+      slotProvider.delete(source: source)
     }
 
   }

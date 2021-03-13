@@ -13,12 +13,13 @@ class SlotProvider: NSObject, ObservableObject {
   
   var slots = CurrentValueSubject<[Slot], Never>([])
   private let slotFetchController: NSFetchedResultsController<Slot>
-  
-  static let shared: SlotProvider = SlotProvider()
 
-  private override init() {
+  init(filterTo type: String?) {
     
     let slotFetchRequest: NSFetchRequest<Slot> = Slot.fetchRequest()
+    if type != nil {
+      slotFetchRequest.predicate = NSPredicate(format: "collection.type = %@", type!)
+    }
     slotFetchRequest.sortDescriptors = []
     
     slotFetchController = NSFetchedResultsController(
