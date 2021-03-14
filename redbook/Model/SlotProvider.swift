@@ -14,11 +14,11 @@ class SlotProvider: NSObject, ObservableObject {
   var slots = CurrentValueSubject<[Slot], Never>([])
   private let slotFetchController: NSFetchedResultsController<Slot>
 
-  init(filterTo type: String?) {
+  init(restrictToCollectionType collectionType: String = "") {
     
     let slotFetchRequest: NSFetchRequest<Slot> = Slot.fetchRequest()
-    if type != nil {
-      slotFetchRequest.predicate = NSPredicate(format: "collection.type = %@", type!)
+    if !collectionType.isEmpty {
+      slotFetchRequest.predicate = NSPredicate(format: "collection.type = %@", collectionType)
     }
     slotFetchRequest.sortDescriptors = []
     

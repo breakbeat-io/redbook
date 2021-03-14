@@ -14,7 +14,7 @@ extension OnRotation {
     
     @Published var slots = [Slot]()
     
-    private var slotProvider = SlotProvider(filterTo: "onRotation")
+    private var slotProvider = SlotProvider(restrictToCollectionType: "onRotation")
     private var slotSubscriber: AnyCancellable?
     
     init() {      
