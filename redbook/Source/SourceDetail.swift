@@ -15,19 +15,25 @@ struct SourceDetail: View {
   var showPlaybackLink: Bool
   
   var body: some View {
+    
     ScrollView {
-      SourceCover(sourceName: viewModel.sourceName,
-                 sourceArtist: viewModel.sourceArtist,
-                 sourceArtworkURL: viewModel.sourceArtworkURL)
-        .padding(.bottom)
-      if showPlaybackLink {
-        viewModel.sourcePlaybackURL.map { url in
-          PlaybackLink(playbackURL: url)
-            .padding(.bottom)
+      if let source = viewModel.source {
+        SourceCover(sourceName: source.sourceName,
+                    sourceArtist: source.sourceArtist,
+                    sourceArtworkURL: source.sourceArtworkURL)
+          .padding(.bottom)
+        
+        if showPlaybackLink {
+          source.playbackURL.map { url in
+            PlaybackLink(playbackURL: url)
+              .padding(.bottom)
+          }
+        }
+        viewModel.tracks.map { tracks in
+          TrackList(sourceTracks: tracks,
+                    sourceArtist: source.sourceArtist)
         }
       }
-      TrackList(sourceTracks: viewModel.sourceTracks,
-                sourceArtist: viewModel.sourceArtist)
     }
     .padding()
     .onAppear() {

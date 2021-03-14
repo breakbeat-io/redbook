@@ -13,42 +13,16 @@ extension SourceDetail {
   
   class ViewModel: ObservableObject {
     
-    @Published private(set) var source: Album?
-    
-    var sourceName: String {
-      source?.attributes?.name ?? ""
-    }
-    var sourceArtist: String {
-      source?.attributes?.artistName ?? ""
-    }
-    var sourceArtworkURL: URL {
-      // TODO: Using the third party placeholder image is dangerous
-      source?.attributes?.artwork.url(forWidth: 1000) ?? URL(string: "https://via.placeholder.com/1000x1000?text=Getting+artwork...")!
-    }
-    var sourceTracks: [Int:[Track]] {
-      let allTracks = source?.relationships?.tracks.data ?? [Track]()
-      let numberOfDiscs = allTracks.map { $0.attributes?.discNumber ?? 1 }.max() ?? 1
-      var sourceTracks = [Int: [Track]]()
-      for i in 1...numberOfDiscs {
-        sourceTracks[i] = allTracks.filter { $0.attributes?.discNumber == i }
-      }
-      return sourceTracks
-    }
-    var sourcePlaybackURL: URL? {
-      source?.attributes?.url
-    }
-    
-    
-    // TODO: loading states to show spinners
-    
+    @Published private(set) var source: Source?
+    @Published private(set) var tracks: [Int:[Track]]?
     
     func loadSource(sourceId: String) {
-      RecordStore.appleMusic.album(id: sourceId, completion: { album, error in
-        if let album = album {
-          //convert album to source
-          
+      
+      RecordStore.appleMusic.album(id: sourceId, completion: { appleMusicAlbum, error in
+        if let appleMusicAlbum = appleMusicAlbum {
           DispatchQueue.main.async {
-            self.source = album
+            self.source = appleMusicAlbum.toSource()
+            self.tracks = appleMusicAlbum.tracks()
           }
         }
         
