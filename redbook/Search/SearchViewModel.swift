@@ -14,7 +14,7 @@ extension Search {
   
   class ViewModel: ObservableObject {
     
-    @Published private(set) var searchResults: [AppleMusicAlbum] = []
+    @Published private(set) var searchResults: [Source] = []
     
     // TODO: not sure whether to keep slotPosition tucked into the VM or should be passed in from the view 🤔
     private var slotPosition: Int
@@ -40,9 +40,16 @@ extension Search {
     func search(for searchTerm: String) {
       RecordStore.appleMusic.search(term: searchTerm, limit: 20, types: [.albums]) { results, error in
         if let results = results {
-          if let albums = results.albums?.data {
+          if let albumMusicAlbums = results.albums?.data {
+            var sources = [Source]()
+            
+            for appleMusicAlbum in albumMusicAlbums {
+              let source = appleMusicAlbum.toSource()
+              sources.append(source)
+            }
+            
             DispatchQueue.main.async {
-              self.searchResults = albums
+              self.searchResults = sources
             }
           }
         }

@@ -17,7 +17,7 @@ struct OnRotation: View {
         ForEach(viewModel.slots) { slot in
           if let source: Source = slot.source {
             NavigationLink(
-              destination: SourceDetail(sourceId: source.sourceProviderID, showPlaybackLink: true)
+              destination: SourceDetail(sourceId: source.sourceProviderId, showPlaybackLink: true)
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                   ToolbarItem(placement: .destructiveAction) {

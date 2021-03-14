@@ -7,22 +7,21 @@
 
 import SwiftUI
 import Kingfisher
-import HMV
 
 struct SearchResults: View {
-
-  let searchResults: [AppleMusicAlbum]
+  
+  let searchResults: [Source]
   let add: (_ sourceId: String) -> Void
   
   var body: some View {
     // TODO: lots of view formatting here, is it needed?
-    List(searchResults) { album in
+    List(searchResults) { source in
       NavigationLink(
-        destination: SourceDetail(sourceId: album.id, showPlaybackLink: false)
+        destination: SourceDetail(sourceId: source.sourceProviderId, showPlaybackLink: false)
           .toolbar {
             ToolbarItem(placement: .confirmationAction) {
               Button {
-                add(album.id)
+                add(source.sourceProviderId)
               } label: {
                 Text("Add")
               }
@@ -30,7 +29,7 @@ struct SearchResults: View {
           }
       ) {
         HStack {
-          KFImage(album.attributes!.artwork.url(forWidth: 50))
+          KFImage(source.sourceArtworkURL)
             .placeholder {
               RoundedRectangle(cornerRadius: CSS.cardCornerRadius)
                 .fill(Color(UIColor.secondarySystemBackground))
@@ -41,10 +40,10 @@ struct SearchResults: View {
             .cornerRadius(CSS.cardCornerRadius)
             .frame(width: 50)
           VStack(alignment: .leading) {
-            Text(album.attributes?.name ?? "")
+            Text(source.sourceName)
               .font(.headline)
               .lineLimit(1)
-            Text(album.attributes?.artistName ?? "")
+            Text(source.sourceArtist)
               .font(.subheadline)
               .lineLimit(1)
           }
@@ -52,7 +51,7 @@ struct SearchResults: View {
       }
       .contextMenu(ContextMenu(menuItems: {
         Button {
-          add(album.id)
+          add(source.sourceProviderId)
         } label: {
           Label("Add", systemImage: "plus")
         }

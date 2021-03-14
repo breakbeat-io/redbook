@@ -11,6 +11,7 @@
 		D206B25D25EA8D0400A5DA14 /* OnRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D206B25C25EA8D0400A5DA14 /* OnRotation.swift */; };
 		D206B26025EA8D3C00A5DA14 /* CollectionLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D206B25F25EA8D3C00A5DA14 /* CollectionLibrary.swift */; };
 		D206B26325EA8D9900A5DA14 /* Triage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D206B26225EA8D9900A5DA14 /* Triage.swift */; };
+		D22AFF5125FECF610075BB69 /* Source+OptionalHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AFF5025FECF610075BB69 /* Source+OptionalHelpers.swift */; };
 		D242765B254AFE1E00326888 /* redbook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D242762F254AFE1D00326888 /* redbook.xcdatamodeld */; };
 		D242765D254AFE1E00326888 /* redbookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2427631254AFE1D00326888 /* redbookApp.swift */; };
 		D242765F254AFE1E00326888 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2427632254AFE1D00326888 /* Home.swift */; };
@@ -23,7 +24,6 @@
 		D25633FC25EAB53D00232260 /* SourceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25633FB25EAB53D00232260 /* SourceCard.swift */; };
 		D256340125EAB5CA00232260 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D256340025EAB5CA00232260 /* Kingfisher */; };
 		D256340525EAB64100232260 /* CSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D256340425EAB64100232260 /* CSS.swift */; };
-		D269B07A25F97B2C0027F4E8 /* Source+CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D269B07925F97B2C0027F4E8 /* Source+CoreDataExtensions.swift */; };
 		D273485F25EC552200590296 /* AppIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D273485E25EC552200590296 /* AppIcons.xcassets */; };
 		D292EC1425FC1DD900D8B827 /* CollectionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D292EC1325FC1DD900D8B827 /* CollectionProvider.swift */; };
 		D292EC1825FC327E00D8B827 /* SlotProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D292EC1725FC327E00D8B827 /* SlotProvider.swift */; };
@@ -54,6 +54,7 @@
 		D21C3CA72572C4E7000CB93F /* build.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = build.sh; sourceTree = "<group>"; };
 		D21C3CA82572C4F1000CB93F /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Fastfile; path = fastlane/Fastfile; sourceTree = "<group>"; };
 		D21C3CA92572C508000CB93F /* .github */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .github; sourceTree = "<group>"; };
+		D22AFF5025FECF610075BB69 /* Source+OptionalHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Source+OptionalHelpers.swift"; sourceTree = "<group>"; };
 		D2427630254AFE1D00326888 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		D2427631254AFE1D00326888 /* redbookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = redbookApp.swift; sourceTree = "<group>"; };
 		D2427632254AFE1D00326888 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
@@ -67,7 +68,6 @@
 		D25334A725EEFE2D00B139FD /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		D25633FB25EAB53D00232260 /* SourceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceCard.swift; sourceTree = "<group>"; };
 		D256340425EAB64100232260 /* CSS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSS.swift; sourceTree = "<group>"; };
-		D269B07925F97B2C0027F4E8 /* Source+CoreDataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Source+CoreDataExtensions.swift"; sourceTree = "<group>"; };
 		D273485E25EC552200590296 /* AppIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIcons.xcassets; sourceTree = "<group>"; };
 		D292EC1325FC1DD900D8B827 /* CollectionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionProvider.swift; sourceTree = "<group>"; };
 		D292EC1725FC327E00D8B827 /* SlotProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotProvider.swift; sourceTree = "<group>"; };
@@ -122,6 +122,18 @@
 			name = Build;
 			sourceTree = "<group>";
 		};
+		D22AFF4B25FECD140075BB69 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D22AFF5025FECF610075BB69 /* Source+OptionalHelpers.swift */,
+				D2427633254AFE1D00326888 /* PersistenceController.swift */,
+				D292EC1325FC1DD900D8B827 /* CollectionProvider.swift */,
+				D292EC1725FC327E00D8B827 /* SlotProvider.swift */,
+				D242762F254AFE1D00326888 /* redbook.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		D2427629254AFE1D00326888 = {
 			isa = PBXGroup;
 			children = (
@@ -140,7 +152,7 @@
 				D2D56B8F25ED8F76007DC398 /* Collection */,
 				D2B1A50525F28BA50083BA92 /* Source */,
 				D2D56B9325ED915B007DC398 /* Search */,
-				D29B441025EA79EF001DE94C /* Model */,
+				D22AFF4B25FECD140075BB69 /* Model */,
 				D2D21E5F25F1883F00BA31AD /* Services */,
 				D29B440E25EA795C001DE94C /* Configuration */,
 				D2427634254AFE1E00326888 /* Assets.xcassets */,
@@ -181,18 +193,6 @@
 				D25334A725EEFE2D00B139FD /* Settings.swift */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		D29B441025EA79EF001DE94C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				D2427633254AFE1D00326888 /* PersistenceController.swift */,
-				D292EC1325FC1DD900D8B827 /* CollectionProvider.swift */,
-				D292EC1725FC327E00D8B827 /* SlotProvider.swift */,
-				D269B07925F97B2C0027F4E8 /* Source+CoreDataExtensions.swift */,
-				D242762F254AFE1D00326888 /* redbook.xcdatamodeld */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		D2B1A50525F28BA50083BA92 /* Source */ = {
@@ -327,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2D56B9525ED916D007DC398 /* Search.swift in Sources */,
+				D22AFF5125FECF610075BB69 /* Source+OptionalHelpers.swift in Sources */,
 				D25334A525EEFDBF00B139FD /* Following.swift in Sources */,
 				D242765D254AFE1E00326888 /* redbookApp.swift in Sources */,
 				D2B1A51B25F2E4640083BA92 /* SourceDetailViewModel.swift in Sources */,
@@ -347,7 +348,6 @@
 				D2A86AD325F3CE2600F85476 /* SearchViewModel.swift in Sources */,
 				D25334A825EEFE2D00B139FD /* Settings.swift in Sources */,
 				D2D56B9125ED8FA5007DC398 /* EmptyCard.swift in Sources */,
-				D269B07A25F97B2C0027F4E8 /* Source+CoreDataExtensions.swift in Sources */,
 				D25633FC25EAB53D00232260 /* SourceCard.swift in Sources */,
 				D206B25D25EA8D0400A5DA14 /* OnRotation.swift in Sources */,
 				D2B1A51725F293C10083BA92 /* TrackDetail.swift in Sources */,

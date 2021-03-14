@@ -18,3 +18,16 @@ struct RecordStore {
 }
 
 typealias AppleMusicAlbum = Album
+
+extension AppleMusicAlbum {
+  func toSource() -> Source {
+    let source = Source(entity: Source.entity(), insertInto: nil)
+    source.providerId = id
+    source.name = attributes?.name
+    source.artist = attributes?.artistName
+    source.artworkURL = attributes?.artwork.url(forWidth: 1000)
+    source.playbackURL = attributes?.url
+    
+    return source
+  }
+}
