@@ -82,8 +82,8 @@ extension Search {
           
           let source = Source(context: PersistenceController.shared.container.viewContext)
           source.providerId = album.id
-          source.artist = album.attributes?.artistName
-          source.name = album.attributes?.name
+          source.artistName = album.attributes?.artistName
+          source.title = album.attributes?.name
           source.artworkURL = album.attributes?.artwork.url(forWidth: 1000)
           source.playbackURL = URL(string: album.href)
           source.slot = slot

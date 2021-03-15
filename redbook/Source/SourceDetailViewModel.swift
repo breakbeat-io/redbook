@@ -7,14 +7,14 @@
 
 import Foundation
 import os.log
-import HMV
+import struct HMV.Track
 
 extension SourceDetail {
   
   class ViewModel: ObservableObject {
     
     @Published private(set) var source: Source?
-    @Published private(set) var tracks: [Int:[Track]]?
+    @Published private(set) var tracks: [Int:[HMV.Track]]?
     
     func loadSource(sourceId: String) {
       

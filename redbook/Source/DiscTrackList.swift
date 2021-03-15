@@ -6,12 +6,12 @@
 //
 
 import SwiftUI
-import HMV
+import struct HMV.Track
 
 struct DiscTrackList: View {
   
   let discNumber: Int
-  let discTracks: [Track]
+  let discTracks: [HMV.Track]
   let showDiscNumber: Bool
   let sourceArtist: String
   

@@ -14,11 +14,11 @@ extension Source {
   }
   
   var sourceName: String {
-    name ?? "[name missing]"
+    title ?? "[name missing]"
   }
   
   var sourceArtist: String {
-    artist ?? "[artist missing]"
+    artistName ?? "[artist missing]"
   }
   
   var sourceArtworkURL: URL {

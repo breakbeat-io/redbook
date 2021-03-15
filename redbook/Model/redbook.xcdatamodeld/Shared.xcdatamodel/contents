@@ -12,16 +12,27 @@
         <relationship name="source" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Source" inverseName="slot" inverseEntity="Source"/>
     </entity>
     <entity name="Source" representedClassName="Source" syncable="YES" codeGenerationType="class">
-        <attribute name="artist" optional="YES" attributeType="String"/>
+        <attribute name="artistName" optional="YES" attributeType="String"/>
         <attribute name="artworkURL" optional="YES" attributeType="URI"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="playbackURL" optional="YES" attributeType="URI"/>
         <attribute name="providerId" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
         <relationship name="slot" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Slot" inverseName="source" inverseEntity="Slot"/>
+        <relationship name="tracks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Track" inverseName="source" inverseEntity="Track"/>
+    </entity>
+    <entity name="Track" representedClassName="Track" syncable="YES" codeGenerationType="class">
+        <attribute name="artistName" optional="YES" attributeType="String"/>
+        <attribute name="duration" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="number" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="providerId" optional="YES" attributeType="String"/>
+        <attribute name="segment" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="source" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Source" inverseName="tracks" inverseEntity="Source"/>
     </entity>
     <elements>
         <element name="Collection" positionX="-408.1660766601562" positionY="-682.6067199707031" width="128" height="89"/>
         <element name="Slot" positionX="-225.6904907226562" positionY="-667.485595703125" width="128" height="74"/>
-        <element name="Source" positionX="-42.60540771484375" positionY="-726.8972778320312" width="128" height="119"/>
+        <element name="Source" positionX="-42.60540771484375" positionY="-726.8972778320312" width="128" height="134"/>
+        <element name="Track" positionX="-225" positionY="-666" width="128" height="134"/>
     </elements>
 </model>
