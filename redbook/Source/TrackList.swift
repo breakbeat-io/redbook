@@ -6,11 +6,10 @@
 //
 
 import SwiftUI
-import struct HMV.Track
 
 struct TrackList: View {
   
-  let sourceTracks: [Int:[HMV.Track]]
+  let sourceTracks: [Int:[Track]]
   let sourceArtist: String
   
   var body: some View {

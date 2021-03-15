@@ -23,13 +23,33 @@ extension AppleMusicAlbum {
     return source
   }
   
-  func tracks() -> [Int:[HMV.Track]] {
-    var sourceTracks = [Int:[HMV.Track]]()
-    let allTracks = relationships?.tracks.data ?? [HMV.Track]()
-    let numberOfDiscs = allTracks.map { $0.attributes?.discNumber ?? 1 }.max() ?? 1
+  func toTracks() -> [Int:[Track]] {
+    
+    var sourceTracks = [Int:[Track]]()
+    let appleMusicAlbumTracks = relationships?.tracks.data ?? [HMV.Track]()
+    let numberOfDiscs = appleMusicAlbumTracks.map { $0.attributes?.discNumber ?? 1 }.max() ?? 1
+    
     for i in 1...numberOfDiscs {
-      sourceTracks[i] = allTracks.filter { $0.attributes?.discNumber == i }
+      
+      let appleMusicAlbumDiscTracks = appleMusicAlbumTracks.filter { $0.attributes?.discNumber == i }
+      var sourceSegmentTracks = [Track]()
+      
+      for sourceTrack in appleMusicAlbumDiscTracks {
+        
+        let track = Track(entity: Track.entity(), insertInto: nil)
+        track.providerId = sourceTrack.id
+        track.title = sourceTrack.attributes?.name
+        track.artistName = sourceTrack.attributes?.artistName
+        track.number = Int16(sourceTrack.attributes?.trackNumber ?? 0)
+        track.segment = Int16(sourceTrack.attributes?.discNumber ?? 0)
+        track.duration = Int32(sourceTrack.attributes?.durationInMillis ?? 0)
+        sourceSegmentTracks.append(track)
+        
+      }
+      
+      sourceTracks[i] = sourceSegmentTracks
     }
+    
     return sourceTracks
   }
   

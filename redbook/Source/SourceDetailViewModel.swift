@@ -7,14 +7,13 @@
 
 import Foundation
 import os.log
-import struct HMV.Track
 
 extension SourceDetail {
   
   class ViewModel: ObservableObject {
     
     @Published private(set) var source: Source?
-    @Published private(set) var tracks: [Int:[HMV.Track]]?
+    @Published private(set) var tracks: [Int:[Track]]?
     
     func loadSource(sourceId: String) {
       
@@ -22,7 +21,7 @@ extension SourceDetail {
         if let appleMusicAlbum = appleMusicAlbum {
           DispatchQueue.main.async {
             self.source = appleMusicAlbum.toSource()
-            self.tracks = appleMusicAlbum.tracks()
+            self.tracks = appleMusicAlbum.toTracks()
           }
         }
         

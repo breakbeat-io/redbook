@@ -13,6 +13,7 @@
 		D206B26325EA8D9900A5DA14 /* Triage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D206B26225EA8D9900A5DA14 /* Triage.swift */; };
 		D22AFF5125FECF610075BB69 /* Source+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AFF5025FECF610075BB69 /* Source+Extension.swift */; };
 		D22EFB632600086100881F79 /* AppleMusicAlbum+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22EFB622600086100881F79 /* AppleMusicAlbum+Extensions.swift */; };
+		D22EFB6726000F6400881F79 /* Track+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22EFB6626000F6400881F79 /* Track+Extensions.swift */; };
 		D242765B254AFE1E00326888 /* redbook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D242762F254AFE1D00326888 /* redbook.xcdatamodeld */; };
 		D242765D254AFE1E00326888 /* redbookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2427631254AFE1D00326888 /* redbookApp.swift */; };
 		D242765F254AFE1E00326888 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2427632254AFE1D00326888 /* Home.swift */; };
@@ -57,6 +58,7 @@
 		D21C3CA92572C508000CB93F /* .github */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .github; sourceTree = "<group>"; };
 		D22AFF5025FECF610075BB69 /* Source+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Source+Extension.swift"; sourceTree = "<group>"; };
 		D22EFB622600086100881F79 /* AppleMusicAlbum+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppleMusicAlbum+Extensions.swift"; sourceTree = "<group>"; };
+		D22EFB6626000F6400881F79 /* Track+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Track+Extensions.swift"; sourceTree = "<group>"; };
 		D2427630254AFE1D00326888 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		D2427631254AFE1D00326888 /* redbookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = redbookApp.swift; sourceTree = "<group>"; };
 		D2427632254AFE1D00326888 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				D292EC1725FC327E00D8B827 /* SlotProvider.swift */,
 				D242762F254AFE1D00326888 /* redbook.xcdatamodeld */,
 				D22AFF5025FECF610075BB69 /* Source+Extension.swift */,
+				D22EFB6626000F6400881F79 /* Track+Extensions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				D2427661254AFE1E00326888 /* PersistenceController.swift in Sources */,
 				D292EC1825FC327E00D8B827 /* SlotProvider.swift in Sources */,
 				D206B26325EA8D9900A5DA14 /* Triage.swift in Sources */,
+				D22EFB6726000F6400881F79 /* Track+Extensions.swift in Sources */,
 				D2B1A51325F290160083BA92 /* DiscTrackList.swift in Sources */,
 				D2B1A50B25F28DE60083BA92 /* SourceCover.swift in Sources */,
 				D2C8A17A25F983B4008F7460 /* OnRotationViewModel.swift in Sources */,

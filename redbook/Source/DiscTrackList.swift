@@ -6,12 +6,11 @@
 //
 
 import SwiftUI
-import struct HMV.Track
 
 struct DiscTrackList: View {
   
   let discNumber: Int
-  let discTracks: [HMV.Track]
+  let discTracks: [Track]
   let showDiscNumber: Bool
   let sourceArtist: String
   
@@ -22,15 +21,13 @@ struct DiscTrackList: View {
           .fontWeight(.bold)
       }
       ForEach(discTracks) { track in
-        track.attributes.map { attributes in
-          TrackDetail(trackNumber: attributes.trackNumber,
-                      trackArtist: attributes.artistName,
-                      trackName: attributes.name,
-                      trackDuration: attributes.duration ?? "--:--",
-                      sourceArtist: sourceArtist)
+        TrackDetail(trackNumber: track.trackNumber,
+                    trackArtist: track.trackArtistName,
+                    trackName: track.trackTitle,
+                    trackDuration: track.trackDuration,
+                    sourceArtist: sourceArtist)
         }
         
-      }
     }
   }
 }
