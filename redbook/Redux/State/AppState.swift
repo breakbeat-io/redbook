@@ -6,10 +6,9 @@
 //
 
 struct AppState {
-  var user: UserState
+  var search: SearchState = SearchState()
 }
 
-struct UserState {
-  var curatorName: String = "Change Me"
-  var labelName: String = "Will be changed"
+struct SearchState {
+  var searchResults: [Source] = []
 }

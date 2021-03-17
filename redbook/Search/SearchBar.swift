@@ -9,13 +9,18 @@ import SwiftUI
 
 struct SearchBar: View {
   
-  @Binding var searchTerm: String
+  @State private var searchTerm: String = ""
+  let search: (_ searchTerm: String) -> Void
   
   var body: some View {
     VStack {
       HStack {
         Text(Image(systemName: "magnifyingglass"))
-        TextField("Search music", text: $searchTerm)
+        TextField("Search music",
+                  text: $searchTerm,
+                  onCommit: {
+                    search(searchTerm)
+                  })
           .foregroundColor(.primary)
           .keyboardType(.webSearch)
         Button {

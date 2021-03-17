@@ -11,19 +11,18 @@ import SwiftUI
 struct Search: View {
   
   @Environment(\.presentationMode) var presentationMode
+  @EnvironmentObject var app: AppEnvironment
   
-  @StateObject var viewModel: ViewModel
-  @State var searchTerm: String = ""
+  let slotPosition: Int
   
   var body: some View {
     NavigationView {
       VStack{
-        SearchBar(searchTerm: $searchTerm)
-          .onChange(of: searchTerm) { searchTerm in
-            viewModel.debouncedSearch(for: searchTerm)
-          }
-        SearchResults(searchResults: viewModel.searchResults) { sourceId in
-          viewModel.addSourceToSlot(sourceId: sourceId)
+        SearchBar() { searchTerm in
+          app.process(SearchAction.AppleMusicSearch(searchTerm: searchTerm))
+        }
+        SearchResults(searchResults: app.state.search.searchResults) { sourceId in
+          app.process(SearchAction.AddSourceToSlot(sourceId: sourceId))
           presentationMode.wrappedValue.dismiss()
         }
       }
@@ -38,11 +37,6 @@ struct Search: View {
         }
       }
     }
-  }
-  
-  init(slotPosition: Int) {
-    let viewModel = ViewModel(slotPosition: slotPosition)
-    _viewModel = StateObject(wrappedValue: viewModel)
   }
   
 }

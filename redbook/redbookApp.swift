@@ -10,8 +10,7 @@ import SwiftUI
 @main
 struct redbookApp: App {
   
-  let app = AppEnvironment(initialState: .init(
-                            user: UserState()))
+  let app = AppEnvironment(initialState: AppState())
   let persistenceController = PersistenceController.shared
   
   init() {
