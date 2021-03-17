@@ -10,6 +10,8 @@ import SwiftUI
 @main
 struct redbookApp: App {
   
+  let app = AppEnvironment(initialState: .init(
+                            user: UserState()))
   let persistenceController = PersistenceController.shared
   
   init() {
@@ -23,6 +25,7 @@ struct redbookApp: App {
     WindowGroup {
       Home()
         .environment(\.managedObjectContext, persistenceController.container.viewContext)
+        .environmentObject(app)
     }
   }
   

@@ -19,6 +19,8 @@
 		D242765F254AFE1E00326888 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2427632254AFE1D00326888 /* Home.swift */; };
 		D2427661254AFE1E00326888 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2427633254AFE1D00326888 /* PersistenceController.swift */; };
 		D2427663254AFE1E00326888 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2427634254AFE1E00326888 /* Assets.xcassets */; };
+		D24F9CC326020C450085C6FF /* UserAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24F9CC226020C450085C6FF /* UserAction.swift */; };
+		D24F9CCC26020CB20085C6FF /* UserUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24F9CCB26020CB20085C6FF /* UserUpdater.swift */; };
 		D253349D25EEF25E00B139FD /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253349C25EEF25E00B139FD /* SearchBar.swift */; };
 		D25334A025EEF2BC00B139FD /* SearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253349F25EEF2BC00B139FD /* SearchResults.swift */; };
 		D25334A525EEFDBF00B139FD /* Following.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25334A425EEFDBF00B139FD /* Following.swift */; };
@@ -26,6 +28,10 @@
 		D25633FC25EAB53D00232260 /* SourceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25633FB25EAB53D00232260 /* SourceCard.swift */; };
 		D256340125EAB5CA00232260 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D256340025EAB5CA00232260 /* Kingfisher */; };
 		D256340525EAB64100232260 /* CSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D256340425EAB64100232260 /* CSS.swift */; };
+		D2680D702601556100ED38AA /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2680D6F2601556100ED38AA /* AppState.swift */; };
+		D2680D74260155C200ED38AA /* AppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2680D73260155C200ED38AA /* AppAction.swift */; };
+		D2680D78260155F500ED38AA /* AppUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2680D77260155F500ED38AA /* AppUpdater.swift */; };
+		D2680D7B2601568200ED38AA /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2680D7A2601568200ED38AA /* AppEnvironment.swift */; };
 		D273485F25EC552200590296 /* AppIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D273485E25EC552200590296 /* AppIcons.xcassets */; };
 		D292EC1425FC1DD900D8B827 /* CollectionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D292EC1325FC1DD900D8B827 /* CollectionProvider.swift */; };
 		D292EC1825FC327E00D8B827 /* SlotProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D292EC1725FC327E00D8B827 /* SlotProvider.swift */; };
@@ -66,12 +72,18 @@
 		D2427634254AFE1E00326888 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2427639254AFE1E00326888 /* redbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = redbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D242763C254AFE1E00326888 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D24F9CC226020C450085C6FF /* UserAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAction.swift; sourceTree = "<group>"; };
+		D24F9CCB26020CB20085C6FF /* UserUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUpdater.swift; sourceTree = "<group>"; };
 		D253349C25EEF25E00B139FD /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		D253349F25EEF2BC00B139FD /* SearchResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResults.swift; sourceTree = "<group>"; };
 		D25334A425EEFDBF00B139FD /* Following.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Following.swift; sourceTree = "<group>"; };
 		D25334A725EEFE2D00B139FD /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		D25633FB25EAB53D00232260 /* SourceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceCard.swift; sourceTree = "<group>"; };
 		D256340425EAB64100232260 /* CSS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSS.swift; sourceTree = "<group>"; };
+		D2680D6F2601556100ED38AA /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		D2680D73260155C200ED38AA /* AppAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAction.swift; sourceTree = "<group>"; };
+		D2680D77260155F500ED38AA /* AppUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdater.swift; sourceTree = "<group>"; };
+		D2680D7A2601568200ED38AA /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		D273485E25EC552200590296 /* AppIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIcons.xcassets; sourceTree = "<group>"; };
 		D292EC1325FC1DD900D8B827 /* CollectionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionProvider.swift; sourceTree = "<group>"; };
 		D292EC1725FC327E00D8B827 /* SlotProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotProvider.swift; sourceTree = "<group>"; };
@@ -153,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				D2427631254AFE1D00326888 /* redbookApp.swift */,
+				D2680D6E2601555000ED38AA /* Redux */,
 				D29B440F25EA799E001DE94C /* Home */,
 				D2D56B8F25ED8F76007DC398 /* Collection */,
 				D2B1A50525F28BA50083BA92 /* Source */,
@@ -172,6 +185,35 @@
 				D2427639254AFE1E00326888 /* redbook.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		D24F9CC126020C340085C6FF /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				D2680D73260155C200ED38AA /* AppAction.swift */,
+				D24F9CC226020C450085C6FF /* UserAction.swift */,
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
+		D24F9CC926020C6C0085C6FF /* Updaters */ = {
+			isa = PBXGroup;
+			children = (
+				D2680D77260155F500ED38AA /* AppUpdater.swift */,
+				D24F9CCB26020CB20085C6FF /* UserUpdater.swift */,
+			);
+			path = Updaters;
+			sourceTree = "<group>";
+		};
+		D2680D6E2601555000ED38AA /* Redux */ = {
+			isa = PBXGroup;
+			children = (
+				D2680D7A2601568200ED38AA /* AppEnvironment.swift */,
+				D29CDC342602B7710093D923 /* State */,
+				D24F9CC126020C340085C6FF /* Actions */,
+				D24F9CC926020C6C0085C6FF /* Updaters */,
+			);
+			path = Redux;
 			sourceTree = "<group>";
 		};
 		D29B440E25EA795C001DE94C /* Configuration */ = {
@@ -198,6 +240,14 @@
 				D25334A725EEFE2D00B139FD /* Settings.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		D29CDC342602B7710093D923 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				D2680D6F2601556100ED38AA /* AppState.swift */,
+			);
+			path = State;
 			sourceTree = "<group>";
 		};
 		D2B1A50525F28BA50083BA92 /* Source */ = {
@@ -341,10 +391,13 @@
 				D2427661254AFE1E00326888 /* PersistenceController.swift in Sources */,
 				D292EC1825FC327E00D8B827 /* SlotProvider.swift in Sources */,
 				D206B26325EA8D9900A5DA14 /* Triage.swift in Sources */,
+				D2680D78260155F500ED38AA /* AppUpdater.swift in Sources */,
 				D22EFB6726000F6400881F79 /* Track+Extensions.swift in Sources */,
 				D2B1A51325F290160083BA92 /* DiscTrackList.swift in Sources */,
 				D2B1A50B25F28DE60083BA92 /* SourceCover.swift in Sources */,
+				D24F9CCC26020CB20085C6FF /* UserUpdater.swift in Sources */,
 				D2C8A17A25F983B4008F7460 /* OnRotationViewModel.swift in Sources */,
+				D2680D702601556100ED38AA /* AppState.swift in Sources */,
 				D22EFB632600086100881F79 /* AppleMusicAlbum+Extensions.swift in Sources */,
 				D242765B254AFE1E00326888 /* redbook.xcdatamodeld in Sources */,
 				D25334A025EEF2BC00B139FD /* SearchResults.swift in Sources */,
@@ -355,11 +408,14 @@
 				D292EC1425FC1DD900D8B827 /* CollectionProvider.swift in Sources */,
 				D2A86AD325F3CE2600F85476 /* SearchViewModel.swift in Sources */,
 				D25334A825EEFE2D00B139FD /* Settings.swift in Sources */,
+				D2680D7B2601568200ED38AA /* AppEnvironment.swift in Sources */,
+				D24F9CC326020C450085C6FF /* UserAction.swift in Sources */,
 				D2D56B9125ED8FA5007DC398 /* EmptyCard.swift in Sources */,
 				D25633FC25EAB53D00232260 /* SourceCard.swift in Sources */,
 				D206B25D25EA8D0400A5DA14 /* OnRotation.swift in Sources */,
 				D2B1A51725F293C10083BA92 /* TrackDetail.swift in Sources */,
 				D206B26025EA8D3C00A5DA14 /* CollectionLibrary.swift in Sources */,
+				D2680D74260155C200ED38AA /* AppAction.swift in Sources */,
 				D2B1A50F25F28F210083BA92 /* TrackList.swift in Sources */,
 				D256340525EAB64100232260 /* CSS.swift in Sources */,
 			);
