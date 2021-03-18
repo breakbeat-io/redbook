@@ -18,9 +18,14 @@ struct Search: View {
   var body: some View {
     NavigationView {
       VStack{
-        SearchBar() { searchTerm in
-          app.process(SearchAction.AppleMusicSearch(searchTerm: searchTerm))
-        }
+        SearchBar(
+          search: { (searchTerm) in
+            app.process(SearchAction.AppleMusicSearch(searchTerm: searchTerm))
+          },
+          clear: {
+            app.process(SearchAction.ClearResults())
+          }
+        )
         SearchResults(searchResults: app.state.search.searchResults) { sourceId in
           app.process(SearchAction.AddSourceToSlot(sourceId: sourceId))
           presentationMode.wrappedValue.dismiss()
@@ -36,6 +41,9 @@ struct Search: View {
           }
         }
       }
+    }
+    .onDisappear {
+      app.process(SearchAction.ClearResults())
     }
   }
   

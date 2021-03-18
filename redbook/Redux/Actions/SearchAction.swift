@@ -48,6 +48,44 @@ struct SearchAction {
     
     func execute() -> AnyPublisher<StateAction, Never> {
       Empty().eraseToAnyPublisher()
+      
+//      func addSourceToSlot(sourceId: String) {
+//        RecordStore.appleMusic.album(id: sourceId, completion: { album, error in
+//          if let album = album {
+//            let onRotationFetch: NSFetchRequest<Collection> = Collection.fetchRequest()
+//            onRotationFetch.predicate = NSPredicate(format: "type == %@", "onRotation")
+//
+//            let slot: Slot
+//
+//            do {
+//              let onRotation = try PersistenceController.shared.container.viewContext.fetch(onRotationFetch).first
+//              slot = onRotation?.slots?.first(where: { ($0 as! Slot).position == self.slotPosition }) as! Slot
+//            } catch {
+//              fatalError()
+//            }
+//
+//            let source = Source(context: PersistenceController.shared.container.viewContext)
+//            source.providerId = album.id
+//            source.artistName = album.attributes?.artistName
+//            source.title = album.attributes?.name
+//            source.artworkURL = album.attributes?.artwork.url(forWidth: 1000)
+//            source.playbackURL = URL(string: album.href)
+//            source.slot = slot
+//
+//            do {
+//              try PersistenceController.shared.container.viewContext.save()
+//            } catch {
+//              fatalError()
+//            }
+//
+//          }
+//
+//          if let error = error {
+//            os_log("💎 Load Album error: %s", String(describing: error))
+//            // TODO: create another action to show an error in album add.
+//          }
+//        })
+//      }
     }
   }
   
