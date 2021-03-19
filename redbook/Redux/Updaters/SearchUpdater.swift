@@ -26,7 +26,7 @@ func updateSearchState(searchState: SearchState, action: StateAction) -> SearchS
     searchState.searchResults.removeAll()
     
   case let error as SearchAction.SearchError:
-    searchState.searchStatus = .idle
+    searchState.searchStatus = .error
     searchState.searchError = error.error
   
   default:

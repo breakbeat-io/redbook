@@ -41,7 +41,8 @@ struct Search: View {
             Text("There were no results, please try again.")
               .foregroundColor(.secondary)
           case .error:
-            Text("Error: \(app.state.search.searchError!.localizedDescription)")
+            Text("There was an error, please try again.")
+              .foregroundColor(.secondary)
           case .idle:
             EmptyView()
           }
