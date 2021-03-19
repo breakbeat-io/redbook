@@ -44,7 +44,7 @@ struct SearchBar: View {
 extension SearchBar {
   
   class ViewModel: ObservableObject {
-    
+
     @Published var searchTerm: String = "" {
       didSet {
         searchTerm.isEmpty ? self.clear() : ()
@@ -57,12 +57,11 @@ extension SearchBar {
     init(search: @escaping (String) -> Void, clear: @escaping () -> Void) {
       self.search = search
       self.clear = clear
-      debounceSearch()
+      setupDebounceOnSearch()
     }
     
-    private func debounceSearch() {
+    private func setupDebounceOnSearch() {
       $searchTerm
-        .dropFirst(2)
         .debounce(for: .milliseconds(500), scheduler: RunLoop.main)
         .removeDuplicates()
         .filter{ !$0.isEmpty }

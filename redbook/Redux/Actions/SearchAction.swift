@@ -10,11 +10,19 @@ import Combine
 
 struct SearchAction {
   
+  struct UpdateSearchStatus: StateAction {
+    let newStatus: SearchState.SearchStatus
+  }
+  
   struct UpdateResults: StateAction {
     let searchResults: [Source]
   }
   
   struct ClearResults: StateAction { }
+  
+  struct SearchError: StateAction {
+    let error: Error
+  }
   
   struct AppleMusicSearch: FutureAction {
     let searchTerm: String
@@ -22,21 +30,23 @@ struct SearchAction {
     func execute() -> AnyPublisher<StateAction, Never> {
       return Future() { promise in
         RecordStore.appleMusic.search(term: searchTerm, limit: 20, types: [.albums]) { results, error in
+          var action: StateAction = SearchAction.SearchError(error: NSError())
           if let results = results {
             if let albumMusicAlbums = results.albums?.data {
               var sources = [Source]()
-              
               for appleMusicAlbum in albumMusicAlbums {
                 let source = appleMusicAlbum.toSource()
                 sources.append(source)
               }
-              promise(.success(SearchAction.UpdateResults(searchResults: sources)))
+              action = SearchAction.UpdateResults(searchResults: sources)
+            } else {
+              action = SearchAction.UpdateSearchStatus(newStatus: .noResults)
             }
           }
-          //          if let error = error {
-          //            os_log("💎 Record Store > Browse error: %s", String(describing: error))
-          //            // TODO: create another action to show an error in search results.
-          //          }
+          if let error = error {
+            action = SearchAction.SearchError(error: error)
+          }
+          promise(.success(action))
         }
       }
       .eraseToAnyPublisher()

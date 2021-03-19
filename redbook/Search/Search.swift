@@ -20,16 +20,33 @@ struct Search: View {
       VStack{
         SearchBar(
           search: { (searchTerm) in
+            app.process(SearchAction.UpdateSearchStatus(newStatus: .searching))
             app.process(SearchAction.AppleMusicSearch(searchTerm: searchTerm))
           },
           clear: {
             app.process(SearchAction.ClearResults())
           }
         )
-        SearchResults(searchResults: app.state.search.searchResults) { sourceId in
-          app.process(SearchAction.AddSourceToSlot(sourceId: sourceId))
-          presentationMode.wrappedValue.dismiss()
+        ZStack {
+          SearchResults(searchResults: app.state.search.searchResults) { sourceId in
+            app.process(SearchAction.AddSourceToSlot(sourceId: sourceId))
+            presentationMode.wrappedValue.dismiss()
+          }
+          .disabled(app.state.search.searchStatus == .searching)
+          
+          switch app.state.search.searchStatus {
+          case .searching:
+            ActivityIndicator(style: .large)
+          case .noResults:
+            Text("There were no results, please try again.")
+              .foregroundColor(.secondary)
+          case .error:
+            Text("Error: \(app.state.search.searchError!.localizedDescription)")
+          case .idle:
+            EmptyView()
+          }
         }
+        .frame(maxHeight: .infinity)
       }
       .navigationBarTitle("Add Album", displayMode: .inline)
       .toolbar {
@@ -43,6 +60,7 @@ struct Search: View {
       }
     }
     .onDisappear {
+      app.process(SearchAction.UpdateSearchStatus(newStatus: .idle))
       app.process(SearchAction.ClearResults())
     }
   }
