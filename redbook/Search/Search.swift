@@ -18,21 +18,20 @@ struct Search: View {
   var body: some View {
     NavigationView {
       VStack{
-        SearchBar(
-          searchAction: { searchTerm in
-            app.process(SearchAction.UpdateSearchStatus(newStatus: .searching))
-            app.process(SearchAction.AppleMusicSearch(searchTerm: searchTerm))
-          },
-          clearAction: {
-            app.process(SearchAction.ClearResults())
-          }
-        )
+        SearchBar(searchAction: { searchTerm in
+          app.process(SearchAction.UpdateSearchStatus(newStatus: .searching))
+          app.process(SearchAction.AppleMusicSearch(searchTerm: searchTerm))
+        },
+        clearAction: {
+          app.process(SearchAction.ClearResults())
+        })
         ZStack {
-          SearchResults(searchResults: app.state.search.searchResults) { sourceId in
-            app.process(SearchAction.AddSourceToSlot(sourceId: sourceId))
-            presentationMode.wrappedValue.dismiss()
-          }
-          .disabled(app.state.search.searchStatus == .searching)
+          SearchResults(searchResults: app.state.search.searchResults,
+                        addAction: { sourceId in
+                          app.process(SearchAction.AddSourceToSlot(sourceId: sourceId, slotPosition: slotPosition))
+                          presentationMode.wrappedValue.dismiss()
+                        })
+            .disabled(app.state.search.searchStatus == .searching)
           
           switch app.state.search.searchStatus {
           case .searching:
