@@ -11,10 +11,8 @@ import SwiftUI
 struct SearchBar: View {
   
   @State private var searchTerm: String = ""
-  
   private let search: (String) -> Void
   private let clear: () -> Void
-  
   private var debouncerRelay = PassthroughSubject<String,Never>()
   private var debouncer: AnyPublisher<String, Never>
   
@@ -46,9 +44,9 @@ struct SearchBar: View {
     })
   }
   
-  init(search: @escaping (String) -> Void, clear: @escaping () -> Void) {
-    self.search = search
-    self.clear = clear
+  init(searchAction: @escaping (String) -> Void, clearAction: @escaping () -> Void) {
+    self.search = searchAction
+    self.clear = clearAction
     
     self.debouncer = debouncerRelay
       .debounce(for: .milliseconds(500), scheduler: RunLoop.main)

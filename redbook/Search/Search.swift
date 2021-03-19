@@ -19,11 +19,11 @@ struct Search: View {
     NavigationView {
       VStack{
         SearchBar(
-          search: { (searchTerm) in
+          searchAction: { searchTerm in
             app.process(SearchAction.UpdateSearchStatus(newStatus: .searching))
             app.process(SearchAction.AppleMusicSearch(searchTerm: searchTerm))
           },
-          clear: {
+          clearAction: {
             app.process(SearchAction.ClearResults())
           }
         )
