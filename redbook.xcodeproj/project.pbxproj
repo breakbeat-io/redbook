@@ -136,17 +136,13 @@
 			name = Build;
 			sourceTree = "<group>";
 		};
-		D22AFF4B25FECD140075BB69 /* Model */ = {
+		D22AFF4B25FECD140075BB69 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D2427633254AFE1D00326888 /* PersistenceController.swift */,
-				D292EC1325FC1DD900D8B827 /* CollectionProvider.swift */,
-				D292EC1725FC327E00D8B827 /* SlotProvider.swift */,
-				D242762F254AFE1D00326888 /* redbook.xcdatamodeld */,
 				D22AFF5025FECF610075BB69 /* Source+Extension.swift */,
 				D22EFB6626000F6400881F79 /* Track+Extensions.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		D2427629254AFE1D00326888 = {
@@ -163,12 +159,13 @@
 			isa = PBXGroup;
 			children = (
 				D2427631254AFE1D00326888 /* redbookApp.swift */,
-				D2680D6E2601555000ED38AA /* Redux */,
-				D29B440F25EA799E001DE94C /* Home */,
-				D2D56B8F25ED8F76007DC398 /* Collection */,
-				D2B1A50525F28BA50083BA92 /* Source */,
-				D2D56B9325ED915B007DC398 /* Search */,
-				D22AFF4B25FECD140075BB69 /* Model */,
+				D2680D7A2601568200ED38AA /* AppEnvironment.swift */,
+				D29CDC342602B7710093D923 /* State */,
+				D22AFF4B25FECD140075BB69 /* Models */,
+				D24F9CC126020C340085C6FF /* Actions */,
+				D24F9CC926020C6C0085C6FF /* Updaters */,
+				D284E528260563E900C445AE /* Views */,
+				D284E5292605645C00C445AE /* Persistence */,
 				D2D21E5F25F1883F00BA31AD /* Services */,
 				D29B440E25EA795C001DE94C /* Configuration */,
 				D2427634254AFE1E00326888 /* Assets.xcassets */,
@@ -203,15 +200,26 @@
 			path = Updaters;
 			sourceTree = "<group>";
 		};
-		D2680D6E2601555000ED38AA /* Redux */ = {
+		D284E528260563E900C445AE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D2680D7A2601568200ED38AA /* AppEnvironment.swift */,
-				D29CDC342602B7710093D923 /* State */,
-				D24F9CC126020C340085C6FF /* Actions */,
-				D24F9CC926020C6C0085C6FF /* Updaters */,
+				D29B440F25EA799E001DE94C /* Home */,
+				D2D56B8F25ED8F76007DC398 /* Collection */,
+				D2B1A50525F28BA50083BA92 /* Source */,
+				D2D56B9325ED915B007DC398 /* Search */,
 			);
-			path = Redux;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D284E5292605645C00C445AE /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				D2427633254AFE1D00326888 /* PersistenceController.swift */,
+				D292EC1325FC1DD900D8B827 /* CollectionProvider.swift */,
+				D292EC1725FC327E00D8B827 /* SlotProvider.swift */,
+				D242762F254AFE1D00326888 /* redbook.xcdatamodeld */,
+			);
+			path = Persistence;
 			sourceTree = "<group>";
 		};
 		D29B440E25EA795C001DE94C /* Configuration */ = {

@@ -92,10 +92,10 @@ struct SearchAction {
           
         }
         
-        if let error = error {
-          //            os_log("💎 Load Album error: %s", String(describing: error))
-          // TODO: create another action to show an error in album add.
-        }
+//        if let error = error {
+//          os_log("💎 Load Album error: %s", String(describing: error))
+//          //           TODO: create another action to show an error in album add.
+//        }
       })
       return Empty().eraseToAnyPublisher()
     }
