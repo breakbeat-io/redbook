@@ -17,11 +17,11 @@ struct SearchResults: View {
     // TODO: lots of view formatting here, is it needed?
     List(searchResults) { source in
       NavigationLink(
-        destination: SourceDetail(sourceId: source.id, showPlaybackLink: false)
+        destination: SourceDetail(sourceId: source.providerId, showPlaybackLink: false)
           .toolbar {
             ToolbarItem(placement: .confirmationAction) {
               Button {
-                add(source.id)
+                add(source.providerId)
               } label: {
                 Text("Add")
               }
@@ -51,7 +51,7 @@ struct SearchResults: View {
       }
       .contextMenu(ContextMenu(menuItems: {
         Button {
-          add(source.id)
+          add(source.providerId)
         } label: {
           Label("Add", systemImage: "plus")
         }

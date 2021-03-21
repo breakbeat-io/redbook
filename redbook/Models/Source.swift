@@ -8,7 +8,8 @@
 import Foundation
 
 struct Source: Identifiable {
-  let id: String
+  let id = UUID()
+  let providerId: String
   let title: String
   let artistName: String
   let artworkURL: URL

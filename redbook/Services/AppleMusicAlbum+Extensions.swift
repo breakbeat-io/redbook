@@ -14,7 +14,7 @@ typealias AppleMusicAlbum = Album
 extension AppleMusicAlbum {
   func toSource() -> Source {
     return Source(
-      id: id,
+      providerId: id,
       title: attributes?.name ?? "Unknown Title",
       artistName: attributes?.artistName ?? "Unknown Artist",
       artworkURL: attributes?.artwork.url(forWidth: 1000) ?? URL(string: "http://www.google.com")!,
