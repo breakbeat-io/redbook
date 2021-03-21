@@ -14,7 +14,7 @@ extension OnRotation {
     
     @Published var slots = [CDSlot]()
     
-    private var slotProvider = SlotProvider(restrictToCollectionType: "onRotation")
+    private var slotProvider = CDSlotProvider(restrictToCollectionType: "onRotation")
     private var slotSubscriber: AnyCancellable?
     
     init() {      

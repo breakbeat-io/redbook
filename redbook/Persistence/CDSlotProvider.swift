@@ -1,5 +1,5 @@
 //
-//  SlotProvider.swift
+//  CDSlotProvider.swift
 //  redbook (iOS)
 //
 //  Created by Greg Hepworth on 12/03/2021.
@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 import Combine
 
-class SlotProvider: NSObject, ObservableObject {
+class CDSlotProvider: NSObject, ObservableObject {
   
   var slots = CurrentValueSubject<[CDSlot], Never>([])
   private let slotFetchController: NSFetchedResultsController<CDSlot>
@@ -50,7 +50,7 @@ class SlotProvider: NSObject, ObservableObject {
 }
 
 
-extension SlotProvider: NSFetchedResultsControllerDelegate {
+extension CDSlotProvider: NSFetchedResultsControllerDelegate {
   public func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
     guard let slots = controller.fetchedObjects as? [CDSlot] else { return }
     self.slots.value = slots

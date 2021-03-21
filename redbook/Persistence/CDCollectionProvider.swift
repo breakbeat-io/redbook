@@ -1,5 +1,5 @@
 //
-//  CollectionProvider.swift
+//  CDCollectionProvider.swift
 //  redbook (iOS)
 //
 //  Created by Greg Hepworth on 12/03/2021.
@@ -9,12 +9,12 @@ import Foundation
 import CoreData
 import Combine
 
-class CollectionProvider: NSObject, ObservableObject {
+class CDCollectionProvider: NSObject, ObservableObject {
   
   var collections = CurrentValueSubject<[CDCollection], Never>([])
   private let collectionFetchController: NSFetchedResultsController<CDCollection>
   
-  static let shared: CollectionProvider = CollectionProvider()
+  static let shared: CDCollectionProvider = CDCollectionProvider()
 
   private override init() {
     
@@ -44,7 +44,7 @@ class CollectionProvider: NSObject, ObservableObject {
 }
 
 
-extension CollectionProvider: NSFetchedResultsControllerDelegate {
+extension CDCollectionProvider: NSFetchedResultsControllerDelegate {
   public func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
     guard let collections = controller.fetchedObjects as? [CDCollection] else { return }
     self.collections.value = collections
