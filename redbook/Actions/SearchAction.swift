@@ -16,7 +16,7 @@ struct SearchAction {
   }
   
   struct UpdateResults: StateAction {
-    let searchResults: [CDSource]
+    let searchResults: [Source]
   }
   
   struct ClearResults: StateAction { }
@@ -34,7 +34,7 @@ struct SearchAction {
           var action: StateAction = SearchAction.SearchError(error: NSError())
           if let results = results {
             if let albumMusicAlbums = results.albums?.data {
-              var sources = [CDSource]()
+              var sources = [Source]()
               for appleMusicAlbum in albumMusicAlbums {
                 let source = appleMusicAlbum.toSource()
                 sources.append(source)

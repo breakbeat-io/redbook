@@ -12,7 +12,7 @@ extension SourceDetail {
   
   class ViewModel: ObservableObject {
     
-    @Published private(set) var source: CDSource?
+    @Published private(set) var source: Source?
     @Published private(set) var tracks: [Int:[CDTrack]]?
     
     func loadSource(sourceId: String) {

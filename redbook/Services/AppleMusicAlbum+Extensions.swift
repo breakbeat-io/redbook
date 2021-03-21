@@ -12,15 +12,14 @@ import struct HMV.Track
 typealias AppleMusicAlbum = Album
 
 extension AppleMusicAlbum {
-  func toSource() -> CDSource {
-    let source = CDSource(entity: CDSource.entity(), insertInto: nil)
-    source.providerId = id
-    source.title = attributes?.name
-    source.artistName = attributes?.artistName
-    source.artworkURL = attributes?.artwork.url(forWidth: 1000)
-    source.playbackURL = attributes?.url
-    
-    return source
+  func toSource() -> Source {
+    return Source(
+      id: id,
+      title: attributes?.name ?? "Unknown Title",
+      artistName: attributes?.artistName ?? "Unknown Artist",
+      artworkURL: attributes?.artwork.url(forWidth: 1000) ?? URL(string: "http://www.google.com")!,
+      playbackURL: attributes?.url ?? URL(string: "about:blank")!
+    )
   }
   
   func toTracks() -> [Int:[CDTrack]] {

@@ -10,18 +10,18 @@ import Kingfisher
 
 struct SearchResults: View {
   
-  private let searchResults: [CDSource]
+  private let searchResults: [Source]
   private let add: (String) -> Void
   
   var body: some View {
     // TODO: lots of view formatting here, is it needed?
     List(searchResults) { source in
       NavigationLink(
-        destination: SourceDetail(sourceId: source.sourceProviderId, showPlaybackLink: false)
+        destination: SourceDetail(sourceId: source.id, showPlaybackLink: false)
           .toolbar {
             ToolbarItem(placement: .confirmationAction) {
               Button {
-                add(source.sourceProviderId)
+                add(source.id)
               } label: {
                 Text("Add")
               }
@@ -29,7 +29,7 @@ struct SearchResults: View {
           }
       ) {
         HStack {
-          KFImage(source.sourceArtworkURL)
+          KFImage(source.artworkURL)
             .placeholder {
               RoundedRectangle(cornerRadius: CSS.cardCornerRadius)
                 .fill(Color(UIColor.secondarySystemBackground))
@@ -40,10 +40,10 @@ struct SearchResults: View {
             .cornerRadius(CSS.cardCornerRadius)
             .frame(width: 50)
           VStack(alignment: .leading) {
-            Text(source.sourceName)
+            Text(source.title)
               .font(.headline)
               .lineLimit(1)
-            Text(source.sourceArtist)
+            Text(source.artistName)
               .font(.subheadline)
               .lineLimit(1)
           }
@@ -51,7 +51,7 @@ struct SearchResults: View {
       }
       .contextMenu(ContextMenu(menuItems: {
         Button {
-          add(source.sourceProviderId)
+          add(source.id)
         } label: {
           Label("Add", systemImage: "plus")
         }
@@ -65,7 +65,7 @@ struct SearchResults: View {
     }
   }
   
-  init(searchResults: [CDSource], addAction: @escaping (String) -> Void) {
+  init(searchResults: [Source], addAction: @escaping (String) -> Void) {
     self.searchResults = searchResults
     self.add = addAction
   }

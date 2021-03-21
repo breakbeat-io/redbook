@@ -18,20 +18,18 @@ struct SourceDetail: View {
     
     ScrollView {
       if let source = viewModel.source {
-        SourceCover(sourceName: source.sourceName,
-                    sourceArtist: source.sourceArtist,
-                    sourceArtworkURL: source.sourceArtworkURL)
+        SourceCover(sourceName: source.title,
+                    sourceArtist: source.artistName,
+                    sourceArtworkURL: source.artworkURL)
           .padding(.bottom)
         
         if showPlaybackLink {
-          source.playbackURL.map { url in
-            PlaybackLink(playbackURL: url)
+          PlaybackLink(playbackURL: source.playbackURL)
               .padding(.bottom)
-          }
         }
         viewModel.tracks.map { tracks in
           TrackList(sourceTracks: tracks,
-                    sourceArtist: source.sourceArtist)
+                    sourceArtist: source.artistName)
         }
       }
     }

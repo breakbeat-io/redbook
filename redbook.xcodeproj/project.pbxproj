@@ -32,6 +32,7 @@
 		D2680D78260155F500ED38AA /* AppUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2680D77260155F500ED38AA /* AppUpdater.swift */; };
 		D2680D7B2601568200ED38AA /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2680D7A2601568200ED38AA /* AppEnvironment.swift */; };
 		D273485F25EC552200590296 /* AppIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D273485E25EC552200590296 /* AppIcons.xcassets */; };
+		D284E53326078A7100C445AE /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = D284E53226078A7100C445AE /* Source.swift */; };
 		D292EC1425FC1DD900D8B827 /* CDCollectionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D292EC1325FC1DD900D8B827 /* CDCollectionProvider.swift */; };
 		D292EC1825FC327E00D8B827 /* CDSlotProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D292EC1725FC327E00D8B827 /* CDSlotProvider.swift */; };
 		D29CDC392602B9750093D923 /* SearchAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29CDC382602B9750093D923 /* SearchAction.swift */; };
@@ -83,6 +84,7 @@
 		D2680D77260155F500ED38AA /* AppUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdater.swift; sourceTree = "<group>"; };
 		D2680D7A2601568200ED38AA /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		D273485E25EC552200590296 /* AppIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIcons.xcassets; sourceTree = "<group>"; };
+		D284E53226078A7100C445AE /* Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
 		D292EC1325FC1DD900D8B827 /* CDCollectionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDCollectionProvider.swift; sourceTree = "<group>"; };
 		D292EC1725FC327E00D8B827 /* CDSlotProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDSlotProvider.swift; sourceTree = "<group>"; };
 		D29CDC382602B9750093D923 /* SearchAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAction.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		D22AFF4B25FECD140075BB69 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D284E53226078A7100C445AE /* Source.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				D2B1A51725F293C10083BA92 /* TrackDetail.swift in Sources */,
 				D206B26025EA8D3C00A5DA14 /* CollectionLibrary.swift in Sources */,
 				D2680D74260155C200ED38AA /* AppAction.swift in Sources */,
+				D284E53326078A7100C445AE /* Source.swift in Sources */,
 				D29CDC392602B9750093D923 /* SearchAction.swift in Sources */,
 				D2B1A50F25F28F210083BA92 /* TrackList.swift in Sources */,
 				D256340525EAB64100232260 /* CSS.swift in Sources */,
