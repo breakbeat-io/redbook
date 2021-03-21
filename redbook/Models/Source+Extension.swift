@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Source {
+extension CDSource {
   
   var sourceProviderId: String {
     providerId ?? ""

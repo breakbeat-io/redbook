@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Track {
+extension CDTrack {
   
   var trackNumber: Int {
     Int(number)

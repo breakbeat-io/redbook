@@ -11,12 +11,12 @@ import Combine
 
 class SlotProvider: NSObject, ObservableObject {
   
-  var slots = CurrentValueSubject<[Slot], Never>([])
-  private let slotFetchController: NSFetchedResultsController<Slot>
+  var slots = CurrentValueSubject<[CDSlot], Never>([])
+  private let slotFetchController: NSFetchedResultsController<CDSlot>
 
   init(restrictToCollectionType collectionType: String = "") {
     
-    let slotFetchRequest: NSFetchRequest<Slot> = Slot.fetchRequest()
+    let slotFetchRequest: NSFetchRequest<CDSlot> = CDSlot.fetchRequest()
     if !collectionType.isEmpty {
       slotFetchRequest.predicate = NSPredicate(format: "collection.type = %@", collectionType)
     }
@@ -42,7 +42,7 @@ class SlotProvider: NSObject, ObservableObject {
     
   }
   
-  func delete(source: Source) {
+  func delete(source: CDSource) {
     PersistenceController.shared.container.viewContext.delete(source)
     try? PersistenceController.shared.container.viewContext.save()
   }
@@ -52,7 +52,7 @@ class SlotProvider: NSObject, ObservableObject {
 
 extension SlotProvider: NSFetchedResultsControllerDelegate {
   public func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-    guard let slots = controller.fetchedObjects as? [Slot] else { return }
+    guard let slots = controller.fetchedObjects as? [CDSlot] else { return }
     self.slots.value = slots
   }
 }

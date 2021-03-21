@@ -11,7 +11,7 @@ struct AppState {
 
 struct SearchState {
   var searchStatus: SearchStatus = .idle
-  var searchResults: [Source] = []
+  var searchResults: [CDSource] = []
   var searchError: Error?
   
   enum SearchStatus {

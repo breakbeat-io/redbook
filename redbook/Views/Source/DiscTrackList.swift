@@ -10,7 +10,7 @@ import SwiftUI
 struct DiscTrackList: View {
   
   let discNumber: Int
-  let discTracks: [Track]
+  let discTracks: [CDTrack]
   let showDiscNumber: Bool
   let sourceArtist: String
   

@@ -12,13 +12,13 @@ import Combine
 extension OnRotation {
   class ViewModel: ObservableObject {
     
-    @Published var slots = [Slot]()
+    @Published var slots = [CDSlot]()
     
     private var slotProvider = SlotProvider(restrictToCollectionType: "onRotation")
     private var slotSubscriber: AnyCancellable?
     
     init() {      
-      let slotPublisher: AnyPublisher<[Slot], Never> = slotProvider.slots.eraseToAnyPublisher()
+      let slotPublisher: AnyPublisher<[CDSlot], Never> = slotProvider.slots.eraseToAnyPublisher()
       
       slotSubscriber = slotPublisher.sink { slots in
         self.slots = slots
@@ -26,7 +26,7 @@ extension OnRotation {
       
     }
       
-    func removeSource(source: Source) {
+    func removeSource(source: CDSource) {
       slotProvider.delete(source: source)
     }
 

@@ -15,7 +15,7 @@ struct OnRotation: View {
     NavigationView {
       ScrollView {
         ForEach(viewModel.slots) { slot in
-          if let source: Source = slot.source {
+          if let source: CDSource = slot.source {
             NavigationLink(
               destination: SourceDetail(sourceId: source.sourceProviderId, showPlaybackLink: true)
                 .navigationBarTitleDisplayMode(.inline)

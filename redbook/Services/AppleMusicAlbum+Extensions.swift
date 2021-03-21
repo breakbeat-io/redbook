@@ -12,8 +12,8 @@ import struct HMV.Track
 typealias AppleMusicAlbum = Album
 
 extension AppleMusicAlbum {
-  func toSource() -> Source {
-    let source = Source(entity: Source.entity(), insertInto: nil)
+  func toSource() -> CDSource {
+    let source = CDSource(entity: CDSource.entity(), insertInto: nil)
     source.providerId = id
     source.title = attributes?.name
     source.artistName = attributes?.artistName
@@ -23,20 +23,20 @@ extension AppleMusicAlbum {
     return source
   }
   
-  func toTracks() -> [Int:[Track]] {
+  func toTracks() -> [Int:[CDTrack]] {
     
-    var sourceTracks = [Int:[Track]]()
+    var sourceTracks = [Int:[CDTrack]]()
     let appleMusicAlbumTracks = relationships?.tracks.data ?? [HMV.Track]()
     let numberOfDiscs = appleMusicAlbumTracks.map { $0.attributes?.discNumber ?? 1 }.max() ?? 1
     
     for i in 1...numberOfDiscs {
       
       let appleMusicAlbumDiscTracks = appleMusicAlbumTracks.filter { $0.attributes?.discNumber == i }
-      var sourceSegmentTracks = [Track]()
+      var sourceSegmentTracks = [CDTrack]()
       
       for sourceTrack in appleMusicAlbumDiscTracks {
         
-        let track = Track(entity: Track.entity(), insertInto: nil)
+        let track = CDTrack(entity: CDTrack.entity(), insertInto: nil)
         track.providerId = sourceTrack.id
         track.title = sourceTrack.attributes?.name
         track.artistName = sourceTrack.attributes?.artistName

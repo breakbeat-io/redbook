@@ -16,7 +16,7 @@ struct SearchAction {
   }
   
   struct UpdateResults: StateAction {
-    let searchResults: [Source]
+    let searchResults: [CDSource]
   }
   
   struct ClearResults: StateAction { }
@@ -34,7 +34,7 @@ struct SearchAction {
           var action: StateAction = SearchAction.SearchError(error: NSError())
           if let results = results {
             if let albumMusicAlbums = results.albums?.data {
-              var sources = [Source]()
+              var sources = [CDSource]()
               for appleMusicAlbum in albumMusicAlbums {
                 let source = appleMusicAlbum.toSource()
                 sources.append(source)
@@ -64,19 +64,19 @@ struct SearchAction {
       
       RecordStore.appleMusic.album(id: sourceId, completion: { album, error in
         if let album = album {
-          let onRotationFetch: NSFetchRequest<Collection> = Collection.fetchRequest()
+          let onRotationFetch: NSFetchRequest<CDCollection> = CDCollection.fetchRequest()
           onRotationFetch.predicate = NSPredicate(format: "type == %@", "onRotation")
           
-          let slot: Slot
+          let slot: CDSlot
           
           do {
             let onRotation = try PersistenceController.shared.container.viewContext.fetch(onRotationFetch).first
-            slot = onRotation?.slots?.first(where: { ($0 as! Slot).position == self.slotPosition }) as! Slot
+            slot = onRotation?.slots?.first(where: { ($0 as! CDSlot).position == self.slotPosition }) as! CDSlot
           } catch {
             fatalError()
           }
           
-          let source = Source(context: PersistenceController.shared.container.viewContext)
+          let source = CDSource(context: PersistenceController.shared.container.viewContext)
           source.providerId = album.id
           source.artistName = album.attributes?.artistName
           source.title = album.attributes?.name

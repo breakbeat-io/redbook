@@ -33,7 +33,7 @@ class PersistenceController {
   func bootstrap() {
     os_log("🔊 Bootstrapping")
     
-    let onRotationFetch: NSFetchRequest<Collection> = Collection.fetchRequest()
+    let onRotationFetch: NSFetchRequest<CDCollection> = CDCollection.fetchRequest()
     onRotationFetch.predicate = NSPredicate(format: "type == %@", "onRotation")
     var onRotationCount: Int
     
@@ -67,13 +67,13 @@ class PersistenceController {
     
     let viewContext = container.viewContext
     
-    let onRotation = Collection(context: viewContext)
+    let onRotation = CDCollection(context: viewContext)
     onRotation.type = "onRotation"
     onRotation.name = "On Rotation"
     onRotation.slots = []
     onRotation.curator = "Music Lover"
     for i in 1...8 {
-      let slot = Slot(context: viewContext)
+      let slot = CDSlot(context: viewContext)
       slot.collection = onRotation
       slot.position = Int16(i)
     }
@@ -98,15 +98,15 @@ class PersistenceController {
   
   func deleteAll() {
     
-    let sourceFetch: NSFetchRequest<NSFetchRequestResult> = Source.fetchRequest()
+    let sourceFetch: NSFetchRequest<NSFetchRequestResult> = CDSource.fetchRequest()
     let sourceBatchDeleteRequest = NSBatchDeleteRequest(fetchRequest: sourceFetch)
     _ = try? container.viewContext.execute(sourceBatchDeleteRequest)
     
-    let slotFetch: NSFetchRequest<NSFetchRequestResult> = Slot.fetchRequest()
+    let slotFetch: NSFetchRequest<NSFetchRequestResult> = CDSlot.fetchRequest()
     let slotBatchDeleteRequest = NSBatchDeleteRequest(fetchRequest: slotFetch)
     _ = try? container.viewContext.execute(slotBatchDeleteRequest)
     
-    let collectionFetch: NSFetchRequest<NSFetchRequestResult> = Collection.fetchRequest()
+    let collectionFetch: NSFetchRequest<NSFetchRequestResult> = CDCollection.fetchRequest()
     let collectionBatchDeleteRequest = NSBatchDeleteRequest(fetchRequest: collectionFetch)
     _ = try? container.viewContext.execute(collectionBatchDeleteRequest)
 

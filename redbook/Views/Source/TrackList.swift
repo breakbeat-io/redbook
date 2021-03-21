@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TrackList: View {
   
-  let sourceTracks: [Int:[Track]]
+  let sourceTracks: [Int:[CDTrack]]
   let sourceArtist: String
   
   var body: some View {
