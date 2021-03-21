@@ -33,6 +33,9 @@
 		D2680D7B2601568200ED38AA /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2680D7A2601568200ED38AA /* AppEnvironment.swift */; };
 		D273485F25EC552200590296 /* AppIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D273485E25EC552200590296 /* AppIcons.xcassets */; };
 		D284E53326078A7100C445AE /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = D284E53226078A7100C445AE /* Source.swift */; };
+		D284E5382607934C00C445AE /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D284E5372607934C00C445AE /* Collection.swift */; };
+		D284E53B260793CD00C445AE /* Slot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D284E53A260793CD00C445AE /* Slot.swift */; };
+		D284E53E2607942200C445AE /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = D284E53D2607942200C445AE /* Track.swift */; };
 		D292EC1425FC1DD900D8B827 /* CDCollectionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D292EC1325FC1DD900D8B827 /* CDCollectionProvider.swift */; };
 		D292EC1825FC327E00D8B827 /* CDSlotProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D292EC1725FC327E00D8B827 /* CDSlotProvider.swift */; };
 		D29CDC392602B9750093D923 /* SearchAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29CDC382602B9750093D923 /* SearchAction.swift */; };
@@ -85,6 +88,9 @@
 		D2680D7A2601568200ED38AA /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		D273485E25EC552200590296 /* AppIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIcons.xcassets; sourceTree = "<group>"; };
 		D284E53226078A7100C445AE /* Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
+		D284E5372607934C00C445AE /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
+		D284E53A260793CD00C445AE /* Slot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slot.swift; sourceTree = "<group>"; };
+		D284E53D2607942200C445AE /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		D292EC1325FC1DD900D8B827 /* CDCollectionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDCollectionProvider.swift; sourceTree = "<group>"; };
 		D292EC1725FC327E00D8B827 /* CDSlotProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDSlotProvider.swift; sourceTree = "<group>"; };
 		D29CDC382602B9750093D923 /* SearchAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAction.swift; sourceTree = "<group>"; };
@@ -142,6 +148,9 @@
 			isa = PBXGroup;
 			children = (
 				D284E53226078A7100C445AE /* Source.swift */,
+				D284E5372607934C00C445AE /* Collection.swift */,
+				D284E53A260793CD00C445AE /* Slot.swift */,
+				D284E53D2607942200C445AE /* Track.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -401,7 +410,9 @@
 				D206B26325EA8D9900A5DA14 /* Triage.swift in Sources */,
 				D2680D78260155F500ED38AA /* AppUpdater.swift in Sources */,
 				D22EFB6726000F6400881F79 /* CDTrack+Extensions.swift in Sources */,
+				D284E53B260793CD00C445AE /* Slot.swift in Sources */,
 				D2B1A51325F290160083BA92 /* DiscTrackList.swift in Sources */,
+				D284E5382607934C00C445AE /* Collection.swift in Sources */,
 				D2B1A50B25F28DE60083BA92 /* SourceCover.swift in Sources */,
 				D24F9CCC26020CB20085C6FF /* SearchUpdater.swift in Sources */,
 				D2C8A17A25F983B4008F7460 /* OnRotationViewModel.swift in Sources */,
@@ -411,6 +422,7 @@
 				D25334A025EEF2BC00B139FD /* SearchResults.swift in Sources */,
 				D2C8A17E25F98D11008F7460 /* PlaybackLink.swift in Sources */,
 				D253349D25EEF25E00B139FD /* SearchBar.swift in Sources */,
+				D284E53E2607942200C445AE /* Track.swift in Sources */,
 				D2D21E6125F1885500BA31AD /* RecordStore.swift in Sources */,
 				D242765F254AFE1E00326888 /* Home.swift in Sources */,
 				D292EC1425FC1DD900D8B827 /* CDCollectionProvider.swift in Sources */,

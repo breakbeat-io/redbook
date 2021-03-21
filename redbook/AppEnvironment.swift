@@ -16,6 +16,9 @@ final class AppEnvironment: ObservableObject {
   
   init(initialState: AppState) {
     self.state = initialState
+    
+    // load from CoreData
+    
   }
   
   func process(_ action: StateAction) {
