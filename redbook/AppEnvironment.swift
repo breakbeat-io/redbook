@@ -16,9 +16,9 @@ final class AppEnvironment: ObservableObject {
   private var subscribers: Set<AnyCancellable> = []
   
   init() {
-    subscribeTo(CDCollection.self)
-    subscribeTo(CDSlot.self)
-    subscribeTo(CDSource.self)
+    subscribeTo(PersistentCollection.self)
+    subscribeTo(PersistentSlot.self)
+    subscribeTo(PersistentSource.self)
   }
   
   func process(_ action: StateAction) {
@@ -35,7 +35,7 @@ final class AppEnvironment: ObservableObject {
   }
   
   private func subscribeTo<T: NSManagedObject>(_ type: T.Type) {
-    let entityPublisher: AnyPublisher<[T], Never> = CDEntityPublisher<T>().entities.eraseToAnyPublisher()
+    let entityPublisher: AnyPublisher<[T], Never> = CoreDataEntityPublisher<T>().entities.eraseToAnyPublisher()
     entityPublisher.sink { entities in
       self.process(LibraryAction.CoreDataUpdate(entities: entities))
     }

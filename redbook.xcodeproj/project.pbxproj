@@ -15,8 +15,8 @@
 		D21DDFEA2607CC6300587C5A /* SearchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21DDFE92607CC6300587C5A /* SearchState.swift */; };
 		D21DDFED2607DD8300587C5A /* LibraryActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21DDFEC2607DD8300587C5A /* LibraryActions.swift */; };
 		D21DDFF12607DE1200587C5A /* LibraryUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21DDFF02607DE1200587C5A /* LibraryUpdater.swift */; };
-		D21DDFF52607E20F00587C5A /* CDCollection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21DDFF42607E20F00587C5A /* CDCollection+Extensions.swift */; };
-		D21DDFFD2608064500587C5A /* CDEntityPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21DDFFC2608064500587C5A /* CDEntityPublisher.swift */; };
+		D21DDFF52607E20F00587C5A /* PersistentCollection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21DDFF42607E20F00587C5A /* PersistentCollection+Extensions.swift */; };
+		D21DDFFD2608064500587C5A /* CoreDataEntityPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21DDFFC2608064500587C5A /* CoreDataEntityPublisher.swift */; };
 		D22EFB632600086100881F79 /* AppleMusicAlbum+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22EFB622600086100881F79 /* AppleMusicAlbum+Extensions.swift */; };
 		D242765B254AFE1E00326888 /* redbook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D242762F254AFE1D00326888 /* redbook.xcdatamodeld */; };
 		D242765D254AFE1E00326888 /* redbookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2427631254AFE1D00326888 /* redbookApp.swift */; };
@@ -70,8 +70,8 @@
 		D21DDFE92607CC6300587C5A /* SearchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchState.swift; sourceTree = "<group>"; };
 		D21DDFEC2607DD8300587C5A /* LibraryActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryActions.swift; sourceTree = "<group>"; };
 		D21DDFF02607DE1200587C5A /* LibraryUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryUpdater.swift; sourceTree = "<group>"; };
-		D21DDFF42607E20F00587C5A /* CDCollection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDCollection+Extensions.swift"; sourceTree = "<group>"; };
-		D21DDFFC2608064500587C5A /* CDEntityPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDEntityPublisher.swift; sourceTree = "<group>"; };
+		D21DDFF42607E20F00587C5A /* PersistentCollection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistentCollection+Extensions.swift"; sourceTree = "<group>"; };
+		D21DDFFC2608064500587C5A /* CoreDataEntityPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataEntityPublisher.swift; sourceTree = "<group>"; };
 		D22EFB622600086100881F79 /* AppleMusicAlbum+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppleMusicAlbum+Extensions.swift"; sourceTree = "<group>"; };
 		D2427630254AFE1D00326888 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		D2427631254AFE1D00326888 /* redbookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = redbookApp.swift; sourceTree = "<group>"; };
@@ -228,8 +228,8 @@
 			isa = PBXGroup;
 			children = (
 				D2427633254AFE1D00326888 /* PersistenceController.swift */,
-				D21DDFFC2608064500587C5A /* CDEntityPublisher.swift */,
-				D21DDFF42607E20F00587C5A /* CDCollection+Extensions.swift */,
+				D21DDFFC2608064500587C5A /* CoreDataEntityPublisher.swift */,
+				D21DDFF42607E20F00587C5A /* PersistentCollection+Extensions.swift */,
 				D242762F254AFE1D00326888 /* redbook.xcdatamodeld */,
 			);
 			path = Persistence;
@@ -420,13 +420,13 @@
 				D24F9CCC26020CB20085C6FF /* SearchUpdater.swift in Sources */,
 				D2680D702601556100ED38AA /* AppState.swift in Sources */,
 				D22EFB632600086100881F79 /* AppleMusicAlbum+Extensions.swift in Sources */,
-				D21DDFF52607E20F00587C5A /* CDCollection+Extensions.swift in Sources */,
+				D21DDFF52607E20F00587C5A /* PersistentCollection+Extensions.swift in Sources */,
 				D242765B254AFE1E00326888 /* redbook.xcdatamodeld in Sources */,
 				D25334A025EEF2BC00B139FD /* SearchResults.swift in Sources */,
 				D2C8A17E25F98D11008F7460 /* PlaybackLink.swift in Sources */,
 				D253349D25EEF25E00B139FD /* SearchBar.swift in Sources */,
 				D284E53E2607942200C445AE /* Track.swift in Sources */,
-				D21DDFFD2608064500587C5A /* CDEntityPublisher.swift in Sources */,
+				D21DDFFD2608064500587C5A /* CoreDataEntityPublisher.swift in Sources */,
 				D2D21E6125F1885500BA31AD /* RecordStore.swift in Sources */,
 				D21DDFED2607DD8300587C5A /* LibraryActions.swift in Sources */,
 				D242765F254AFE1E00326888 /* Home.swift in Sources */,

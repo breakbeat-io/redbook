@@ -13,7 +13,7 @@ func updateLibraryState(libraryState: LibraryState, action: StateAction) -> Libr
   
   switch action {
   
-  case let update as LibraryAction.CoreDataUpdate<CDCollection>:
+  case let update as LibraryAction.CoreDataUpdate<PersistentCollection>:
     print("🔊 Collection Update In Process for \(update.entities.count) \(type(of: update.entities))'s")
 //    var collections = [Collection]()
 //    for cdCollection in update.cdCollections {
@@ -26,10 +26,10 @@ func updateLibraryState(libraryState: LibraryState, action: StateAction) -> Libr
 //    }
 //    libraryState.collections = collections.filter({ $0.type != .onRotation})
   
-  case let update as LibraryAction.CoreDataUpdate<CDSlot>:
+  case let update as LibraryAction.CoreDataUpdate<PersistentSource>:
     print("🔊 Slot Update In Process for \(update.entities.count) \(type(of: update.entities))'s")
     
-  case let update as LibraryAction.CoreDataUpdate<CDSource>:
+  case let update as LibraryAction.CoreDataUpdate<PersistentSlot>:
     print("🔊 Source Update In Process for \(update.entities.count) \(type(of: update.entities))'s")
     
   case let update as LibraryAction.AddSourceToSlot:

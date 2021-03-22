@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
-    <entity name="CDCollection" representedClassName="CDCollection" syncable="YES" codeGenerationType="class">
+    <entity name="PersistentCollection" representedClassName="PersistentCollection" syncable="YES" codeGenerationType="class">
         <attribute name="curator" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="type" optional="YES" attributeType="String"/>
-        <relationship name="slots" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDSlot" inverseName="collection" inverseEntity="CDSlot"/>
+        <relationship name="slots" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PersistentSlot" inverseName="collection" inverseEntity="PersistentSlot"/>
     </entity>
-    <entity name="CDSlot" representedClassName="CDSlot" syncable="YES" codeGenerationType="class">
+    <entity name="PersistentSlot" representedClassName="PersistentSlot" syncable="YES" codeGenerationType="class">
         <attribute name="position" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="collection" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDCollection" inverseName="slots" inverseEntity="CDCollection"/>
-        <relationship name="source" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDSource" inverseName="slot" inverseEntity="CDSource"/>
+        <relationship name="collection" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PersistentCollection" inverseName="slots" inverseEntity="PersistentCollection"/>
+        <relationship name="source" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PersistentSource" inverseName="slot" inverseEntity="PersistentSource"/>
     </entity>
-    <entity name="CDSource" representedClassName="CDSource" syncable="YES" codeGenerationType="class">
+    <entity name="PersistentSource" representedClassName="PersistentSource" syncable="YES" codeGenerationType="class">
         <attribute name="provider" optional="YES" attributeType="String"/>
         <attribute name="providerId" optional="YES" attributeType="String"/>
-        <relationship name="slot" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDSlot" inverseName="source" inverseEntity="CDSlot"/>
+        <relationship name="slot" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PersistentSlot" inverseName="source" inverseEntity="PersistentSlot"/>
     </entity>
     <elements>
-        <element name="CDCollection" positionX="-408.1660766601562" positionY="-682.6067199707031" width="128" height="89"/>
-        <element name="CDSlot" positionX="-225.6904907226562" positionY="-667.485595703125" width="128" height="74"/>
-        <element name="CDSource" positionX="-42.60540771484375" positionY="-726.8972778320312" width="128" height="74"/>
+        <element name="PersistentCollection" positionX="-408.1660766601562" positionY="-682.6067199707031" width="128" height="89"/>
+        <element name="PersistentSlot" positionX="-225.6904907226562" positionY="-667.485595703125" width="128" height="74"/>
+        <element name="PersistentSource" positionX="-42.60540771484375" positionY="-726.8972778320312" width="128" height="74"/>
     </elements>
 </model>

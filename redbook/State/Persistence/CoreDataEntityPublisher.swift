@@ -1,5 +1,5 @@
 //
-//  CDPublisher.swift
+//  CoreDataEntityPublisher.swift
 //  redbook (iOS)
 //
 //  Created by Greg Hepworth on 21/03/2021.
@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 import Combine
 
-class CDEntityPublisher<T: NSManagedObject>: NSObject, ObservableObject, NSFetchedResultsControllerDelegate {
+class CoreDataEntityPublisher<T: NSManagedObject>: NSObject, ObservableObject, NSFetchedResultsControllerDelegate {
   
   var entities = CurrentValueSubject<[T], Never>([])
   private let entityFetchController: NSFetchedResultsController<T>
