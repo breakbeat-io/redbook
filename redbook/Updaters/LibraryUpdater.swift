@@ -13,7 +13,7 @@ func updateLibraryState(libraryState: LibraryState, action: StateAction) -> Libr
   
   switch action {
   
-  case let update as LibraryAction.CoreDataUpdate<PersistentCollection>:
+  case _ as LibraryAction.CoreDataUpdate<PersistentCollection>:
     ()
 //    var collections = [Collection]()
 //    for cdCollection in update.cdCollections {
@@ -26,17 +26,21 @@ func updateLibraryState(libraryState: LibraryState, action: StateAction) -> Libr
 //    }
 //    libraryState.collections = collections.filter({ $0.type != .onRotation})
   
-  case let update as LibraryAction.CoreDataUpdate<PersistentSource>:
+  case _ as LibraryAction.CoreDataUpdate<PersistentSource>:
     ()
     
-  case let update as LibraryAction.CoreDataUpdate<PersistentSlot>:
+  case _ as LibraryAction.CoreDataUpdate<PersistentSlot>:
     ()
     
   case let update as LibraryAction.AddSourceToSlot:
-    libraryState.onRotation.slots[update.slotPosition].source = update.source
+    if let slotPosition = libraryState.onRotation.slots.firstIndex(where: { $0.position == update.slotPosition }) {
+      libraryState.onRotation.slots[slotPosition].source = update.source
+    }
     
   case let update as LibraryAction.RemoveSourceFromSlot:
-    libraryState.onRotation.slots[update.slotPosition].source = nil
+    if let slotPosition = libraryState.onRotation.slots.firstIndex(where: { $0.position == update.slotPosition }) {
+      libraryState.onRotation.slots[slotPosition].source = nil
+    }
   
   default:
     break

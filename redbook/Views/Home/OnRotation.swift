@@ -11,10 +11,14 @@ struct OnRotation: View {
   
   @EnvironmentObject var app: AppEnvironment
   
+  private var slots: [Slot] {
+    app.state.library.onRotation.slots.sorted(by: { $0.position < $1.position })
+  }
+  
   var body: some View {
     NavigationView {
       ScrollView {
-        ForEach(app.state.library.onRotation.slots, id: \.position) { slot in
+        ForEach(slots, id: \.position) { slot in
           if let source: Source = slot.source {
             NavigationLink(
               destination: SourceDetail(sourceId: source.providerId, showPlaybackLink: true)

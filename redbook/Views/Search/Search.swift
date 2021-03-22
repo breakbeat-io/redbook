@@ -60,8 +60,8 @@ struct Search: View {
       }
     }
     .onDisappear {
-      app.process(SearchAction.UpdateSearchStatus(newStatus: .idle))
       app.process(SearchAction.ClearResults())
+      app.process(SearchAction.UpdateSearchStatus(newStatus: .idle))
     }
   }
   
