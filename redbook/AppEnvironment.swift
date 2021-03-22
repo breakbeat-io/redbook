@@ -13,21 +13,12 @@ final class AppEnvironment: ObservableObject {
   
   @Published private(set) var state = AppState.initial
 
-  private var coreDataSubscribers: Set<AnyCancellable> = []
-  private var asyncActionSubscribers: Set<AnyCancellable> = []
+  private var subscribers: Set<AnyCancellable> = []
   
   init() {
     subscribeTo(CDCollection.self)
     subscribeTo(CDSlot.self)
     subscribeTo(CDSource.self)
-  }
-  
-  private func subscribeTo<T: NSManagedObject>(_ type: T.Type) {
-    let entityPublisher: AnyPublisher<[T], Never> = CDEntityPublisher<T>().entities.eraseToAnyPublisher()
-    entityPublisher.sink { entities in
-      self.process(LibraryAction.CoreDataUpdate(entities: entities))
-    }
-    .store(in: &coreDataSubscribers)
   }
   
   func process(_ action: StateAction) {
@@ -39,8 +30,16 @@ final class AppEnvironment: ObservableObject {
     print(action.log())
     action.execute()
       .receive(on: DispatchQueue.main)
-      .sink(receiveValue: { self.process($0) })
-      .store(in: &asyncActionSubscribers)
+      .sink(receiveValue: { action in self.process(action) })
+      .store(in: &subscribers)
+  }
+  
+  private func subscribeTo<T: NSManagedObject>(_ type: T.Type) {
+    let entityPublisher: AnyPublisher<[T], Never> = CDEntityPublisher<T>().entities.eraseToAnyPublisher()
+    entityPublisher.sink { entities in
+      self.process(LibraryAction.CoreDataUpdate(entities: entities))
+    }
+    .store(in: &subscribers)
   }
   
 }
