@@ -9,20 +9,20 @@ import SwiftUI
 
 struct OnRotation: View {
   
-  @StateObject var viewModel = ViewModel()
+  @EnvironmentObject var app: AppEnvironment
   
   var body: some View {
     NavigationView {
       ScrollView {
-        ForEach(viewModel.slots) { slot in
-          if let source: CDSource = slot.source {
+        ForEach(app.state.library.onRotation.slots, id: \.position) { slot in
+          if let source: Source = slot.source {
             NavigationLink(
-              destination: SourceDetail(sourceId: source.sourceProviderId, showPlaybackLink: true)
+              destination: SourceDetail(sourceId: source.providerId, showPlaybackLink: true)
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                   ToolbarItem(placement: .destructiveAction) {
                     Button {
-                      viewModel.removeSource(source: source)
+                      app.process(LibraryAction.RemoveSourceFromSlot(slotPosition: slot.position))
                     } label: {
                       Image(systemName: "eject")
                         .foregroundColor(.red)
@@ -30,12 +30,12 @@ struct OnRotation: View {
                   }
                 }
             ) {
-              SourceCard(title: source.sourceName, artist: source.sourceArtist, artworkURL: source.sourceArtworkURL)
+              SourceCard(title: source.title, artist: source.artistName, artworkURL: source.artworkURL)
                 .frame(height: 61)
             }
             .contextMenu(ContextMenu(menuItems: {
               Button {
-                viewModel.removeSource(source: source)
+                app.process(LibraryAction.RemoveSourceFromSlot(slotPosition: slot.position))
               } label: {
                 Label("Remove", systemImage: "eject")
               }

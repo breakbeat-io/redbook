@@ -10,14 +10,11 @@ import SwiftUI
 @main
 struct redbookApp: App {
   
-  let app = AppEnvironment(initialState: AppState())
+  let app = AppEnvironment()
   let persistenceController = PersistenceController.shared
   
   init() {
-    
     checkKeys()
-    persistenceController.bootstrap()
-    
   }
   
   var body: some Scene {

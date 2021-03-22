@@ -6,19 +6,11 @@
 //
 
 struct AppState {
+  var library: LibraryState
   var search: SearchState = SearchState()
-}
-
-struct SearchState {
-  var searchStatus: SearchStatus = .idle
-  var searchResults: [Source] = []
-  var searchError: Error?
   
-  enum SearchStatus {
-    case idle
-    case searching
-    case noResults
-    case error
+  static var initial: AppState {
+    AppState(library: LibraryState(onRotation: Collection.emptyOnRotation))
   }
-  
+
 }

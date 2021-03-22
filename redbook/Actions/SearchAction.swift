@@ -13,24 +13,45 @@ struct SearchAction {
   
   struct UpdateSearchStatus: StateAction {
     let newStatus: SearchState.SearchStatus
+    
+    func log() -> String {
+      "🔊 action"
+    }
   }
   
   struct UpdateResults: StateAction {
     let searchResults: [Source]
+    
+    func log() -> String {
+      "🔊 action"
+    }
   }
   
-  struct ClearResults: StateAction { }
+  struct ClearResults: StateAction {
+    func log() -> String {
+      "🔊 action"
+    }
+  }
   
   struct SearchError: StateAction {
     let error: Error
+    
+    func log() -> String {
+      "🔊 action"
+    }
   }
   
-  struct AppleMusicSearch: FutureAction {
+  struct SearchAppleMusic: FutureAction {
     let searchTerm: String
+    
+    func log() -> String {
+      "🔊 action"
+    }
     
     func execute() -> AnyPublisher<StateAction, Never> {
       return Future() { promise in
         RecordStore.appleMusic.search(term: searchTerm, limit: 20, types: [.albums]) { results, error in
+          // TODO: Sets action to an Error in case it falls out without processing, feels like could be smarter.
           var action: StateAction = SearchAction.SearchError(error: NSError())
           if let results = results {
             if let albumMusicAlbums = results.albums?.data {
@@ -54,50 +75,33 @@ struct SearchAction {
     }
   }
   
-  struct AddSourceToSlot: FutureAction {
+  struct GetAppleMusicAlbumForSlot: FutureAction {
     let sourceId: String
     let slotPosition: Int
     
+    func log() -> String {
+      "🔊 action"
+    }
+    
     func execute() -> AnyPublisher<StateAction, Never> {
-      print("adding \(sourceId) to \(slotPosition)")
-      
-      
-      RecordStore.appleMusic.album(id: sourceId, completion: { album, error in
-        if let album = album {
-          let onRotationFetch: NSFetchRequest<CDCollection> = CDCollection.fetchRequest()
-          onRotationFetch.predicate = NSPredicate(format: "type == %@", "onRotation")
-          
-          let slot: CDSlot
-          
-          do {
-            let onRotation = try PersistenceController.shared.container.viewContext.fetch(onRotationFetch).first
-            slot = onRotation?.slots?.first(where: { ($0 as! CDSlot).position == self.slotPosition }) as! CDSlot
-          } catch {
-            fatalError()
-          }
-          
-          let source = CDSource(context: PersistenceController.shared.container.viewContext)
-          source.providerId = album.id
-          source.artistName = album.attributes?.artistName
-          source.title = album.attributes?.name
-          source.artworkURL = album.attributes?.artwork.url(forWidth: 1000)
-          source.playbackURL = URL(string: album.href)
-          source.slot = slot
-          
-          do {
-            try PersistenceController.shared.container.viewContext.save()
-          } catch {
-            fatalError()
-          }
-          
-        }
+      print("🔊 Adding \(sourceId) to \(slotPosition)")
+      return Future() { promise in
         
-//        if let error = error {
-//          os_log("💎 Load Album error: %s", String(describing: error))
-//          //           TODO: create another action to show an error in album add.
-//        }
-      })
-      return Empty().eraseToAnyPublisher()
+        var action: StateAction = SearchAction.SearchError(error: NSError())
+        
+        RecordStore.appleMusic.album(id: sourceId) { album, error in
+          if let album = album {
+            let source = album.toSource()
+            action = LibraryAction.AddSourceToSlot(source: source, slotPosition: slotPosition)
+          }
+          if let error = error {
+            print("🔊 Load Album error: %s", String(describing: error))
+            // TODO: create another action to show an error in album add.
+          }
+          promise(.success(action))
+        }
+      }
+      .eraseToAnyPublisher()
     }
   }
   

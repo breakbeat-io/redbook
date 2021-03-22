@@ -13,7 +13,7 @@ extension SourceDetail {
   class ViewModel: ObservableObject {
     
     @Published private(set) var source: Source?
-    @Published private(set) var tracks: [Int:[CDTrack]]?
+//    @Published private(set) var tracks: [Int:[CDTrack]]?
     
     func loadSource(sourceId: String) {
       
@@ -21,7 +21,7 @@ extension SourceDetail {
         if let appleMusicAlbum = appleMusicAlbum {
           DispatchQueue.main.async {
             self.source = appleMusicAlbum.toSource()
-            self.tracks = appleMusicAlbum.toTracks()
+//            self.tracks = appleMusicAlbum.toTracks()
           }
         }
         

@@ -20,7 +20,7 @@ struct Search: View {
       VStack{
         SearchBar(searchAction: { searchTerm in
           app.process(SearchAction.UpdateSearchStatus(newStatus: .searching))
-          app.process(SearchAction.AppleMusicSearch(searchTerm: searchTerm))
+          app.process(SearchAction.SearchAppleMusic(searchTerm: searchTerm))
         },
         clearAction: {
           app.process(SearchAction.ClearResults())
@@ -28,7 +28,7 @@ struct Search: View {
         ZStack {
           SearchResults(searchResults: app.state.search.searchResults,
                         addAction: { sourceId in
-                          app.process(SearchAction.AddSourceToSlot(sourceId: sourceId, slotPosition: slotPosition))
+                          app.process(SearchAction.GetAppleMusicAlbumForSlot(sourceId: sourceId, slotPosition: slotPosition))
                           presentationMode.wrappedValue.dismiss()
                         })
             .disabled(app.state.search.searchStatus == .searching)

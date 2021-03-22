@@ -12,11 +12,11 @@ func updateSearchState(searchState: SearchState, action: StateAction) -> SearchS
   
   switch action {
   
-  case let status as SearchAction.UpdateSearchStatus:
-    if status.newStatus == .error || status.newStatus == .noResults {
+  case let update as SearchAction.UpdateSearchStatus:
+    if update.newStatus == .error || update.newStatus == .noResults {
       searchState.searchResults.removeAll()
     }
-    searchState.searchStatus = status.newStatus
+    searchState.searchStatus = update.newStatus
   
   case let update as SearchAction.UpdateResults:
     searchState.searchStatus = .idle

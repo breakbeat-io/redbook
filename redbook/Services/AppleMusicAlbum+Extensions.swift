@@ -24,34 +24,34 @@ extension AppleMusicAlbum {
     )
   }
   
-  func toTracks() -> [Int:[CDTrack]] {
-    
-    var sourceTracks = [Int:[CDTrack]]()
-    let appleMusicAlbumTracks = relationships?.tracks.data ?? [HMV.Track]()
-    let numberOfDiscs = appleMusicAlbumTracks.map { $0.attributes?.discNumber ?? 1 }.max() ?? 1
-    
-    for i in 1...numberOfDiscs {
-      
-      let appleMusicAlbumDiscTracks = appleMusicAlbumTracks.filter { $0.attributes?.discNumber == i }
-      var sourceSegmentTracks = [CDTrack]()
-      
-      for sourceTrack in appleMusicAlbumDiscTracks {
-        
-        let track = CDTrack(entity: CDTrack.entity(), insertInto: nil)
-        track.providerId = sourceTrack.id
-        track.title = sourceTrack.attributes?.name
-        track.artistName = sourceTrack.attributes?.artistName
-        track.number = Int16(sourceTrack.attributes?.trackNumber ?? 0)
-        track.segment = Int16(sourceTrack.attributes?.discNumber ?? 0)
-        track.duration = Int32(sourceTrack.attributes?.durationInMillis ?? 0)
-        sourceSegmentTracks.append(track)
-        
-      }
-      
-      sourceTracks[i] = sourceSegmentTracks
-    }
-    
-    return sourceTracks
-  }
+//  func toTracks() -> [Int:[CDTrack]] {
+//    
+//    var sourceTracks = [Int:[CDTrack]]()
+//    let appleMusicAlbumTracks = relationships?.tracks.data ?? [HMV.Track]()
+//    let numberOfDiscs = appleMusicAlbumTracks.map { $0.attributes?.discNumber ?? 1 }.max() ?? 1
+//    
+//    for i in 1...numberOfDiscs {
+//      
+//      let appleMusicAlbumDiscTracks = appleMusicAlbumTracks.filter { $0.attributes?.discNumber == i }
+//      var sourceSegmentTracks = [CDTrack]()
+//      
+//      for sourceTrack in appleMusicAlbumDiscTracks {
+//        
+//        let track = CDTrack(entity: CDTrack.entity(), insertInto: nil)
+//        track.providerId = sourceTrack.id
+//        track.title = sourceTrack.attributes?.name
+//        track.artistName = sourceTrack.attributes?.artistName
+//        track.number = Int16(sourceTrack.attributes?.trackNumber ?? 0)
+//        track.segment = Int16(sourceTrack.attributes?.discNumber ?? 0)
+//        track.duration = Int32(sourceTrack.attributes?.durationInMillis ?? 0)
+//        sourceSegmentTracks.append(track)
+//        
+//      }
+//      
+//      sourceTracks[i] = sourceSegmentTracks
+//    }
+//    
+//    return sourceTracks
+//  }
   
 }

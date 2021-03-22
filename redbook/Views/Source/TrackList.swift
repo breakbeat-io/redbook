@@ -7,22 +7,22 @@
 
 import SwiftUI
 
-struct TrackList: View {
-  
-  let sourceTracks: [Int:[CDTrack]]
-  let sourceArtist: String
-  
-  var body: some View {
-    VStack {
-      ForEach(1...sourceTracks.count, id: \.self) { discNumber in
-        DiscTrackList(
-          discNumber: discNumber,
-          discTracks: sourceTracks[discNumber]!,
-          showDiscNumber: sourceTracks.count > 1 ? true : false,
-          sourceArtist: sourceArtist
-        )
-      }
-      .padding(.bottom)
-    }
-  }
-}
+//struct TrackList: View {
+//  
+//  let sourceTracks: [Int:[CDTrack]]
+//  let sourceArtist: String
+//  
+//  var body: some View {
+//    VStack {
+//      ForEach(1...sourceTracks.count, id: \.self) { discNumber in
+//        DiscTrackList(
+//          discNumber: discNumber,
+//          discTracks: sourceTracks[discNumber]!,
+//          showDiscNumber: sourceTracks.count > 1 ? true : false,
+//          sourceArtist: sourceArtist
+//        )
+//      }
+//      .padding(.bottom)
+//    }
+//  }
+//}

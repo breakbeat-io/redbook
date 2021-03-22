@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct EmptyCard: View {
+  
+  @EnvironmentObject var app: AppEnvironment
 
   @State private var showSearch = false
   let slotPosition: Int
@@ -26,6 +28,7 @@ struct EmptyCard: View {
     }
     .sheet(isPresented: $showSearch) {
       Search(slotPosition: slotPosition)
+        .environmentObject(app)
     }
   }
 }
