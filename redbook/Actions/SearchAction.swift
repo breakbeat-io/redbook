@@ -14,38 +14,38 @@ struct SearchAction {
   struct UpdateSearchStatus: StateAction {
     let newStatus: SearchState.SearchStatus
     
-    func log() -> String {
-      "🔊 action"
+    func logMessage() -> String {
+      "🔊 Setting search status to \(newStatus)"
     }
   }
   
   struct UpdateResults: StateAction {
     let searchResults: [Source]
     
-    func log() -> String {
-      "🔊 action"
+    func logMessage() -> String {
+      "🔊 Populating \(searchResults.count) search results"
     }
   }
   
   struct ClearResults: StateAction {
-    func log() -> String {
-      "🔊 action"
+    func logMessage() -> String {
+      "🔊 Clearing search results"
     }
   }
   
   struct SearchError: StateAction {
     let error: Error
     
-    func log() -> String {
-      "🔊 action"
+    func logMessage() -> String {
+      "🔊 Search error: \(error.localizedDescription)"
     }
   }
   
   struct SearchAppleMusic: FutureAction {
     let searchTerm: String
     
-    func log() -> String {
-      "🔊 action"
+    func logMessage() -> String {
+      "🔊 Searching Apple Music for `\(searchTerm)`"
     }
     
     func execute() -> AnyPublisher<StateAction, Never> {
@@ -79,12 +79,11 @@ struct SearchAction {
     let sourceId: String
     let slotPosition: Int
     
-    func log() -> String {
-      "🔊 action"
+    func logMessage() -> String {
+      "🔊 Getting Apple Music Album \(sourceId) for slot \(slotPosition)"
     }
     
     func execute() -> AnyPublisher<StateAction, Never> {
-      print("🔊 Adding \(sourceId) to \(slotPosition)")
       return Future() { promise in
         
         var action: StateAction = SearchAction.SearchError(error: NSError())
@@ -95,8 +94,7 @@ struct SearchAction {
             action = LibraryAction.AddSourceToSlot(source: source, slotPosition: slotPosition)
           }
           if let error = error {
-            print("🔊 Load Album error: %s", String(describing: error))
-            // TODO: create another action to show an error in album add.
+            action = SearchAction.SearchError(error: error)
           }
           promise(.success(action))
         }

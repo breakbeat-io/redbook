@@ -14,8 +14,8 @@ struct LibraryAction {
   struct CoreDataUpdate<T: NSManagedObject>: StateAction {
     let entities: [T]
     
-    func log() -> String {
-      "🔊 Performing a Core Data Update"
+    func logMessage() -> String {
+      return "🔊 Performing a Core Data update for \(entities.count) \(type(of: entities).Element.self)'s"
     }
   }
   
@@ -23,16 +23,16 @@ struct LibraryAction {
     let source: Source
     let slotPosition: Int
     
-    func log() -> String {
-      "🔊 Adding \(source) to \(slotPosition)"
+    func logMessage() -> String {
+      "🔊 Adding \(source.title) to slot \(slotPosition)"
     }
   }
   
   struct RemoveSourceFromSlot: StateAction {
     let slotPosition: Int
     
-    func log() -> String {
-      "🔊 Removing source from \(slotPosition)"
+    func logMessage() -> String {
+      "🔊 Removing source from slot \(slotPosition)"
     }
   }
   

@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol Action {
-  func log() -> String
+  func logMessage() -> String
 }
 
 protocol StateAction: Action { }

@@ -14,7 +14,7 @@ func updateLibraryState(libraryState: LibraryState, action: StateAction) -> Libr
   switch action {
   
   case let update as LibraryAction.CoreDataUpdate<PersistentCollection>:
-    print("🔊 Collection Update In Process for \(update.entities.count) \(type(of: update.entities))'s")
+    ()
 //    var collections = [Collection]()
 //    for cdCollection in update.cdCollections {
 //      let collection: Collection = cdCollection.toCollection()
@@ -27,17 +27,15 @@ func updateLibraryState(libraryState: LibraryState, action: StateAction) -> Libr
 //    libraryState.collections = collections.filter({ $0.type != .onRotation})
   
   case let update as LibraryAction.CoreDataUpdate<PersistentSource>:
-    print("🔊 Slot Update In Process for \(update.entities.count) \(type(of: update.entities))'s")
+    ()
     
   case let update as LibraryAction.CoreDataUpdate<PersistentSlot>:
-    print("🔊 Source Update In Process for \(update.entities.count) \(type(of: update.entities))'s")
+    ()
     
   case let update as LibraryAction.AddSourceToSlot:
-    print("🔊 Adding source to slot \(update.slotPosition) for reealz")
     libraryState.onRotation.slots[update.slotPosition].source = update.source
     
   case let update as LibraryAction.RemoveSourceFromSlot:
-    print("🔊 Removing source from slot \(update.slotPosition)")
     libraryState.onRotation.slots[update.slotPosition].source = nil
   
   default:

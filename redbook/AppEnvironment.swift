@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import os
 import CoreData
 import Combine
 
@@ -14,6 +15,7 @@ final class AppEnvironment: ObservableObject {
   @Published private(set) var state = AppState.initial
 
   private var subscribers: Set<AnyCancellable> = []
+  private let actionLogger = Logger(subsystem: "io.breakbeat.redbook", category: "action")
   
   init() {
     subscribeTo(PersistentCollection.self)
@@ -22,12 +24,12 @@ final class AppEnvironment: ObservableObject {
   }
   
   func process(_ action: StateAction) {
-    print(action.log())
+    actionLogger.log("\(action.logMessage())")
     state = updateState(state: state, action: action)
   }
   
   func process(_ action: FutureAction) {
-    print(action.log())
+    actionLogger.log("\(action.logMessage())")
     action.execute()
       .receive(on: DispatchQueue.main)
       .sink(receiveValue: { action in self.process(action) })
