@@ -8,10 +8,12 @@
 import Foundation
 import Combine
 
-protocol StateAction {
+protocol Action {
   func log() -> String
 }
-protocol FutureAction  {
-  func log() -> String
+
+protocol StateAction: Action { }
+
+protocol FutureAction: Action {
   func execute() -> AnyPublisher<StateAction, Never>
 }
