@@ -10,14 +10,14 @@ import SwiftUI
 
 struct SourceDetail: View {
   
-  @StateObject var viewModel = ViewModel()
+  @State var source: Source?
   var sourceId: String
   var showPlaybackLink: Bool
   
   var body: some View {
     
     ScrollView {
-      if let source = viewModel.source {
+      if let source = source {
         SourceCover(sourceName: source.title,
                     sourceArtist: source.artistName,
                     sourceArtworkURL: source.artworkURL)
@@ -35,7 +35,19 @@ struct SourceDetail: View {
     }
     .padding()
     .onAppear() {
-      viewModel.loadSource(sourceId: sourceId)
+      RecordStore.appleMusic.album(id: sourceId) { appleMusicAlbum, error in
+        if let appleMusicAlbum = appleMusicAlbum {
+          DispatchQueue.main.async {
+            self.source = appleMusicAlbum.toSource()
+//            self.tracks = appleMusicAlbum.toTracks()
+          }
+        }
+        
+        if let error = error {
+          os_log("💎 Load Album error: %s", String(describing: error))
+          // TODO: create another action to show an error in album add.
+        }
+      }
     }
   }
 }
