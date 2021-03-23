@@ -103,4 +103,33 @@ struct SearchAction {
     }
   }
   
+  struct GetAppleMusicAlbum: FutureAction {
+    let sourceId: String
+    
+    func logMessage() -> String {
+      "🔊 Getting Apple Music Album \(sourceId)"
+    }
+    
+    func execute() -> AnyPublisher<StateAction, Never> {
+      return Future() { promise in
+        
+        var action: StateAction = SearchAction.SearchError(error: NSError())
+        
+        RecordStore.appleMusic.album(id: sourceId) { appleMusicAlbum, error in
+          if let appleMusicAlbum = appleMusicAlbum {
+              let source = appleMusicAlbum.toSource()
+  //            self.tracks = appleMusicAlbum.toTracks()
+              action = LibraryAction.LoadSource(source: source)
+          }
+          if let error = error {
+            // TODO: create another action to show an error in album add.
+          }
+          promise(.success(action))
+        }
+      }
+      .eraseToAnyPublisher()
+    }
+    
+  }
+  
 }

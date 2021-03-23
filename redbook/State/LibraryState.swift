@@ -10,5 +10,7 @@ import CoreData
 struct LibraryState {
   var onRotation: Collection
   var collections = [Collection]()
+  
+  var activeSource: Source?
 
 }
