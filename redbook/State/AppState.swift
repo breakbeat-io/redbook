@@ -7,7 +7,8 @@
 
 struct AppState {
   var library: LibraryState
-  var search: SearchState = SearchState()
+  var active = ActiveState()
+  var search = SearchState()
   
   static var initial: AppState {
     AppState(library: LibraryState(onRotation: Collection.emptyOnRotation))

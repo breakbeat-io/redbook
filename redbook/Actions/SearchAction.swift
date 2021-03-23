@@ -119,7 +119,7 @@ struct SearchAction {
           if let appleMusicAlbum = appleMusicAlbum {
               let source = appleMusicAlbum.toSource()
   //            self.tracks = appleMusicAlbum.toTracks()
-              action = LibraryAction.LoadSource(source: source)
+              action = ActiveAction.LoadSource(source: source)
           }
           if let error = error {
             // TODO: create another action to show an error in album add.

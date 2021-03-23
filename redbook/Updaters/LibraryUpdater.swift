@@ -41,12 +41,6 @@ func updateLibraryState(libraryState: LibraryState, action: StateAction) -> Libr
     if let slotPosition = libraryState.onRotation.slots.firstIndex(where: { $0.position == update.slotPosition }) {
       libraryState.onRotation.slots[slotPosition].source = nil
     }
-    
-  case let update as LibraryAction.LoadSource:
-    libraryState.activeSource = update.source
-    
-  case _ as LibraryAction.UnloadSource:
-    libraryState.activeSource = nil
   
   default:
     break

@@ -36,19 +36,4 @@ struct LibraryAction {
     }
   }
   
-  struct LoadSource: StateAction {
-    let source: Source
-    
-    func logMessage() -> String {
-      "🔊 Loading \(source.title)"
-    }
-  }
-  
-  struct UnloadSource: StateAction {
-    
-    func logMessage() -> String {
-      "🔊 Unloading active Source"
-    }
-  }
-  
 }

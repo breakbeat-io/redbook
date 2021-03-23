@@ -17,7 +17,7 @@ struct SourceDetail: View {
   var body: some View {
     
     ScrollView {
-      if let source = app.state.library.activeSource {
+      if let source = app.state.active.source {
         SourceCover(sourceName: source.title,
                     sourceArtist: source.artistName,
                     sourceArtworkURL: source.artworkURL)
@@ -38,7 +38,7 @@ struct SourceDetail: View {
       app.process(SearchAction.GetAppleMusicAlbum(sourceId: sourceId))
     }
     .onDisappear {
-      app.process(LibraryAction.UnloadSource())
+      app.process(ActiveAction.UnloadSource())
     }
   }
 }
