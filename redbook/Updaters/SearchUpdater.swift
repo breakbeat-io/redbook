@@ -19,11 +19,12 @@ func updateSearchState(searchState: SearchState, action: StateAction) -> SearchS
     searchState.searchStatus = update.newStatus
   
   case let update as SearchAction.UpdateResults:
-    searchState.searchStatus = .idle
     searchState.searchResults = update.searchResults
+    searchState.searchStatus = .idle
   
   case _ as SearchAction.ClearResults:
     searchState.searchResults.removeAll()
+    searchState.searchStatus = .idle
     
   case let error as SearchAction.SearchError:
     searchState.searchStatus = .error
