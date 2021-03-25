@@ -14,5 +14,5 @@ struct Track: Identifiable {
   let artistName: String
   let duration: String
   let number: Int
-  let segment: Int
+  let part: Int
 }

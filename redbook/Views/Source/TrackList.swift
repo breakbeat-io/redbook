@@ -14,7 +14,7 @@ struct TrackList: View {
   
   var body: some View {
     VStack {
-      ForEach(0..<sourceTracks.count, id: \.self) { discNumber in
+      ForEach(1...sourceTracks.count, id: \.self) { discNumber in
         DiscTrackList(
           discNumber: discNumber,
           discTracks: sourceTracks[discNumber]!,
