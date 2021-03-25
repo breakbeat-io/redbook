@@ -46,8 +46,8 @@ struct SourceCard: View {
         }
         .background(Color.black.opacity(0.8))
         .cornerRadius(CSS.cardCornerRadius)
-        .padding(4)
-        , alignment: .bottomLeading)
+        .padding(4),
+        alignment: .bottomLeading)
       .shadow(radius: 3)
   }
 }

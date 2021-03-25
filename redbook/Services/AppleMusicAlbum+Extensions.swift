@@ -28,22 +28,17 @@ extension AppleMusicAlbum {
     let numberOfParts = appleMusicAlbumTracks.map { $0.attributes?.discNumber ?? 1 }.max() ?? 1
     
     for i in 1...numberOfParts {
-      
       let appleMusicAlbumDiscTracks = appleMusicAlbumTracks.filter { $0.attributes?.discNumber == i }
       var sourcePartTracks = [Track]()
       
       for sourceTrack in appleMusicAlbumDiscTracks {
-        
-        let track = Track(providerId: sourceTrack.id,
-                          title: sourceTrack.attributes?.name ?? "Unknown Title",
-                          artistName: sourceTrack.attributes?.artistName ?? "Unknown Artist",
-                          duration: sourceTrack.attributes?.duration ?? "--:--",
-                          number: sourceTrack.attributes?.trackNumber ?? 0,
-                          part: sourceTrack.attributes?.discNumber ?? 0
+        sourcePartTracks.append(Track(providerId: sourceTrack.id,
+                                      title: sourceTrack.attributes?.name ?? "Unknown Title",
+                                      artistName: sourceTrack.attributes?.artistName ?? "Unknown Artist",
+                                      duration: sourceTrack.attributes?.duration ?? "--:--",
+                                      number: sourceTrack.attributes?.trackNumber ?? 0,
+                                      part: sourceTrack.attributes?.discNumber ?? 0)
         )
-        
-        sourcePartTracks.append(track)
-        
       }
       
       sourceTracks[i] = sourcePartTracks

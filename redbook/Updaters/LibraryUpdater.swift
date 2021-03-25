@@ -15,16 +15,6 @@ func updateLibraryState(libraryState: LibraryState, action: StateAction) -> Libr
   
   case _ as LibraryAction.CoreDataUpdate<PersistentCollection>:
     ()
-//    var collections = [Collection]()
-//    for cdCollection in update.cdCollections {
-//      let collection: Collection = cdCollection.toCollection()
-//      collections.append(collection)
-//    }
-//    // prob need to do some more checking here on the new Collections
-//    if let newOnRotation = collections.first(where: { $0.type == .onRotation }) {
-//      libraryState.onRotation = newOnRotation
-//    }
-//    libraryState.collections = collections.filter({ $0.type != .onRotation})
   
   case _ as LibraryAction.CoreDataUpdate<PersistentSource>:
     ()

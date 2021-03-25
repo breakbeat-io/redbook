@@ -18,27 +18,27 @@ struct Search: View {
   var body: some View {
     NavigationView {
       VStack{
-        SearchBar(searchAction: { searchTerm in
+        SearchBar(search: { searchTerm in
           app.process(SearchAction.UpdateSearchStatus(newStatus: .searching))
           app.process(SearchAction.SearchAppleMusic(searchTerm: searchTerm,
-                                                    nextAction: { sources in
+                                                    success: { sources in
                                                       SearchAction.UpdateResults(searchResults: sources)
                                                     },
-                                                    errorAction: { error in
+                                                    error: { error in
                                                       SearchAction.SearchError(error: error)
                                                     }))
         },
-        clearAction: {
+        clear: {
           app.process(SearchAction.ClearResults())
         })
         ZStack {
           SearchResults(searchResults: app.state.search.searchResults,
-                        addAction: { sourceId in
+                        add: { sourceId in
                           app.process(SearchAction.GetAppleMusicAlbum(sourceId: sourceId,
-                                                                      nextAction: { source -> StateAction in
+                                                                      success: { source -> StateAction in
                                                                         LibraryAction.AddSourceToSlot(source: source, slotPosition: slotPosition)
                                                                       },
-                                                                      errorAction: { error in
+                                                                      error: { error in
                                                                         SearchAction.SearchError(error: error)
                                                                       }))
                           presentationMode.wrappedValue.dismiss()
@@ -46,6 +46,7 @@ struct Search: View {
             .disabled(app.state.search.searchStatus == .searching)
           
           switch app.state.search.searchStatus {
+          
           case .searching:
             ActivityIndicator(style: .large)
           case .noResults:
@@ -56,6 +57,7 @@ struct Search: View {
               .foregroundColor(.secondary)
           case .idle:
             EmptyView()
+            
           }
         }
         .frame(maxHeight: .infinity)

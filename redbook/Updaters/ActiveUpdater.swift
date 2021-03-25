@@ -1,5 +1,5 @@
 //
-//  WorkingUpdater.swift
+//  ActiveUpdater.swift
 //  redbook (iOS)
 //
 //  Created by Greg Hepworth on 23/03/2021.

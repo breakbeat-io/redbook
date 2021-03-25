@@ -44,9 +44,9 @@ struct SearchBar: View {
     })
   }
   
-  init(searchAction: @escaping (String) -> Void, clearAction: @escaping () -> Void) {
-    self.search = searchAction
-    self.clear = clearAction
+  init(search: @escaping (String) -> Void, clear: @escaping () -> Void) {
+    self.search = search
+    self.clear = clear
     
     self.debouncer = debouncerRelay
       .debounce(for: .milliseconds(500), scheduler: RunLoop.main)

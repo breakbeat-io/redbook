@@ -11,6 +11,7 @@ import SwiftUI
 struct SourceDetail: View {
   
   @EnvironmentObject var app: AppEnvironment
+  
   var sourceId: String
   var showPlaybackLink: Bool
   
@@ -34,10 +35,10 @@ struct SourceDetail: View {
     .padding()
     .onAppear() {
       app.process(SearchAction.GetAppleMusicAlbum(sourceId: sourceId,
-                                                  nextAction: { source in
+                                                  success: { source in
                                                     ActiveAction.LoadSource(source: source)
                                                   },
-                                                  errorAction: { error in
+                                                  error: { error in
                                                     SearchAction.SearchError(error: error)
                                                   }
       ))

@@ -45,14 +45,14 @@ struct SearchAction {
     let searchTerm: String
     
     typealias Result = [Source]
-    let nextAction: ([Source]) -> StateAction
+    let success: ([Source]) -> StateAction
     
     typealias ResultError = Error
-    let errorAction: (Error) -> StateAction
+    let error: (Error) -> StateAction
     
     func execute() -> AnyPublisher<StateAction, Never> {
       return Future() { promise in
-        RecordStore.appleMusic.search(term: searchTerm, limit: 20, types: [.albums]) { results, error in
+        RecordStore.appleMusic.search(term: searchTerm, limit: 20, types: [.albums]) { results, searchError in
           // TODO: Sets action to an Error in case it falls out without processing, feels like could be smarter.
           var action: StateAction = SearchAction.SearchError(error: NSError())
           if let results = results {
@@ -62,13 +62,13 @@ struct SearchAction {
                 let source = appleMusicAlbum.toSource()
                 sources.append(source)
               }
-              action = nextAction(sources)
+              action = success(sources)
             } else {
               action = SearchAction.UpdateSearchStatus(newStatus: .noResults)
             }
           }
-          if let error = error {
-            action = errorAction(error)
+          if let searchError = searchError {
+            action = self.error(searchError)
           }
           promise(.success(action))
         }
@@ -85,23 +85,23 @@ struct SearchAction {
     let sourceId: String
     
     typealias Result = Source
-    let nextAction: (Source) -> StateAction
+    let success: (Source) -> StateAction
     
     typealias ErrorAction = Error
-    let errorAction: (Error) -> StateAction
+    let error: (Error) -> StateAction
     
     func execute() -> AnyPublisher<StateAction, Never> {
       return Future() { promise in
         
         var action: StateAction = SearchAction.SearchError(error: NSError())
         
-        RecordStore.appleMusic.album(id: sourceId) { album, error in
+        RecordStore.appleMusic.album(id: sourceId) { album, albumError in
           if let album = album {
             let source = album.toSource()
-            action = nextAction(source)
+            action = success(source)
           }
-          if let error = error {
-            action = errorAction(error)
+          if let error = albumError {
+            action = self.error(error)
           }
           promise(.success(action))
         }

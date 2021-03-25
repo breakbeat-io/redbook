@@ -10,8 +10,8 @@ import Kingfisher
 
 struct SearchResults: View {
   
-  private let searchResults: [Source]
-  private let add: (String) -> Void
+  let searchResults: [Source]
+  let add: (String) -> Void
   
   var body: some View {
     // TODO: lots of view formatting here, is it needed?
@@ -64,9 +64,5 @@ struct SearchResults: View {
       }))
     }
   }
-  
-  init(searchResults: [Source], addAction: @escaping (String) -> Void) {
-    self.searchResults = searchResults
-    self.add = addAction
-  }
+
 }
