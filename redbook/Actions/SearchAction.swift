@@ -44,9 +44,11 @@ struct SearchAction {
   struct SearchAppleMusic: FutureAction {
     let searchTerm: String
     
-    func logMessage() -> String {
-      "🔊 Searching Apple Music for `\(searchTerm)`"
-    }
+    typealias Result = [Source]
+    let nextAction: ([Source]) -> StateAction
+    
+    typealias ResultError = Error
+    let errorAction: (Error) -> StateAction
     
     func execute() -> AnyPublisher<StateAction, Never> {
       return Future() { promise in
@@ -60,28 +62,33 @@ struct SearchAction {
                 let source = appleMusicAlbum.toSource()
                 sources.append(source)
               }
-              action = SearchAction.UpdateResults(searchResults: sources)
+              action = nextAction(sources)
             } else {
               action = SearchAction.UpdateSearchStatus(newStatus: .noResults)
             }
           }
           if let error = error {
-            action = SearchAction.SearchError(error: error)
+            action = errorAction(error)
           }
           promise(.success(action))
         }
       }
       .eraseToAnyPublisher()
     }
-  }
-  
-  struct GetAppleMusicAlbumForSlot: FutureAction {
-    let sourceId: String
-    let slotPosition: Int
     
     func logMessage() -> String {
-      "🔊 Getting Apple Music Album \(sourceId) for slot \(slotPosition)"
+      "🔊 Searching Apple Music for `\(searchTerm)`"
     }
+  }
+  
+  struct GetAppleMusicAlbum: FutureAction {
+    let sourceId: String
+    
+    typealias Result = Source
+    let nextAction: (Source) -> StateAction
+    
+    typealias ErrorAction = Error
+    let errorAction: (Error) -> StateAction
     
     func execute() -> AnyPublisher<StateAction, Never> {
       return Future() { promise in
@@ -91,45 +98,20 @@ struct SearchAction {
         RecordStore.appleMusic.album(id: sourceId) { album, error in
           if let album = album {
             let source = album.toSource()
-            action = LibraryAction.AddSourceToSlot(source: source, slotPosition: slotPosition)
+            action = nextAction(source)
           }
           if let error = error {
-            action = SearchAction.SearchError(error: error)
+            action = errorAction(error)
           }
           promise(.success(action))
         }
       }
       .eraseToAnyPublisher()
     }
-  }
-  
-  struct GetAppleMusicAlbum: FutureAction {
-    let sourceId: String
     
     func logMessage() -> String {
-      "🔊 Getting Apple Music Album \(sourceId)"
+      "🔊 Getting Apple Music Album \(sourceId) "
     }
-    
-    func execute() -> AnyPublisher<StateAction, Never> {
-      return Future() { promise in
-        
-        var action: StateAction = SearchAction.SearchError(error: NSError())
-        
-        RecordStore.appleMusic.album(id: sourceId) { appleMusicAlbum, error in
-          if let appleMusicAlbum = appleMusicAlbum {
-              let source = appleMusicAlbum.toSource()
-  //            self.tracks = appleMusicAlbum.toTracks()
-              action = ActiveAction.LoadSource(source: source)
-          }
-          if let error = error {
-            // TODO: create another action to show an error in album add.
-          }
-          promise(.success(action))
-        }
-      }
-      .eraseToAnyPublisher()
-    }
-    
   }
   
 }

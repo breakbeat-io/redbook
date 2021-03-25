@@ -15,5 +15,12 @@ protocol Action {
 protocol StateAction: Action { }
 
 protocol FutureAction: Action {
+  
+  associatedtype Result
+  var nextAction: (Result) -> StateAction { get }
+  
+  associatedtype ResultError
+  var errorAction: (ResultError) -> StateAction { get }
+  
   func execute() -> AnyPublisher<StateAction, Never>
 }

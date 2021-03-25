@@ -13,7 +13,7 @@ import Combine
 final class AppEnvironment: ObservableObject {
   
   @Published private(set) var state = AppState.initial
-
+  
   private var subscribers: Set<AnyCancellable> = []
   private let actionLogger = Logger(subsystem: "io.breakbeat.redbook", category: "action")
   
@@ -28,11 +28,13 @@ final class AppEnvironment: ObservableObject {
     state = updateState(state: state, action: action)
   }
   
-  func process(_ action: FutureAction) {
+  func process<T: FutureAction>(_ action: T) {
     actionLogger.log("\(action.logMessage())")
     action.execute()
       .receive(on: DispatchQueue.main)
-      .sink(receiveValue: { action in self.process(action) })
+      .sink(receiveValue: { action in
+        self.process(action)
+      })
       .store(in: &subscribers)
   }
   

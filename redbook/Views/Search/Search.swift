@@ -20,7 +20,13 @@ struct Search: View {
       VStack{
         SearchBar(searchAction: { searchTerm in
           app.process(SearchAction.UpdateSearchStatus(newStatus: .searching))
-          app.process(SearchAction.SearchAppleMusic(searchTerm: searchTerm))
+          app.process(SearchAction.SearchAppleMusic(searchTerm: searchTerm,
+                                                    nextAction: { sources in
+                                                      SearchAction.UpdateResults(searchResults: sources)
+                                                    },
+                                                    errorAction: { error in
+                                                      SearchAction.SearchError(error: error)
+                                                    }))
         },
         clearAction: {
           app.process(SearchAction.ClearResults())
@@ -28,7 +34,13 @@ struct Search: View {
         ZStack {
           SearchResults(searchResults: app.state.search.searchResults,
                         addAction: { sourceId in
-                          app.process(SearchAction.GetAppleMusicAlbumForSlot(sourceId: sourceId, slotPosition: slotPosition))
+                          app.process(SearchAction.GetAppleMusicAlbum(sourceId: sourceId,
+                                                                      nextAction: { source -> StateAction in
+                                                                        LibraryAction.AddSourceToSlot(source: source, slotPosition: slotPosition)
+                                                                      },
+                                                                      errorAction: { error in
+                                                                        SearchAction.SearchError(error: error)
+                                                                      }))
                           presentationMode.wrappedValue.dismiss()
                         })
             .disabled(app.state.search.searchStatus == .searching)

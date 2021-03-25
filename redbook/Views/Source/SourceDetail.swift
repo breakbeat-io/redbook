@@ -25,17 +25,24 @@ struct SourceDetail: View {
         
         if showPlaybackLink {
           PlaybackLink(playbackURL: source.playbackURL)
-              .padding(.bottom)
+            .padding(.bottom)
         }
-//        viewModel.tracks.map { tracks in
-//          TrackList(sourceTracks: tracks,
-//                    sourceArtist: source.artistName)
-//        }
+        //        viewModel.tracks.map { tracks in
+        //          TrackList(sourceTracks: tracks,
+        //                    sourceArtist: source.artistName)
+        //        }
       }
     }
     .padding()
     .onAppear() {
-      app.process(SearchAction.GetAppleMusicAlbum(sourceId: sourceId))
+      app.process(SearchAction.GetAppleMusicAlbum(sourceId: sourceId,
+                                                  nextAction: { source in
+                                                    ActiveAction.LoadSource(source: source)
+                                                  },
+                                                  errorAction: { error in
+                                                    SearchAction.SearchError(error: error)
+                                                  }
+      ))
     }
     .onDisappear {
       app.process(ActiveAction.UnloadSource())
