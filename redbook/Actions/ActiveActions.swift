@@ -23,4 +23,21 @@ struct ActiveAction {
       "🔊 Unloading active Source"
     }
   }
+  
+  struct UpdateLoadStatus: StateAction {
+    let newStatus: ActiveState.LoadStatus
+    
+    func logMessage() -> String {
+      "🔊 Setting load status to \(newStatus)"
+    }
+  }
+  
+  struct LoadError: StateAction {
+    let error: Error
+    
+    func logMessage() -> String {
+      "🔊 Search error: \(error.localizedDescription)"
+    }
+  }
+  
 }

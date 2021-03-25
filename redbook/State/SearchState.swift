@@ -10,11 +10,11 @@ struct SearchState {
   var searchResults: [Source] = []
   var searchError: Error?
   
-  enum SearchStatus {
-    case idle
-    case searching
-    case noResults
-    case error
+  enum SearchStatus: String {
+    case idle = ""
+    case searching = "Searching"
+    case noResults = "There were no results, please try again."
+    case error = "There was an error, please try again."
   }
   
 }

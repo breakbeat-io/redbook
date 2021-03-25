@@ -17,29 +17,47 @@ struct SourceDetail: View {
   
   var body: some View {
     
-    ScrollView {
-      if let source = app.state.active.source {
-        SourceCover(sourceName: source.title,
-                    sourceArtist: source.artistName,
-                    sourceArtworkURL: source.artworkURL)
-          .padding(.bottom)
-        
-        if showPlaybackLink {
-          PlaybackLink(playbackURL: source.playbackURL)
+    ZStack {
+      ScrollView {
+        if let source = app.state.active.source {
+          SourceCover(sourceName: source.title,
+                      sourceArtist: source.artistName,
+                      sourceArtworkURL: source.artworkURL)
             .padding(.bottom)
+          
+          if showPlaybackLink {
+            PlaybackLink(playbackURL: source.playbackURL)
+              .padding(.bottom)
+          }
+          TrackList(sourceTracks: source.tracks,
+                    sourceArtist: source.artistName)
         }
-        TrackList(sourceTracks: source.tracks,
-                  sourceArtist: source.artistName)
       }
+      .padding()
+      
+      switch app.state.active.loadStatus {
+        
+      case .loading:
+        ActivityIndicator(style: .large)
+        
+      case .error:
+        Text(app.state.search.searchStatus.rawValue)
+          .foregroundColor(.secondary)
+        
+      case .idle:
+        EmptyView()
+        
+      }
+      
     }
-    .padding()
     .onAppear() {
+      app.process(ActiveAction.UpdateLoadStatus(newStatus: .loading))
       app.process(SearchAction.GetAppleMusicAlbum(sourceId: sourceId,
                                                   success: { source in
                                                     ActiveAction.LoadSource(source: source)
                                                   },
                                                   error: { error in
-                                                    SearchAction.SearchError(error: error)
+                                                    ActiveAction.LoadError(error: error)
                                                   }
       ))
     }

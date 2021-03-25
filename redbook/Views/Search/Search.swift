@@ -39,7 +39,7 @@ struct Search: View {
                                                                         LibraryAction.AddSourceToSlot(source: source, slotPosition: slotPosition)
                                                                       },
                                                                       error: { error in
-                                                                        SearchAction.SearchError(error: error)
+                                                                        ActiveAction.LoadError(error: error)
                                                                       }))
                           presentationMode.wrappedValue.dismiss()
                         })
@@ -50,10 +50,10 @@ struct Search: View {
           case .searching:
             ActivityIndicator(style: .large)
           case .noResults:
-            Text("There were no results, please try again.")
+            Text(app.state.search.searchStatus.rawValue)
               .foregroundColor(.secondary)
           case .error:
-            Text("There was an error, please try again.")
+            Text(app.state.search.searchStatus.rawValue)
               .foregroundColor(.secondary)
           case .idle:
             EmptyView()

@@ -93,7 +93,7 @@ struct SearchAction {
     func execute() -> AnyPublisher<StateAction, Never> {
       return Future() { promise in
         
-        var action: StateAction = SearchAction.SearchError(error: NSError())
+        var action: StateAction = ActiveAction.LoadError(error: NSError())
         
         RecordStore.appleMusic.album(id: sourceId) { album, albumError in
           if let album = album {
