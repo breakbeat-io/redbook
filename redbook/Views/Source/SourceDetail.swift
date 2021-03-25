@@ -27,10 +27,8 @@ struct SourceDetail: View {
           PlaybackLink(playbackURL: source.playbackURL)
             .padding(.bottom)
         }
-        //        viewModel.tracks.map { tracks in
-        //          TrackList(sourceTracks: tracks,
-        //                    sourceArtist: source.artistName)
-        //        }
+        TrackList(sourceTracks: source.tracks,
+                  sourceArtist: source.artistName)
       }
     }
     .padding()

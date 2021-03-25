@@ -20,7 +20,7 @@ extension AppleMusicAlbum {
       artworkURL: attributes?.artwork.url(forWidth: 1000) ?? URL(string: "http://www.google.com")!,
       playbackURL: attributes?.url ?? URL(string: "about:blank")!,
 //      tracks: toTracks()
-      tracks: [Track]()
+      tracks: [Int: [Track]]()
     )
   }
   

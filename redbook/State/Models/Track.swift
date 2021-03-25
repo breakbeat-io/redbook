@@ -7,11 +7,12 @@
 
 import Foundation
 
-struct Track {
+struct Track: Identifiable {
   let id = UUID()
   let providerId: String
   let title: String
   let artistName: String
+  let duration: String
   let number: Int
   let segment: Int
 }

@@ -14,5 +14,5 @@ struct Source: Identifiable {
   let artistName: String
   let artworkURL: URL
   let playbackURL: URL
-  var tracks: [Track]
+  var tracks: [Int: [Track]]
 }
