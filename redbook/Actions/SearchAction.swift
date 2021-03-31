@@ -45,16 +45,16 @@ struct SearchAction {
     let searchTerm: String
     
     typealias Result = [Source]
-    let success: ([Source]) -> StateAction
+    let success: ([Source]) -> Action
     
     typealias ResultError = Error
-    let error: (Error) -> StateAction
+    let error: (Error) -> Action
     
-    func execute() -> AnyPublisher<StateAction, Never> {
+    func execute() -> AnyPublisher<Action, Never> {
       return Future() { promise in
         RecordStore.appleMusic.search(term: searchTerm, limit: 20, types: [.albums]) { results, searchError in
           // TODO: Sets action to an Error in case it falls out without processing, feels like could be smarter.
-          var action: StateAction = SearchAction.SearchError(error: NSError())
+          var action: Action = SearchAction.SearchError(error: NSError())
           if let results = results {
             if let albumMusicAlbums = results.albums?.data {
               var sources = [Source]()
@@ -85,15 +85,15 @@ struct SearchAction {
     let sourceId: String
     
     typealias Result = Source
-    let success: (Source) -> StateAction
+    let success: (Source) -> Action
     
     typealias ErrorAction = Error
-    let error: (Error) -> StateAction
+    let error: (Error) -> Action
     
-    func execute() -> AnyPublisher<StateAction, Never> {
+    func execute() -> AnyPublisher<Action, Never> {
       return Future() { promise in
         
-        var action: StateAction = ActiveAction.LoadError(error: NSError())
+        var action: Action = ActiveAction.LoadError(error: NSError())
         
         RecordStore.appleMusic.album(id: sourceId) { album, albumError in
           if let album = album {

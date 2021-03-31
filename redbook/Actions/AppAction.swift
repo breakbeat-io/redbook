@@ -17,10 +17,10 @@ protocol StateAction: Action { }
 protocol FutureAction: Action {
   
   associatedtype Result
-  var success: (Result) -> StateAction { get }
+  var success: (Result) -> Action { get }
   
   associatedtype ResultError
-  var error: (ResultError) -> StateAction { get }
+  var error: (ResultError) -> Action { get }
   
-  func execute() -> AnyPublisher<StateAction, Never>
+  func execute() -> AnyPublisher<Action, Never>
 }

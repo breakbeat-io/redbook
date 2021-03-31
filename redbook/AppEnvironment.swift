@@ -33,7 +33,18 @@ final class AppEnvironment: ObservableObject {
     action.execute()
       .receive(on: DispatchQueue.main)
       .sink(receiveValue: { action in
-        self.process(action)
+        switch action {
+        
+        case let stateAction as StateAction:
+          self.process(stateAction)
+          
+        case let futureAction as T:
+          self.process(futureAction)
+          
+        default:
+          break
+        
+        }
       })
       .store(in: &subscribers)
   }
