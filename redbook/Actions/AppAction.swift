@@ -24,3 +24,27 @@ protocol FutureAction: Action {
   
   func execute() -> AnyPublisher<Action, Never>
 }
+
+struct AnyFutureAction<Result, ResultError>: FutureAction {
+  var success: (Result) -> Action
+  var error: (ResultError) -> Action
+  
+  private let executeClosure: () -> AnyPublisher<Action, Never>
+  private let logMessageClosure: () -> String
+  
+  init<A: FutureAction>(_ futureAction: A) where A.Result == Result, A.ResultError == ResultError {
+    success = futureAction.success
+    error = futureAction.error
+    executeClosure = futureAction.execute
+    logMessageClosure = futureAction.logMessage
+  }
+  
+  func execute() -> AnyPublisher<Action, Never> {
+    executeClosure()
+  }
+  
+  func logMessage() -> String {
+    logMessageClosure()
+  }
+  
+}

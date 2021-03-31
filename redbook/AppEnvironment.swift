@@ -23,31 +23,51 @@ final class AppEnvironment: ObservableObject {
     subscribeTo(PersistentSource.self)
   }
   
-  func process(_ action: StateAction) {
+//  TODO: Really want to make `process` one method that takes an Action, think it needs FutureAction type erased to as follows:
+  func process(_ action: Action) {
     actionLogger.log("\(action.logMessage())")
-    state = updateState(state: state, action: action)
+
+    switch action {
+
+    case let stateAction as StateAction:
+      state = updateState(state: state, action: stateAction)
+
+    case let futureAction as AnyFutureAction<Source, Error>:
+      futureAction.execute()
+        .receive(on: DispatchQueue.main)
+        .sink(receiveValue: process)
+        .store(in: &subscribers)
+
+    default:
+      break
+    }
   }
   
-  func process<T: FutureAction>(_ action: T) {
-    actionLogger.log("\(action.logMessage())")
-    action.execute()
-      .receive(on: DispatchQueue.main)
-      .sink(receiveValue: { action in
-        switch action {
-        
-        case let stateAction as StateAction:
-          self.process(stateAction)
-          
-        case let futureAction as T:
-          self.process(futureAction)
-          
-        default:
-          break
-        
-        }
-      })
-      .store(in: &subscribers)
-  }
+//  func process(_ action: StateAction) {
+//    actionLogger.log("\(action.logMessage())")
+//    state = updateState(state: state, action: action)
+//  }
+//
+//  func process<T: FutureAction>(_ action: T) {
+//    actionLogger.log("\(action.logMessage())")
+//    action.execute()
+//      .receive(on: DispatchQueue.main)
+//      .sink(receiveValue: { action in
+//        switch action {
+//
+//        case let stateAction as StateAction:
+//          self.process(stateAction)
+//
+//        case let futureAction as T:
+//          self.process(futureAction)
+//
+//        default:
+//          break
+//
+//        }
+//      })
+//      .store(in: &subscribers)
+//  }
   
   private func subscribeTo<T: NSManagedObject>(_ type: T.Type) {
     let entityPublisher: AnyPublisher<[T], Never> = CoreDataEntityPublisher<T>().entities.eraseToAnyPublisher()
