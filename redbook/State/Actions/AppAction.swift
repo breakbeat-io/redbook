@@ -12,7 +12,9 @@ protocol Action {
   func logMessage() -> String
 }
 
-protocol StateAction: Action { }
+protocol StateAction: Action {
+  func updateState(_ state: AppState) -> AppState
+}
 
 protocol FutureAction: Action {
   

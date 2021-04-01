@@ -25,7 +25,7 @@ final class AppEnvironment: ObservableObject {
   
   func process(_ action: StateAction) {
     actionLogger.log("\(action.logMessage())")
-    state = updateState(state: state, action: action)
+    state = action.updateState(state)
   }
   
   func process<T: FutureAction>(_ action: T) {

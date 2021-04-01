@@ -14,6 +14,15 @@ struct SearchAction {
   struct UpdateSearchStatus: StateAction {
     let newStatus: SearchState.SearchStatus
     
+    func updateState(_ state: AppState) -> AppState {
+      var state = state
+      if newStatus == .error || newStatus == .noResults {
+        state.search.searchResults.removeAll()
+      }
+      state.search.searchStatus = newStatus
+      return state
+    }
+    
     func logMessage() -> String {
       "🔊 Setting search status to \(newStatus)"
     }
@@ -22,12 +31,26 @@ struct SearchAction {
   struct UpdateResults: StateAction {
     let searchResults: [Source]
     
+    func updateState(_ state: AppState) -> AppState {
+      var state = state
+      state.search.searchResults = searchResults
+      state.search.searchStatus = .idle
+      return state
+    }
+    
     func logMessage() -> String {
       "🔊 Populating \(searchResults.count) search results"
     }
   }
   
   struct ClearResults: StateAction {
+    func updateState(_ state: AppState) -> AppState {
+      var state = state
+      state.search.searchResults.removeAll()
+      state.search.searchStatus = .idle
+      return state
+    }
+    
     func logMessage() -> String {
       "🔊 Clearing search results"
     }
@@ -35,6 +58,13 @@ struct SearchAction {
   
   struct SearchError: StateAction {
     let error: Error
+    
+    func updateState(_ state: AppState) -> AppState {
+      var state = state
+      state.search.searchStatus = .error
+      state.search.searchError = error
+      return state
+    }
     
     func logMessage() -> String {
       "🔊 Search error: \(error.localizedDescription)"
