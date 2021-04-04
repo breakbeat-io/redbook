@@ -12,10 +12,9 @@ import Combine
 
 final class AppEnvironment: ObservableObject {
   
-  @Published private(set) var state = AppState()
+  @Published private(set) var state = AppState(profile: ProfileState.load())
   
   private var subscribers: Set<AnyCancellable> = []
-  private let actionLogger = Logger(subsystem: "io.breakbeat.redbook", category: "action")
   
   init() {
     subscribeTo(PersistentProfile.self)
@@ -25,12 +24,12 @@ final class AppEnvironment: ObservableObject {
   }
   
   func process(_ action: StateAction) {
-    actionLogger.log("\(action.logMessage())")
+    Logger.action.log("\(action.logMessage())")
     state = action.updateState(state)
   }
   
   func process<T: FutureAction>(_ action: T) {
-    actionLogger.log("\(action.logMessage())")
+    Logger.action.log("\(action.logMessage())")
     action.execute()
       .receive(on: DispatchQueue.main)
       .sink(receiveValue: { action in

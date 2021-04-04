@@ -10,29 +10,28 @@ import os
 import CoreData
 
 struct ProfileState {
-  var curator: String = "Music Lover"
+  var curator: String
 }
 
 extension ProfileState: Persistable {
   
-  var viewContext: NSManagedObjectContext { return PersistenceController.shared.container.viewContext }
-  var profileFetchRequest: NSFetchRequest<NSFetchRequestResult> { return PersistentProfile.fetchRequest() }
-  
-  func load() -> ProfileState {
-    persistenceLogger.log("🔊 Restoring saved state")
+  static func load() -> ProfileState {
+    
+    let viewContext: NSManagedObjectContext = PersistenceController.shared.container.viewContext
+    
+    Logger.persistence.log("🔊 Restoring saved state")
     
     var profile: ProfileState
     
     do {
-      let fetchedProfiles = try viewContext.fetch(profileFetchRequest) as! [PersistentProfile]
+      let fetchedProfiles = try viewContext.fetch(PersistentProfile.fetchRequest()) as! [PersistentProfile]
       
       if fetchedProfiles.isEmpty {
-        persistenceLogger.log("🔊 No saved Profile state, creating a new one")
-        // TODO: I already exist, so not surw why i need to create a new one
-        profile = ProfileState()
-        self.save()
+        Logger.persistence.log("🔊 No saved Profile state, creating a new one")
+        profile = ProfileState(curator: "Music Lover")
+        profile.save()
       } else {
-        persistenceLogger.log("🔊 Found a Profile state, loading")
+        Logger.persistence.log("🔊 Found a Profile state, loading")
         let persistedProfile = fetchedProfiles.first
         profile = ProfileState(curator: persistedProfile!.curator!)
       }
@@ -46,7 +45,10 @@ extension ProfileState: Persistable {
   }
   
   func save() {
-    persistenceLogger.log("🔊 Persisting Profile")
+    let viewContext: NSManagedObjectContext = PersistenceController.shared.container.viewContext
+    let profileFetchRequest: NSFetchRequest<NSFetchRequestResult> = PersistentProfile.fetchRequest()
+    
+    Logger.persistence.log("🔊 Persisting Profile")
     
     do {
       let fetchedProfiles = try viewContext.fetch(profileFetchRequest) as! [PersistentProfile]

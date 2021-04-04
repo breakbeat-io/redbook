@@ -18,6 +18,7 @@
 		D21DDFFD2608064500587C5A /* CoreDataEntityPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21DDFFC2608064500587C5A /* CoreDataEntityPublisher.swift */; };
 		D22EFB632600086100881F79 /* AppleMusicAlbum+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22EFB622600086100881F79 /* AppleMusicAlbum+Extensions.swift */; };
 		D231AE4C2619DC64008F4460 /* ProfileActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231AE4B2619DC64008F4460 /* ProfileActions.swift */; };
+		D231AE53261A498E008F4460 /* Logger+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231AE52261A498E008F4460 /* Logger+Extensions.swift */; };
 		D242765B254AFE1E00326888 /* redbook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D242762F254AFE1D00326888 /* redbook.xcdatamodeld */; };
 		D242765D254AFE1E00326888 /* redbookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2427631254AFE1D00326888 /* redbookApp.swift */; };
 		D242765F254AFE1E00326888 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2427632254AFE1D00326888 /* Home.swift */; };
@@ -73,6 +74,7 @@
 		D21DDFFC2608064500587C5A /* CoreDataEntityPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataEntityPublisher.swift; sourceTree = "<group>"; };
 		D22EFB622600086100881F79 /* AppleMusicAlbum+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppleMusicAlbum+Extensions.swift"; sourceTree = "<group>"; };
 		D231AE4B2619DC64008F4460 /* ProfileActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileActions.swift; sourceTree = "<group>"; };
+		D231AE52261A498E008F4460 /* Logger+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+Extensions.swift"; sourceTree = "<group>"; };
 		D2427630254AFE1D00326888 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		D2427631254AFE1D00326888 /* redbookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = redbookApp.swift; sourceTree = "<group>"; };
 		D2427632254AFE1D00326888 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				D2062B8C257CE4F500E6BD95 /* redbook.entitlements */,
 				D2D21E5425F17B2F00BA31AD /* secrets.xcconfig */,
 				D2D21E5725F17B5100BA31AD /* secrets.xcconfig.sample */,
+				D231AE52261A498E008F4460 /* Logger+Extensions.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 				D29CDC392602B9750093D923 /* SearchAction.swift in Sources */,
 				D262868B2619D51800FFE2CC /* ProfileState.swift in Sources */,
 				D2B1A50F25F28F210083BA92 /* TrackList.swift in Sources */,
+				D231AE53261A498E008F4460 /* Logger+Extensions.swift in Sources */,
 				D256340525EAB64100232260 /* CSS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
