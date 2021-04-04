@@ -15,19 +15,12 @@ struct LibraryAction {
     let entities: [T]
     
     func updateState(_ state: AppState) -> AppState {
+      var state = state
+      
       switch self {
       
-      case _ as CoreDataUpdate<PersistentCollection>:
-        // TODO: deal with the core data update
-        break
-        
-      case _ as CoreDataUpdate<PersistentSource>:
-        // TODO: deal with the core data update
-        break
-        
-      case _ as CoreDataUpdate<PersistentSlot>:
-        // TODO: deal with the core data update
-        break
+      case let update as CoreDataUpdate<PersistentProfile>:
+        state.profile = update.entities.first!.toState()
         
       default:
         break

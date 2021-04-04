@@ -41,6 +41,9 @@ struct Profile: View {
     .onAppear {
       curator = app.state.profile.curator
     }
+    .onDisappear {
+      app.process(ProfileAction.Save())
+    }
   }
   
   private func updateCurator() {

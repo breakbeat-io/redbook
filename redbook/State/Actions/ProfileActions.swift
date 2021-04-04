@@ -21,8 +21,17 @@ struct ProfileAction {
     func logMessage() -> String {
       "🔊 Updating curator to \(curator)"
     }
+  }
+  
+  struct Save: StateAction {
+    func updateState(_ state: AppState) -> AppState {
+      state.profile.save()
+      return state
+    }
     
-    
+    func logMessage() -> String {
+      "🔊 Requesting save of Profile state"
+    }
   }
   
 }

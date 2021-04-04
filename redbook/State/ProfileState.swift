@@ -42,7 +42,7 @@ extension ProfileState: Persistable {
   }
   
   func save() {
-    Logger.persistence.log("🔊 Saving Profile state")
+    Logger.persistence.log("🔊 Attempting save of Profile state")
     
     do {
       let fetchedProfiles = try PersistenceController.shared.container.viewContext.fetch(PersistentProfile.fetchRequest()) as! [PersistentProfile]

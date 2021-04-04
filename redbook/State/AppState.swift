@@ -14,11 +14,7 @@ protocol Persistable {
 
 struct AppState {
   var active = ActiveState()
-  var profile: ProfileState {
-    didSet {
-      profile.save()
-    }
-  }
+  var profile: ProfileState
   var library = LibraryState(onRotation: Collection.emptyOnRotation)
   var search = SearchState()
 
