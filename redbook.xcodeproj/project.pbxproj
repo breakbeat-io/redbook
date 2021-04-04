@@ -19,6 +19,7 @@
 		D22EFB632600086100881F79 /* AppleMusicAlbum+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22EFB622600086100881F79 /* AppleMusicAlbum+Extensions.swift */; };
 		D231AE4C2619DC64008F4460 /* ProfileActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231AE4B2619DC64008F4460 /* ProfileActions.swift */; };
 		D231AE53261A498E008F4460 /* Logger+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231AE52261A498E008F4460 /* Logger+Extensions.swift */; };
+		D231AE56261A6432008F4460 /* PersistentProfile+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231AE55261A6432008F4460 /* PersistentProfile+Extensions.swift */; };
 		D242765B254AFE1E00326888 /* redbook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D242762F254AFE1D00326888 /* redbook.xcdatamodeld */; };
 		D242765D254AFE1E00326888 /* redbookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2427631254AFE1D00326888 /* redbookApp.swift */; };
 		D242765F254AFE1E00326888 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2427632254AFE1D00326888 /* Home.swift */; };
@@ -75,6 +76,7 @@
 		D22EFB622600086100881F79 /* AppleMusicAlbum+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppleMusicAlbum+Extensions.swift"; sourceTree = "<group>"; };
 		D231AE4B2619DC64008F4460 /* ProfileActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileActions.swift; sourceTree = "<group>"; };
 		D231AE52261A498E008F4460 /* Logger+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+Extensions.swift"; sourceTree = "<group>"; };
+		D231AE55261A6432008F4460 /* PersistentProfile+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistentProfile+Extensions.swift"; sourceTree = "<group>"; };
 		D2427630254AFE1D00326888 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		D2427631254AFE1D00326888 /* redbookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = redbookApp.swift; sourceTree = "<group>"; };
 		D2427632254AFE1D00326888 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				D242762F254AFE1D00326888 /* redbook.xcdatamodeld */,
 				D2427633254AFE1D00326888 /* PersistenceController.swift */,
 				D21DDFFC2608064500587C5A /* CoreDataEntityPublisher.swift */,
+				D231AE55261A6432008F4460 /* PersistentProfile+Extensions.swift */,
 				D21DDFF42607E20F00587C5A /* PersistentCollection+Extensions.swift */,
 			);
 			path = Persistence;
@@ -415,6 +418,7 @@
 				D21DDFEA2607CC6300587C5A /* SearchState.swift in Sources */,
 				D206B26325EA8D9900A5DA14 /* Triage.swift in Sources */,
 				D21DDFE72607CC4F00587C5A /* LibraryState.swift in Sources */,
+				D231AE56261A6432008F4460 /* PersistentProfile+Extensions.swift in Sources */,
 				D284E53B260793CD00C445AE /* Slot.swift in Sources */,
 				D2B1A51325F290160083BA92 /* DiscTrackList.swift in Sources */,
 				D284E5382607934C00C445AE /* Collection.swift in Sources */,

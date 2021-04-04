@@ -16,54 +16,42 @@ struct ProfileState {
 extension ProfileState: Persistable {
   
   static func load() -> ProfileState {
+    Logger.persistence.log("🔊 Restoring saved Profile state")
     
-    let viewContext: NSManagedObjectContext = PersistenceController.shared.container.viewContext
-    
-    Logger.persistence.log("🔊 Restoring saved state")
-    
-    var profile: ProfileState
+    var profileState: ProfileState
     
     do {
-      let fetchedProfiles = try viewContext.fetch(PersistentProfile.fetchRequest()) as! [PersistentProfile]
+      let fetchedProfiles = try PersistenceController.shared.container.viewContext.fetch(PersistentProfile.fetchRequest()) as! [PersistentProfile]
       
       if fetchedProfiles.isEmpty {
         Logger.persistence.log("🔊 No saved Profile state, creating a new one")
-        profile = ProfileState(curator: "Music Lover")
-        profile.save()
+        profileState = ProfileState(curator: "Music Lover")
+        profileState.save()
       } else {
         Logger.persistence.log("🔊 Found a Profile state, loading")
-        let persistedProfile = fetchedProfiles.first
-        profile = ProfileState(curator: persistedProfile!.curator!)
+        let persistedProfile = fetchedProfiles.first!
+        profileState = persistedProfile.toState()
       }
       
     } catch {
-        fatalError("Failed to fetch employees: \(error)")
+      fatalError("Failed to fetch Profile state: \(error)")
     }
     
-    return profile
+    return profileState
     
   }
   
   func save() {
-    let viewContext: NSManagedObjectContext = PersistenceController.shared.container.viewContext
-    let profileFetchRequest: NSFetchRequest<NSFetchRequestResult> = PersistentProfile.fetchRequest()
-    
-    Logger.persistence.log("🔊 Persisting Profile")
+    Logger.persistence.log("🔊 Saving Profile state")
     
     do {
-      let fetchedProfiles = try viewContext.fetch(profileFetchRequest) as! [PersistentProfile]
+      let fetchedProfiles = try PersistenceController.shared.container.viewContext.fetch(PersistentProfile.fetchRequest()) as! [PersistentProfile]
       
-      if fetchedProfiles.isEmpty {
-        let profile = PersistentProfile(context: viewContext)
-        profile.curator = curator
-      } else {
-        fetchedProfiles.first?.setValue(curator, forKey: "curator")
-      }
+      fetchedProfiles.first!.setValue(curator, forKey: "curator")
       PersistenceController.shared.save()
-      
     } catch {
-        fatalError("Failed to fetch employees: \(error)")
+      fatalError("Failed to fetch Profile state: \(error)")
     }
   }
-
+  
 }
