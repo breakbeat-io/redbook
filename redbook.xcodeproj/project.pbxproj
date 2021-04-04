@@ -227,10 +227,10 @@
 		D284E5292605645C00C445AE /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
+				D242762F254AFE1D00326888 /* redbook.xcdatamodeld */,
 				D2427633254AFE1D00326888 /* PersistenceController.swift */,
 				D21DDFFC2608064500587C5A /* CoreDataEntityPublisher.swift */,
 				D21DDFF42607E20F00587C5A /* PersistentCollection+Extensions.swift */,
-				D242762F254AFE1D00326888 /* redbook.xcdatamodeld */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";

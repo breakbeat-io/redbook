@@ -12,12 +12,13 @@ import Combine
 
 final class AppEnvironment: ObservableObject {
   
-  @Published private(set) var state = AppState.initial
+  @Published private(set) var state = AppState()
   
   private var subscribers: Set<AnyCancellable> = []
   private let actionLogger = Logger(subsystem: "io.breakbeat.redbook", category: "action")
   
   init() {
+    subscribeTo(PersistentProfile.self)
     subscribeTo(PersistentCollection.self)
     subscribeTo(PersistentSlot.self)
     subscribeTo(PersistentSource.self)
