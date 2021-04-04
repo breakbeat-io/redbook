@@ -6,8 +6,9 @@
 //
 
 struct AppState {
-  var library: LibraryState
   var active = ActiveState()
+  var profile = ProfileState()
+  var library: LibraryState
   var search = SearchState()
   
   static var initial: AppState {

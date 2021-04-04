@@ -11,6 +11,8 @@ struct OnRotation: View {
   
   @EnvironmentObject var app: AppEnvironment
   
+  @State private var showProfile = false
+  
   private var slots: [Slot] {
     app.state.library.onRotation.slots.sorted(by: { $0.position < $1.position })
   }
@@ -58,6 +60,19 @@ struct OnRotation: View {
       }
       .padding(.horizontal)
       .navigationTitle("On Rotation")
+      .toolbar(content: {
+        ToolbarItem(placement: .primaryAction) {
+          Button {
+            showProfile.toggle()
+          } label: {
+            Image(systemName: "person.fill")
+          }
+        }
+      })
+      .sheet(isPresented: $showProfile) {
+        Profile()
+          .environmentObject(app)
+      }
     }
   }
   

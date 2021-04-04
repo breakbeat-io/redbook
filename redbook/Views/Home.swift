@@ -36,12 +36,6 @@ struct Home: View {
           Text("Triage")
         }
       
-      Settings()
-        .tabItem {
-          Image(systemName: "gear")
-          Text("Settings")
-        }
-      
     }
   }
 }
