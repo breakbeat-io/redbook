@@ -44,8 +44,9 @@ struct Profile: View {
   }
   
   private func updateCurator() {
+    curator = curator.trimmingCharacters(in: .whitespaces)
     if !curator.isEmpty && curator != app.state.profile.curator {
-      app.process(ProfileAction.UpdateCurator(curator: curator.trimmingCharacters(in: .whitespaces)))
+      app.process(ProfileAction.UpdateCurator(curator: curator))
     }
   }
   
