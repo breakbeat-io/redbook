@@ -47,8 +47,12 @@ extension ProfileState: Persistable {
     do {
       let fetchedProfiles = try PersistenceController.shared.container.viewContext.fetch(PersistentProfile.fetchRequest()) as! [PersistentProfile]
       
-      fetchedProfiles.first!.setValue(curator, forKey: "curator")
+      let profile = fetchedProfiles.first ?? PersistentProfile(context: PersistenceController.shared.container.viewContext)
+      
+      profile.setValue(curator, forKey: "curator")
+
       PersistenceController.shared.save()
+      Logger.persistence.log("🔊 Successfully saved Profile state")
     } catch {
       fatalError("Failed to fetch Profile state: \(error)")
     }
