@@ -69,10 +69,10 @@ struct OnRotation: View {
           }
         }
       })
-      .sheet(isPresented: $showProfile) {
-        Profile()
-          .environmentObject(app)
-      }
+    }
+    .sheet(isPresented: $showProfile) {
+      Profile()
+        .environmentObject(app)
     }
   }
   
