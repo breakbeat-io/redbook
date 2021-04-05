@@ -6,33 +6,8 @@
 //
 
 import Foundation
-import CoreData
-import Combine
 
 struct LibraryAction {
-  
-  struct CoreDataUpdate<T: NSManagedObject>: StateAction {
-    let entities: [T]
-    
-    func updateState(_ state: AppState) -> AppState {
-      var state = state
-      
-      switch self {
-      
-      case let update as CoreDataUpdate<PersistentProfile>:
-        state.profile = update.entities.first!.toState()
-        
-      default:
-        break
-      
-      }
-      return state
-    }
-    
-    func logMessage() -> String {
-      return "🔊 Performing a Core Data update for \(entities.count) \(type(of: entities).Element.self)'s"
-    }
-  }
   
   struct AddSourceToSlot: StateAction {
     let source: Source

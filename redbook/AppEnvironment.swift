@@ -54,7 +54,7 @@ final class AppEnvironment: ObservableObject {
   private func subscribeTo<T: NSManagedObject>(_ type: T.Type) {
     let entityPublisher: AnyPublisher<[T], Never> = CoreDataEntityPublisher<T>().entities.eraseToAnyPublisher()
     entityPublisher.sink { entities in
-      self.process(LibraryAction.CoreDataUpdate(entities: entities))
+      self.process(CoreDataAction.Update(entities: entities))
     }
     .store(in: &subscribers)
   }

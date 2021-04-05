@@ -9,7 +9,7 @@ import CoreData
 import SwiftUI
 import os.log
 
-class PersistenceController {
+struct PersistenceController {
   
   static let shared = PersistenceController()
 
