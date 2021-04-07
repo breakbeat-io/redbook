@@ -54,7 +54,7 @@ struct Profile: View {
   
   private func updateCurator() {
     curator = curator.trimmingCharacters(in: .whitespaces)
-    if !curator.isEmpty && curator != app.state.profile!.curator {
+    if !curator.isEmpty && curator != app.state.profile?.curator {
       app.process(ProfileAction.UpdateCurator(curator: curator))
     }
   }

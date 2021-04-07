@@ -29,7 +29,7 @@ struct ProfileAction {
     
     func updateState(_ state: AppState) -> AppState {
       var state = state
-      state.profile!.curator = curator
+      state.profile?.curator = curator
       return state
     }
     
@@ -40,7 +40,7 @@ struct ProfileAction {
   
   struct Save: StateAction {
     func updateState(_ state: AppState) -> AppState {
-      state.profile!.save()
+      state.profile?.save()
       return state
     }
     
