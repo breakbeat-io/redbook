@@ -59,6 +59,8 @@ extension PersistentProfile {
       
       if (error != nil) {
         Logger.cloudkit.log("🔊 There was an error querying CloudKit \(error.debugDescription)")
+        // TODO: needs to determine what to do when there is an error - attempt to resolve or create a new default profile.
+        completion(false)
       } else {
         switch results!.count {
         
