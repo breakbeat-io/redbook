@@ -16,15 +16,21 @@ struct Profile: View {
   
   var body: some View {
     NavigationView {
-      Form {
-        HStack{
-          Text("Curator")
-          TextField(curator,
-                    text: $curator,
-                    onEditingChanged: { _ in
-                      updateCurator()
-                    })
-            .foregroundColor(.secondary)
+      ZStack {
+        if app.state.profile != nil {
+          Form {
+            HStack{
+              Text("Curator")
+              TextField(curator,
+                        text: $curator,
+                        onEditingChanged: { _ in
+                          updateCurator()
+                        })
+                .foregroundColor(.secondary)
+            }
+          }
+        } else {
+          ActivityIndicator(style: .large)
         }
       }
       .navigationTitle("Profile")
@@ -39,7 +45,7 @@ struct Profile: View {
       }
     }
     .onAppear {
-      curator = app.state.profile.curator
+      app.state.profile.map { curator = $0.curator }
     }
     .onDisappear {
       app.process(ProfileAction.Save())
@@ -48,7 +54,7 @@ struct Profile: View {
   
   private func updateCurator() {
     curator = curator.trimmingCharacters(in: .whitespaces)
-    if !curator.isEmpty && curator != app.state.profile.curator {
+    if !curator.isEmpty && curator != app.state.profile!.curator {
       app.process(ProfileAction.UpdateCurator(curator: curator))
     }
   }

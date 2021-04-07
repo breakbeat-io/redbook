@@ -12,12 +12,17 @@ import Combine
 
 final class AppEnvironment: ObservableObject {
   
-  @Published private(set) var state: AppState
+  @Published private(set) var state = AppState()
   
   private var subscribers: Set<AnyCancellable> = []
   
   init() {
-    state = AppState(profile: ProfileState.load())
+    
+    ProfileState.load() { profileState in
+      DispatchQueue.main.async {
+        self.process(ProfileAction.LoadState(profileState: profileState))
+      }
+    }
     
     subscribeTo(PersistentProfile.self)
     subscribeTo(PersistentCollection.self)

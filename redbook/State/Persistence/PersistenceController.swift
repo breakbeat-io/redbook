@@ -29,6 +29,7 @@ struct PersistenceController {
       }
     }
     container.viewContext.automaticallyMergesChangesFromParent = true
+    
   }
   
   func save() {
@@ -42,6 +43,10 @@ struct PersistenceController {
   }
   
   func deleteAll() {
+    
+    let profileFetch: NSFetchRequest<NSFetchRequestResult> = PersistentProfile.fetchRequest()
+    let profileBatchDeleteRequest = NSBatchDeleteRequest(fetchRequest: profileFetch)
+    _ = try? container.viewContext.execute(profileBatchDeleteRequest)
     
     let sourceFetch: NSFetchRequest<NSFetchRequestResult> = PersistentSource.fetchRequest()
     let sourceBatchDeleteRequest = NSBatchDeleteRequest(fetchRequest: sourceFetch)

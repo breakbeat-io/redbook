@@ -19,7 +19,9 @@ struct CoreDataAction {
       switch self {
       
       case let update as Update<PersistentProfile>:
-        state.profile = update.entities.first!.toState()
+        if let profile = update.entities.first?.toState() {
+          state.profile = profile
+        }
         
       default:
         break

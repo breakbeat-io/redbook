@@ -9,12 +9,27 @@ import Foundation
 
 struct ProfileAction {
   
+  struct LoadState: StateAction {
+    let profileState: ProfileState
+    
+    func updateState(_ state: AppState) -> AppState {
+      var state = state
+      state.profile = profileState
+      return state
+    }
+    
+    func logMessage() -> String {
+      "🔊 Updating complete Profile state"
+    }
+  }
+  
+  
   struct UpdateCurator: StateAction {
     let curator: String
     
     func updateState(_ state: AppState) -> AppState {
       var state = state
-      state.profile.curator = curator
+      state.profile!.curator = curator
       return state
     }
     
@@ -25,7 +40,7 @@ struct ProfileAction {
   
   struct Save: StateAction {
     func updateState(_ state: AppState) -> AppState {
-      state.profile.save()
+      state.profile!.save()
       return state
     }
     

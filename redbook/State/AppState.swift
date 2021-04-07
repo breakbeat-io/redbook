@@ -8,13 +8,13 @@
 import os
 
 protocol Persistable {
-  static func load() -> Self
+  static func load(load: @escaping (Self) -> Void)
   func save()
 }
 
 struct AppState {
   var active = ActiveState()
-  var profile: ProfileState
+  var profile: ProfileState?
   var library = LibraryState(onRotation: Collection.emptyOnRotation)
   var search = SearchState()
 
