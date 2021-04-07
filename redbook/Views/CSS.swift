@@ -11,6 +11,7 @@ import SwiftUI
 
 // this name is a joke, should probably change it 🤣
 struct CSS {
+  static let cardHeight: CGFloat = 60
   static let cardCornerRadius: CGFloat = 4
 }
 

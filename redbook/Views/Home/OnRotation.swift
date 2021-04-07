@@ -20,6 +20,13 @@ struct OnRotation: View {
   var body: some View {
     NavigationView {
       ScrollView {
+        if app.state.profile != nil {
+          Text("by \(app.state.profile!.curator)")
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding([.leading, .bottom])
+            .font(.subheadline)
+            .foregroundColor(.secondary)
+        }
         ForEach(slots, id: \.position) { slot in
           if let source: Source = slot.source {
             NavigationLink(
@@ -37,7 +44,7 @@ struct OnRotation: View {
                 }
             ) {
               SourceCard(title: source.title, artist: source.artistName, artworkURL: source.artworkURL)
-                .frame(height: 61)
+                .frame(height: CSS.cardHeight)
             }
             .contextMenu(ContextMenu(menuItems: {
               Button {
@@ -54,7 +61,7 @@ struct OnRotation: View {
             }))
           } else {
             EmptyCard(slotPosition: Int(slot.position))
-              .frame(height: 61)
+              .frame(height: CSS.cardHeight)
           }
         }
       }
