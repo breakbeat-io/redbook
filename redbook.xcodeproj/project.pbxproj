@@ -32,6 +32,7 @@
 		D25633FC25EAB53D00232260 /* SourceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25633FB25EAB53D00232260 /* SourceCard.swift */; };
 		D256340125EAB5CA00232260 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D256340025EAB5CA00232260 /* Kingfisher */; };
 		D256340525EAB64100232260 /* CSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D256340425EAB64100232260 /* CSS.swift */; };
+		D25D2770265C51F90054E489 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25D276F265C51F90054E489 /* Secrets.swift */; };
 		D262868B2619D51800FFE2CC /* ProfileState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262868A2619D51800FFE2CC /* ProfileState.swift */; };
 		D2680D702601556100ED38AA /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2680D6F2601556100ED38AA /* AppState.swift */; };
 		D2680D74260155C200ED38AA /* AppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2680D73260155C200ED38AA /* AppAction.swift */; };
@@ -53,7 +54,6 @@
 		D2C8A17E25F98D11008F7460 /* PlaybackLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C8A17D25F98D11008F7460 /* PlaybackLink.swift */; };
 		D2D21E4F25F1797B00BA31AD /* pre-actions.sh in Resources */ = {isa = PBXBuildFile; fileRef = D2D21E4E25F1797B00BA31AD /* pre-actions.sh */; };
 		D2D21E5225F1798400BA31AD /* createAppleMusicAPIToken.sh in Resources */ = {isa = PBXBuildFile; fileRef = D2D21E5125F1798400BA31AD /* createAppleMusicAPIToken.sh */; };
-		D2D21E5825F17B5100BA31AD /* secrets.xcconfig.sample in Resources */ = {isa = PBXBuildFile; fileRef = D2D21E5725F17B5100BA31AD /* secrets.xcconfig.sample */; };
 		D2D21E6125F1885500BA31AD /* RecordStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D21E6025F1885500BA31AD /* RecordStore.swift */; };
 		D2D21E6525F1889000BA31AD /* HMV in Frameworks */ = {isa = PBXBuildFile; productRef = D2D21E6425F1889000BA31AD /* HMV */; };
 		D2D56B9125ED8FA5007DC398 /* EmptyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D56B9025ED8FA5007DC398 /* EmptyCard.swift */; };
@@ -91,6 +91,9 @@
 		D25334A725EEFE2D00B139FD /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		D25633FB25EAB53D00232260 /* SourceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceCard.swift; sourceTree = "<group>"; };
 		D256340425EAB64100232260 /* CSS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSS.swift; sourceTree = "<group>"; };
+		D25D276C265C50090054E489 /* Secrets.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = Secrets.stencil; sourceTree = "<group>"; };
+		D25D276D265C50350054E489 /* generateSecrets.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = generateSecrets.sh; sourceTree = "<group>"; };
+		D25D276F265C51F90054E489 /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		D262868A2619D51800FFE2CC /* ProfileState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileState.swift; sourceTree = "<group>"; };
 		D2680D6F2601556100ED38AA /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		D2680D73260155C200ED38AA /* AppAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAction.swift; sourceTree = "<group>"; };
@@ -209,6 +212,18 @@
 			path = Actions;
 			sourceTree = "<group>";
 		};
+		D25D276B265C4FD80054E489 /* Secrets */ = {
+			isa = PBXGroup;
+			children = (
+				D25D276F265C51F90054E489 /* Secrets.swift */,
+				D25D276D265C50350054E489 /* generateSecrets.sh */,
+				D25D276C265C50090054E489 /* Secrets.stencil */,
+				D2D21E5425F17B2F00BA31AD /* secrets.xcconfig */,
+				D2D21E5725F17B5100BA31AD /* secrets.xcconfig.sample */,
+			);
+			path = Secrets;
+			sourceTree = "<group>";
+		};
 		D262868E2619D5EE00FFE2CC /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,10 +261,9 @@
 		D29B440E25EA795C001DE94C /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
+				D25D276B265C4FD80054E489 /* Secrets */,
 				D242763C254AFE1E00326888 /* Info.plist */,
 				D2062B8C257CE4F500E6BD95 /* redbook.entitlements */,
-				D2D21E5425F17B2F00BA31AD /* secrets.xcconfig */,
-				D2D21E5725F17B5100BA31AD /* secrets.xcconfig.sample */,
 				D231AE52261A498E008F4460 /* Logger+Extensions.swift */,
 			);
 			path = Configuration;
@@ -338,6 +352,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D2427667254AFE1E00326888 /* Build configuration list for PBXNativeTarget "redbook (iOS)" */;
 			buildPhases = (
+				D25D276E265C51650054E489 /* ShellScript */,
 				D2427635254AFE1E00326888 /* Sources */,
 				D2427636254AFE1E00326888 /* Frameworks */,
 				D2427637254AFE1E00326888 /* Resources */,
@@ -398,13 +413,33 @@
 			files = (
 				D273485F25EC552200590296 /* AppIcons.xcassets in Resources */,
 				D2427663254AFE1E00326888 /* Assets.xcassets in Resources */,
-				D2D21E5825F17B5100BA31AD /* secrets.xcconfig.sample in Resources */,
 				D2D21E5225F1798400BA31AD /* createAppleMusicAPIToken.sh in Resources */,
 				D2D21E4F25F1797B00BA31AD /* pre-actions.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D25D276E265C51650054E489 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$PROJECT_DIR/redbook/Configuration/Secrets/generateSecrets.sh\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D2427635254AFE1E00326888 /* Sources */ = {
@@ -432,6 +467,7 @@
 				D242765B254AFE1E00326888 /* redbook.xcdatamodeld in Sources */,
 				D25334A025EEF2BC00B139FD /* SearchResults.swift in Sources */,
 				D2C8A17E25F98D11008F7460 /* PlaybackLink.swift in Sources */,
+				D25D2770265C51F90054E489 /* Secrets.swift in Sources */,
 				D253349D25EEF25E00B139FD /* SearchBar.swift in Sources */,
 				D284E53E2607942200C445AE /* Track.swift in Sources */,
 				D2B4C4ED260A2D1400958D59 /* ActiveState.swift in Sources */,

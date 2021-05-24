@@ -27,7 +27,7 @@ struct redbookApp: App {
   
   private func checkKeys() {
     
-    precondition(Bundle.main.infoDictionary?["APPLE_MUSIC_API_TOKEN"] as! String != "", """
+    precondition(!Secrets.appleMusicAPIToken.isEmpty, """
 
         ==========
         No Apple Music API Token Found! [APPLE_MUSIC_API_TOKEN]

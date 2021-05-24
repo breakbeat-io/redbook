@@ -11,7 +11,7 @@ import HMV
 
 struct RecordStore {
   
-  static let appleMusic = HMV(storefront: .unitedKingdom, developerToken: Bundle.main.infoDictionary?["APPLE_MUSIC_API_TOKEN"] as! String)
+  static let appleMusic = HMV(storefront: .unitedKingdom, developerToken: Secrets.appleMusicAPIToken)
   
   private init() { }
   
