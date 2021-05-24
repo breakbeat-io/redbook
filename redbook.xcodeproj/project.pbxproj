@@ -52,8 +52,6 @@
 		D2B4C4ED260A2D1400958D59 /* ActiveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B4C4EC260A2D1400958D59 /* ActiveState.swift */; };
 		D2B4C4F3260A2E9F00958D59 /* ActiveActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B4C4F2260A2E9F00958D59 /* ActiveActions.swift */; };
 		D2C8A17E25F98D11008F7460 /* PlaybackLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C8A17D25F98D11008F7460 /* PlaybackLink.swift */; };
-		D2D21E4F25F1797B00BA31AD /* pre-actions.sh in Resources */ = {isa = PBXBuildFile; fileRef = D2D21E4E25F1797B00BA31AD /* pre-actions.sh */; };
-		D2D21E5225F1798400BA31AD /* createAppleMusicAPIToken.sh in Resources */ = {isa = PBXBuildFile; fileRef = D2D21E5125F1798400BA31AD /* createAppleMusicAPIToken.sh */; };
 		D2D21E6125F1885500BA31AD /* RecordStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D21E6025F1885500BA31AD /* RecordStore.swift */; };
 		D2D21E6525F1889000BA31AD /* HMV in Frameworks */ = {isa = PBXBuildFile; productRef = D2D21E6425F1889000BA31AD /* HMV */; };
 		D2D56B9125ED8FA5007DC398 /* EmptyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D56B9025ED8FA5007DC398 /* EmptyCard.swift */; };
@@ -113,8 +111,6 @@
 		D2B4C4EC260A2D1400958D59 /* ActiveState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveState.swift; sourceTree = "<group>"; };
 		D2B4C4F2260A2E9F00958D59 /* ActiveActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveActions.swift; sourceTree = "<group>"; };
 		D2C8A17D25F98D11008F7460 /* PlaybackLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackLink.swift; sourceTree = "<group>"; };
-		D2D21E4E25F1797B00BA31AD /* pre-actions.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "pre-actions.sh"; sourceTree = "<group>"; };
-		D2D21E5125F1798400BA31AD /* createAppleMusicAPIToken.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = createAppleMusicAPIToken.sh; sourceTree = "<group>"; };
 		D2D21E5425F17B2F00BA31AD /* secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = secrets.xcconfig; sourceTree = "<group>"; };
 		D2D21E5725F17B5100BA31AD /* secrets.xcconfig.sample */ = {isa = PBXFileReference; lastKnownFileType = text; path = secrets.xcconfig.sample; sourceTree = "<group>"; };
 		D2D21E6025F1885500BA31AD /* RecordStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordStore.swift; sourceTree = "<group>"; };
@@ -149,7 +145,6 @@
 			children = (
 				D21C3CA72572C4E7000CB93F /* build.sh */,
 				D21C3CA82572C4F1000CB93F /* Fastfile */,
-				D2D21E4D25F178EB00BA31AD /* pre-actions */,
 				D21C3CA92572C508000CB93F /* .github */,
 			);
 			name = Build;
@@ -308,15 +303,6 @@
 			path = Source;
 			sourceTree = "<group>";
 		};
-		D2D21E4D25F178EB00BA31AD /* pre-actions */ = {
-			isa = PBXGroup;
-			children = (
-				D2D21E4E25F1797B00BA31AD /* pre-actions.sh */,
-				D2D21E5125F1798400BA31AD /* createAppleMusicAPIToken.sh */,
-			);
-			path = "pre-actions";
-			sourceTree = "<group>";
-		};
 		D2D21E5F25F1883F00BA31AD /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -413,8 +399,6 @@
 			files = (
 				D273485F25EC552200590296 /* AppIcons.xcassets in Resources */,
 				D2427663254AFE1E00326888 /* Assets.xcassets in Resources */,
-				D2D21E5225F1798400BA31AD /* createAppleMusicAPIToken.sh in Resources */,
-				D2D21E4F25F1797B00BA31AD /* pre-actions.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
