@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-SECRETS=$GITHUB_WORKSPACE/redbook/Configuration/secrets.xcconfig
+SECRETS=$GITHUB_WORKSPACE/redbook/Configuration/Secrets/secrets.xcconfig
 
 echo "APP_STORE_CONNECT_TEAM_ID = $APP_STORE_CONNECT_TEAM_ID" > $SECRETS
 echo "APPLE_MUSIC_KEY_ID = $APPLE_MUSIC_KEY_ID" >> $SECRETS
