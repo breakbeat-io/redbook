@@ -2,9 +2,6 @@
 /vendor
 secrets.xcconfig
 Secrets.swift
-pre-actions.log
-
-
 
 # Xcode
 #
