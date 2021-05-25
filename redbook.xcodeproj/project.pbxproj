@@ -418,7 +418,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "BUNDLE_GEMFILE=$PROJECT_DIR/Gemfile bundle exec ruby $PROJECT_DIR/redbook/Configuration/Secrets/generateSecrets.rb\n";
+			shellScript = "bundle check\nbundle exec ruby $PROJECT_DIR/redbook/Configuration/Secrets/generateSecrets.rb\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
