@@ -41,6 +41,7 @@ lane :build do |options|
 
   upload_to_testflight(
     team_id: ENV["APPLE_TEAM_ID"]
+    skip_waiting_for_build_processing: true
     )
 
 end
